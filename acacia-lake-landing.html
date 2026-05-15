@@ -1013,9 +1013,352 @@ img { max-width: 100%; display: block; }
 .service_card.filtering-in {
   animation: filterFadeIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
+.service_card.active {
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-medium), 0 0 0 1px var(--color-gold);
+}
 @keyframes filterFadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- SERVICE DETAIL EXPANSION PANEL ---------- */
+.service_detail {
+  margin-top: 3rem;
+  background: var(--color-off-white);
+  border: 1px solid var(--color-grey-soft);
+  border-radius: var(--radius-md);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.4s ease,
+              padding 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              margin-top 0.5s ease;
+  box-shadow: var(--shadow-soft);
+  padding: 0 3rem;
+}
+.service_detail.open {
+  max-height: 1200px;
+  opacity: 1;
+  padding: 3.5rem 3rem;
+}
+.service_detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 4rem;
+  align-items: start;
+}
+.service_detail-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.service_detail-eyebrow::before {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: var(--color-gold);
+}
+.service_detail-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 500;
+  color: var(--color-navy-deep);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin-bottom: 1.5rem;
+}
+.service_detail-lead {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--color-gold);
+  line-height: 1.5;
+  font-weight: 400;
+}
+.service_detail-section {
+  margin-bottom: 2rem;
+}
+.service_detail-section:last-of-type { margin-bottom: 2rem; }
+.service_detail-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-navy-deep);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.service_detail-body {
+  font-size: 0.95rem;
+  color: #4a5568;
+  line-height: 1.7;
+  font-weight: 300;
+}
+.service_detail-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.service_detail-list li {
+  padding: 0.6rem 0 0.6rem 1.5rem;
+  position: relative;
+  font-size: 0.92rem;
+  color: #4a5568;
+  line-height: 1.55;
+  border-bottom: 1px solid rgba(10, 29, 58, 0.06);
+}
+.service_detail-list li:last-child { border-bottom: none; }
+.service_detail-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  top: 0.65rem;
+  color: var(--color-gold);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.service_detail-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding: 0.9rem 1.75rem;
+  background: var(--color-navy-deep);
+  color: var(--color-white);
+  border: 1px solid var(--color-navy-deep);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-soft);
+}
+.service_detail-cta span {
+  display: inline-block;
+  transition: transform var(--transition-base);
+}
+.service_detail-cta:hover {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-navy-deep);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold-glow);
+}
+.service_detail-cta:hover span { transform: translateX(4px); }
+
+.service_detail-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: 1px solid rgba(10, 29, 58, 0.15);
+  border-radius: 50%;
+  color: var(--color-navy-deep);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: all var(--transition-base);
+}
+.service_detail-close:hover {
+  background: var(--color-navy-deep);
+  color: var(--color-white);
+  transform: rotate(90deg);
+}
+
+/* Make service card cursor a pointer */
+.service_card { cursor: pointer; }
+
+/* ---------- SERVICE DETAIL PANEL (expandable) ---------- */
+.service_card .service_arrow {
+  cursor: pointer;
+}
+.service_card.active {
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-medium), 0 0 0 1px var(--color-gold);
+}
+.service_card.active::before {
+  display: none;
+}
+.service_card.active .service_arrow {
+  color: var(--color-gold);
+}
+
+.service_detail {
+  margin-top: 3rem;
+  background: var(--color-white);
+  border: 1px solid var(--color-grey-soft);
+  border-radius: var(--radius-md);
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.4s ease,
+              padding 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: var(--shadow-soft);
+}
+.service_detail.open {
+  max-height: 1200px;
+  opacity: 1;
+  padding: 3.5rem;
+}
+.service_detail-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1.25rem;
+}
+.service_detail-eyebrow::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(201,169,110,0.3);
+  max-width: 100px;
+}
+.service_detail-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  font-weight: 500;
+  color: var(--color-navy-deep);
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.service_detail-lead {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--color-gold);
+  line-height: 1.45;
+  margin-bottom: 2.5rem;
+  max-width: 720px;
+}
+.service_detail-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+}
+.service_detail-section { }
+.service_detail-section-title {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-navy-deep);
+  margin-bottom: 1rem;
+}
+.service_detail-deliverables {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+.service_detail-deliverables li {
+  position: relative;
+  padding-left: 1.75rem;
+  font-size: 0.95rem;
+  color: #4a5568;
+  line-height: 1.55;
+  font-weight: 300;
+}
+.service_detail-deliverables li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 12px;
+  height: 1px;
+  background: var(--color-gold);
+}
+.service_detail-text {
+  font-size: 0.95rem;
+  color: #4a5568;
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+.service_detail-text:last-child { margin-bottom: 0; }
+.service_detail-text strong {
+  color: var(--color-navy-deep);
+  font-weight: 500;
+}
+.service_detail-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(10,29,58,0.08);
+  flex-wrap: wrap;
+}
+.service_detail-cta-text {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--color-navy-deep);
+  flex: 1;
+  min-width: 240px;
+}
+.service_detail-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: var(--color-navy-deep);
+  color: var(--color-white);
+  border: 1px solid var(--color-navy-deep);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-soft);
+}
+.service_detail-button span {
+  display: inline-block;
+  transition: transform var(--transition-base);
+}
+.service_detail-button:hover {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-navy-deep);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-gold-glow);
+}
+.service_detail-button:hover span { transform: translateX(5px); }
+
+@media (max-width: 991px) {
+  .service_detail.open { padding: 2rem; }
+  .service_detail-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .service_detail-cta { flex-direction: column; align-items: flex-start; }
 }
 
 /* ===========================================================
@@ -1712,6 +2055,13 @@ img { max-width: 100%; display: block; }
   margin-bottom: 0.2rem;
 }
 .contact_detail-value { font-weight: 400; }
+.contact_detail-link {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  display: inline-block;
+  transition: color var(--transition-base);
+}
+.contact_detail-link:hover { color: var(--color-gold); }
 
 .contact_form {
   background: rgba(255,255,255,0.04);
@@ -2064,6 +2414,9 @@ img { max-width: 100%; display: block; }
   .services_grid { grid-template-columns: repeat(2, 1fr); }
   .services_filters { gap: 0.25rem; padding: 0.3rem; }
   .filter-tab { padding: 0.6rem 1rem; font-size: 0.65rem; }
+  .service_detail.open { padding: 2.5rem 1.75rem; }
+  .service_detail-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .service_detail-close { top: 1rem; right: 1rem; }
 
   .approach_header { grid-template-columns: 1fr; gap: 1.5rem; }
   .approach_steps { grid-template-columns: repeat(2, 1fr); }
@@ -2424,7 +2777,7 @@ img { max-width: 100%; display: block; }
       <div class="services_grid">
 
         <!-- COMPONENT: Service Card -->
-        <div class="service_card stagger-item" data-category="strategy">
+        <div class="service_card stagger-item" data-category="strategy" data-num="01" data-category-label="Strategy" data-title="Startups & Small Business" data-lead="Founders don't need more advice. They need fewer wrong moves." data-deliverables="Incorporation, equity, and capital structure advisory || Fundraising readiness — pitch, financials, and diligence preparation || Brand positioning, naming, and messaging architecture || Marketing strategy and go-to-market planning || Operational systems setup — finance, HR, and tooling stack" data-who-we-serve="Founders building serious companies — pre-seed through Series A — and established small businesses entering a new growth phase, an acquisition, or a leadership transition." data-why="We've sat on every side of the table — founder, operator, advisor, investor. We tell you what's actually going to break before it breaks, and we help you build the muscle to handle it." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 STRATEGY&quot;, &quot;lead&quot;: &quot;The early decisions are the ones that compound \u2014 for good or for ruin.&quot;, &quot;deliverables&quot;: [&quot;Incorporation strategy, entity structuring, and operating agreement review&quot;, &quot;Fundraising readiness \u2014 pitch refinement, financial modeling, and investor materials&quot;, &quot;Brand positioning and go-to-market strategy&quot;, &quot;Marketing infrastructure \u2014 digital presence, lead generation, and analytics setup&quot;], &quot;who&quot;: &quot;Founders raising their first capital. Owner-operators ready to scale beyond a side project. Small businesses that have outgrown DIY tools and need real structure.&quot;, &quot;why&quot;: &quot;We&#39;ve sat on every side of the table \u2014 operator, investor, and advisor. We don&#39;t sell templates. We give you the same judgment we&#39;d apply to our own ventures.&quot;, &quot;form_value&quot;: &quot;startups&quot;}">
           <div class="service_number">— 01</div>
           <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
             <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
@@ -2434,7 +2787,7 @@ img { max-width: 100%; display: block; }
           <span class="service_arrow">Learn More →</span>
         </div>
 
-        <div class="service_card stagger-item" data-category="strategy">
+        <div class="service_card stagger-item" data-category="strategy" data-num="02" data-category-label="Strategy" data-title="Legal Practice Operations" data-lead="Operational discipline is what separates law firms that scale from those that simply survive." data-deliverables="Examinations under oath (EUOs) — preparation, conduct, and documentation || Case workflow design and bottleneck remediation || Practice management system selection and implementation || Document operations, intake automation, and client routing || Ethical compliance review and operational risk assessment" data-who-we-serve="High-volume legal practices — personal injury, insurance defense, family law, and litigation firms where caseload velocity is the difference between profitability and burnout." data-why="Most operational consultants don't understand the cadence of legal work. We do. Every recommendation is calibrated to the reality of court schedules, discovery deadlines, and client expectations." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 STRATEGY&quot;, &quot;lead&quot;: &quot;High-volume law firms win on systems, not heroics.&quot;, &quot;deliverables&quot;: [&quot;Examinations under oath (EUO) preparation and process optimization&quot;, &quot;Case workflow streamlining and document operations&quot;, &quot;Practice management consulting \u2014 billing, intake, and capacity planning&quot;, &quot;Technology stack design for legal-specific tools and ethical compliance&quot;], &quot;who&quot;: &quot;Plaintiff firms, defense practices, and solo attorneys handling high case volume. Insurance defense teams managing EUOs at scale. Firms scaling from regional to multi-state.&quot;, &quot;why&quot;: &quot;We understand the discipline of legal work. Our recommendations respect the regulatory environment, the privilege boundaries, and the pace your team actually moves at.&quot;, &quot;form_value&quot;: &quot;legal-ops&quot;}">
           <div class="service_number">— 02</div>
           <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
             <path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M9 13h.01M9 17h.01M15 9h.01M15 13h.01M15 17h.01"/>
@@ -2444,7 +2797,7 @@ img { max-width: 100%; display: block; }
           <span class="service_arrow">Learn More →</span>
         </div>
 
-        <div class="service_card stagger-item" data-category="communications">
+        <div class="service_card stagger-item" data-category="communications" data-num="03" data-category-label="Communications" data-title="Legal Marketing & Client Outreach" data-lead="The best lawyer in town is irrelevant if the right clients can't find them." data-deliverables="Market research and competitive positioning analysis || Client acquisition strategy and outreach campaigns || Brand positioning for partners, practice groups, and the firm || Digital presence audit — website, search, and reputation || Referral network development and intake conversion optimization" data-who-we-serve="Law firms ready to grow — solo practices building their first marketing engine, mid-sized firms entering new practice areas, and partners looking to build their book of business." data-why="We market law firms the way we'd want our own firm marketed — with discretion, professionalism, and an obsession with measurable client acquisition rather than vanity metrics." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 COMMUNICATIONS&quot;, &quot;lead&quot;: &quot;The best lawyers don&#39;t always have the best client pipelines.&quot;, &quot;deliverables&quot;: [&quot;Market research \u2014 identifying high-value case types and underserved geographies&quot;, &quot;Client acquisition strategy and outreach campaign design&quot;, &quot;Brand positioning that withstands the ethical scrutiny of legal advertising&quot;, &quot;Conversion-focused web presence and intake optimization&quot;], &quot;who&quot;: &quot;Law firms that want to grow without compromising professionalism. Solo and small firms looking to build a steady client pipeline. Practices entering new markets.&quot;, &quot;why&quot;: &quot;Legal marketing fails when it sounds like marketing. We help you build a presence that signals competence first \u2014 and converts because of it.&quot;, &quot;form_value&quot;: &quot;legal-marketing&quot;}">
           <div class="service_number">— 03</div>
           <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
             <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09a1.65 1.65 0 00-1-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09a1.65 1.65 0 001.51-1 1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33h.01a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82v.01a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/>
@@ -2454,7 +2807,7 @@ img { max-width: 100%; display: block; }
           <span class="service_arrow">Learn More →</span>
         </div>
 
-        <div class="service_card stagger-item" data-category="security">
+        <div class="service_card stagger-item" data-category="security" data-num="04" data-category-label="Security" data-title="Oilfield Emergency Management" data-lead="When an incident escalates, command structure is the difference between contained and catastrophic." data-deliverables="Incident command planning and on-site response coordination || Pre-incident operational risk assessments and tabletop exercises || Regulatory readiness documentation and audit support || 24/7 emergency response activation for active wellsites || Post-incident review, root cause analysis, and corrective action plans" data-who-we-serve="Upstream and midstream operators with active wells across Texas, South Dakota, and other producing states. Whether your operation is two rigs or two hundred, our response model scales." data-why="Our principals have stood on active wellsites during incidents. We don't deliver theoretical frameworks — we deliver judgment honed in the field, ready when the call comes in at 3 a.m." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 SECURITY&quot;, &quot;lead&quot;: &quot;When an incident escalates, command structure is the difference between contained and catastrophic.&quot;, &quot;deliverables&quot;: [&quot;Incident command planning and on-site response coordination&quot;, &quot;Pre-incident operational risk assessments and mitigation planning&quot;, &quot;Regulatory readiness documentation and audit support&quot;, &quot;24/7 emergency response activation for active wellsites&quot;], &quot;who&quot;: &quot;Upstream and midstream operators with active wells across Texas, South Dakota, and other producing states. From two-rig independents to multi-basin operators.&quot;, &quot;why&quot;: &quot;Our principals have stood on active wellsites during incidents. We don&#39;t deliver theoretical frameworks \u2014 we deliver judgment honed in the field.&quot;, &quot;form_value&quot;: &quot;oilfield&quot;}">
           <div class="service_number">— 04</div>
           <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
             <path d="M12 2v6m0 0l-3-3m3 3l3-3M4 13l2 7h12l2-7M4 13a2 2 0 012-2h12a2 2 0 012 2"/>
@@ -2464,7 +2817,7 @@ img { max-width: 100%; display: block; }
           <span class="service_arrow">Learn More →</span>
         </div>
 
-        <div class="service_card stagger-item" data-category="security">
+        <div class="service_card stagger-item" data-category="security" data-num="05" data-category-label="Security" data-title="Force Protection & InfoSec" data-lead="Threats don't announce themselves. The disciplined ones quietly assess your weaknesses first." data-deliverables="Threat assessment for personnel, facilities, and operations || Executive protection planning and travel security advisories || Operational security (OpSec) doctrine and training || Information security (InfoSec) program design and implementation || Insider threat detection programs and behavioral indicator training" data-who-we-serve="Energy operators, law firms, political candidates, executives, and any organization where the threat surface extends beyond a firewall — into physical, operational, and human-factor risk." data-why="Veteran-led. We approach force protection the way we were trained to — with discipline, redundancy, and a relentless focus on the threats most teams don't think to plan for." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 SECURITY&quot;, &quot;lead&quot;: &quot;The most expensive threats are the ones you didn&#39;t know to watch for.&quot;, &quot;deliverables&quot;: [&quot;Threat assessment and executive protection planning&quot;, &quot;Operational security (OpSec) programs for sensitive personnel and operations&quot;, &quot;Information security (InfoSec) policy design and implementation&quot;, &quot;Insider threat programs \u2014 detection, response, and prevention&quot;], &quot;who&quot;: &quot;Executives, family offices, and organizations with elevated risk profiles. Energy operators, political figures, legal professionals handling sensitive matters.&quot;, &quot;why&quot;: &quot;Our team brings military and protective service experience. We assess risk the way adversaries plan attacks \u2014 from the outside in.&quot;, &quot;form_value&quot;: &quot;force-protection&quot;}">
           <div class="service_number">— 05</div>
           <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
             <path d="M12 2L4 6v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V6l-8-4z"/>
@@ -2474,7 +2827,7 @@ img { max-width: 100%; display: block; }
           <span class="service_arrow">Learn More →</span>
         </div>
 
-        <div class="service_card stagger-item" data-category="security">
+        <div class="service_card stagger-item" data-category="security" data-num="06" data-category-label="Security" data-title="Physical Security" data-lead="A well-designed perimeter quietly does its job. A poorly designed one teaches your adversaries everything they need to know." data-deliverables="Facility hardening assessments and remediation roadmaps || Access control system design, vendor selection, and integration || Surveillance architecture — camera placement, retention, and monitoring || Security operations center (SOC) design and procedure documentation || Site-specific security plans for commercial, industrial, and field operations" data-who-we-serve="Commercial real estate, industrial facilities, energy infrastructure, and any operation where physical site security needs to function as a layered, integrated system — not a bolt-on after-thought." data-why="We design physical security the way an adversary would attempt to defeat it. Every recommendation accounts for how the system fails — not just how it works on a clear day." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 SECURITY&quot;, &quot;lead&quot;: &quot;A facility is only as secure as its weakest entry, sightline, and routine.&quot;, &quot;deliverables&quot;: [&quot;Facility hardening assessments and remediation planning&quot;, &quot;Access control system design and deployment&quot;, &quot;Surveillance architecture and security operations center (SOC) design&quot;, &quot;Security personnel training and procedural development&quot;], &quot;who&quot;: &quot;Commercial properties, industrial sites, government facilities, and high-value private estates. Operators who need to balance security with day-to-day usability.&quot;, &quot;why&quot;: &quot;We design security that real people can live and work with. No overbuilt theater \u2014 just effective, layered protection that holds up under audit and incident.&quot;, &quot;form_value&quot;: &quot;physical-security&quot;}">
           <div class="service_number">— 06</div>
           <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
             <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
@@ -2484,7 +2837,7 @@ img { max-width: 100%; display: block; }
           <span class="service_arrow">Learn More →</span>
         </div>
 
-        <div class="service_card stagger-item" data-category="technology">
+        <div class="service_card stagger-item" data-category="technology" data-num="07" data-category-label="Technology" data-title="Website Design" data-lead="Your website is the first impression. We make sure it's the right one." data-deliverables="Brand-aligned web design with conversion-optimized architecture || Platform selection — Webflow, WordPress, Cloudflare, Wix, or custom || Hosting strategy matched to budget, traffic, and maintenance comfort || Performance optimization, SEO foundations, and accessibility compliance || Ongoing support, content updates, and analytics-driven iteration" data-who-we-serve="Professional services firms, small businesses, political campaigns, and operators who need a serious web presence — and who need a partner who'll choose the right tool rather than push their preferred one." data-why="We meet clients at their budget and hosting needs. A $500 Wix site can be elegant. A $10,000 Webflow build can be exceptional. We tell you which one your business actually needs." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 TECHNOLOGY&quot;, &quot;lead&quot;: &quot;The right website isn&#39;t the most expensive \u2014 it&#39;s the right tool for your budget and stage.&quot;, &quot;deliverables&quot;: [&quot;Platform selection \u2014 Webflow, WordPress, Cloudflare, Wix, or custom build&quot;, &quot;Brand-aligned design and conversion-focused architecture&quot;, &quot;Performance optimization, SEO foundation, and analytics setup&quot;, &quot;Hosting strategy matched to traffic and budget realities&quot;], &quot;who&quot;: &quot;Small businesses, law firms, campaigns, and consulting practices. Anyone who&#39;s been quoted $15,000 for a website that should cost $1,500 \u2014 or vice versa.&quot;, &quot;why&quot;: &quot;We&#39;re platform-agnostic. We recommend what&#39;s right for your business, not what&#39;s easiest for us to bill. Most clients leave with a site they can actually maintain.&quot;, &quot;form_value&quot;: &quot;web-design&quot;}">
           <div class="service_number">— 07</div>
           <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
             <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
@@ -2494,7 +2847,7 @@ img { max-width: 100%; display: block; }
           <span class="service_arrow">Learn More →</span>
         </div>
 
-        <div class="service_card stagger-item" data-category="security">
+        <div class="service_card stagger-item" data-category="security" data-num="08" data-category-label="Security" data-title="Cyber Security" data-lead="Most breaches aren't sophisticated. They're patient. Cyber defense is a discipline, not a product." data-deliverables="Threat modeling and security posture audits || Penetration testing oversight and remediation prioritization || Incident response planning, playbooks, and tabletop exercises || Endpoint, email, and identity security architecture review || Vendor risk assessments and third-party access controls" data-who-we-serve="Small to mid-sized businesses without a dedicated CISO — law firms, energy operators, professional services, and any organization handling sensitive client data who needs an outside perspective on their defenses." data-why="We're not selling you software. We're identifying where your real exposure is and giving you a prioritized path to close it — with or without our continued involvement." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 SECURITY&quot;, &quot;lead&quot;: &quot;Most breaches don&#39;t come from sophisticated attacks. They come from gaps you didn&#39;t audit.&quot;, &quot;deliverables&quot;: [&quot;Security posture audits and threat modeling&quot;, &quot;Penetration testing oversight and remediation planning&quot;, &quot;Incident response planning and tabletop exercises&quot;, &quot;Compliance support \u2014 HIPAA, PCI, SOC 2, and industry-specific frameworks&quot;], &quot;who&quot;: &quot;Small to mid-sized businesses handling sensitive client data. Law firms, energy operators, and political campaigns. Organizations recovering from an incident.&quot;, &quot;why&quot;: &quot;We don&#39;t sell fear. We translate cyber risk into business decisions \u2014 what to fix now, what to monitor, and what&#39;s not worth your money.&quot;, &quot;form_value&quot;: &quot;cyber&quot;}">
           <div class="service_number">— 08</div>
           <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
             <path d="M12 22s8-4 8-12V4l-8-2-8 2v6c0 8 8 12 8 12z"/><path d="M9 12l2 2 4-4"/>
@@ -2504,7 +2857,7 @@ img { max-width: 100%; display: block; }
           <span class="service_arrow">Learn More →</span>
         </div>
 
-        <div class="service_card stagger-item" data-category="technology">
+        <div class="service_card stagger-item" data-category="technology" data-num="09" data-category-label="Technology" data-title="Networking" data-lead="A network is either an asset or a liability. The middle ground is just downtime waiting to happen." data-deliverables="Enterprise network architecture design and segmentation strategy || Wired and wireless infrastructure deployment and configuration || VPN, remote access, and site-to-site connectivity planning || Network monitoring, redundancy, and disaster recovery planning || Vendor selection and managed service provider evaluation" data-who-we-serve="Multi-site businesses, professional firms with hybrid workforces, and operators expanding into new locations who need their network to be a quiet enabler — not a daily fire." data-why="We design networks for the way your business actually operates — not the way a manufacturer's reference architecture says it should. Every recommendation is tested against real-world failure modes." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 TECHNOLOGY&quot;, &quot;lead&quot;: &quot;Resilient networks aren&#39;t built \u2014 they&#39;re designed with failure in mind.&quot;, &quot;deliverables&quot;: [&quot;Enterprise network architecture and segmentation strategy&quot;, &quot;Wired and wireless infrastructure deployment&quot;, &quot;VPN, remote access, and zero-trust implementation&quot;, &quot;Network monitoring and performance optimization&quot;], &quot;who&quot;: &quot;Growing businesses outgrowing consumer-grade equipment. Law firms and medical practices with compliance requirements. Multi-site operations needing reliability.&quot;, &quot;why&quot;: &quot;We build networks that don&#39;t require an in-house IT team to maintain. Documentation is included. Vendor lock-in is avoided.&quot;, &quot;form_value&quot;: &quot;networking&quot;}">
           <div class="service_number">— 09</div>
           <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
             <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/>
@@ -2514,7 +2867,7 @@ img { max-width: 100%; display: block; }
           <span class="service_arrow">Learn More →</span>
         </div>
 
-        <div class="service_card stagger-item" data-category="technology">
+        <div class="service_card stagger-item" data-category="technology" data-num="10" data-category-label="Technology" data-title="IT Upgrades & Updates" data-lead="Legacy systems are working — until they aren't. The transition is where most operations break." data-deliverables="Legacy system audits and modernization roadmaps || Hardware refresh planning and procurement coordination || Cloud migration strategy — Microsoft 365, Google Workspace, or hybrid || Managed service provider transitions without operational downtime || End-user training and change management for new platforms" data-who-we-serve="Established small and mid-sized businesses running on aging infrastructure, post-acquisition operations consolidating systems, and any organization that knows its IT is overdue for attention." data-why="We've executed transitions where operational continuity wasn't optional. We know how to upgrade what you're running on — without your team feeling the pain or your clients noticing." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 TECHNOLOGY&quot;, &quot;lead&quot;: &quot;Legacy systems don&#39;t fail at convenient times. They fail at the worst possible moment.&quot;, &quot;deliverables&quot;: [&quot;Legacy system assessment and modernization roadmap&quot;, &quot;Hardware refresh planning and procurement&quot;, &quot;Cloud migration strategy and execution&quot;, &quot;Managed service transitions without operational downtime&quot;], &quot;who&quot;: &quot;Established businesses running on systems that have aged out of support. Firms preparing for audits, sales, or rapid growth. Organizations whose IT has become a liability.&quot;, &quot;why&quot;: &quot;We modernize without disruption. Most of our migrations happen with zero downtime \u2014 because the wrong upgrade strategy costs more than the upgrade itself.&quot;, &quot;form_value&quot;: &quot;it-upgrades&quot;}">
           <div class="service_number">— 10</div>
           <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
             <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/><path d="M12 6v6l4 2"/>
@@ -2524,7 +2877,7 @@ img { max-width: 100%; display: block; }
           <span class="service_arrow">Learn More →</span>
         </div>
 
-        <div class="service_card stagger-item" data-category="communications">
+        <div class="service_card stagger-item" data-category="communications" data-num="11" data-category-label="Communications" data-title="Political Campaigns" data-lead="Local campaigns are won on discipline, not budget. The right operations make small money look like big money." data-deliverables="Campaign strategy, message development, and field operations planning || Voter outreach infrastructure — canvassing, calling, and digital || Campaign photography — events, portraits, and field documentation || Video editing — ads, social media, and long-form content || Brand identity, signage, and collateral design" data-who-we-serve="Local candidates running serious, principled campaigns — city council, county offices, school boards, and state legislative races where discipline and message matter more than war chests." data-why="We've consulted for local campaigns and seen exactly where money gets wasted. Our model puts every dollar where it actually moves votes — and treats the candidate's time as the scarce resource it is." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 COMMUNICATIONS&quot;, &quot;lead&quot;: &quot;Most local campaigns lose because they underinvest in the work that actually moves votes.&quot;, &quot;deliverables&quot;: [&quot;Campaign strategy, messaging, and operations planning&quot;, &quot;Voter outreach infrastructure and field operations support&quot;, &quot;Photography for candidate, campaign events, and earned media&quot;, &quot;Video editing \u2014 political ads, social content, and digital outreach&quot;], &quot;who&quot;: &quot;Local and regional candidates running disciplined, principled campaigns. First-time candidates who need to look professional from day one. Incumbents preparing for serious challenges.&quot;, &quot;why&quot;: &quot;We bring the production value of a national campaign to local budgets. Our work has helped candidates win races against opponents with significantly more spending.&quot;, &quot;form_value&quot;: &quot;political&quot;}">
           <div class="service_number">— 11</div>
           <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
             <path d="M4 22h16M6 22V8l6-4 6 4v14M10 10h.01M14 10h.01M10 14h.01M14 14h.01M10 18h4"/>
@@ -2535,6 +2888,36 @@ img { max-width: 100%; display: block; }
         </div>
 
       </div>
+
+      <!-- COMPONENT: Service Detail Expansion Panel -->
+      <div class="service_detail" id="serviceDetail">
+        <button class="service_detail-close" id="serviceDetailClose" aria-label="Close detail">×</button>
+        <div class="service_detail-grid">
+          <div>
+            <div class="service_detail-eyebrow" id="serviceDetailCategory"></div>
+            <h3 class="service_detail-title" id="serviceDetailTitle"></h3>
+            <p class="service_detail-lead" id="serviceDetailLead"></p>
+          </div>
+          <div>
+            <div class="service_detail-section">
+              <div class="service_detail-label">What We Deliver</div>
+              <ul class="service_detail-list" id="serviceDetailDeliverables"></ul>
+            </div>
+            <div class="service_detail-section">
+              <div class="service_detail-label">Who We Serve</div>
+              <p class="service_detail-body" id="serviceDetailWho"></p>
+            </div>
+            <div class="service_detail-section">
+              <div class="service_detail-label">Why Acacia Lake</div>
+              <p class="service_detail-body" id="serviceDetailWhy"></p>
+            </div>
+            <a href="#contact" class="service_detail-cta" id="serviceDetailCta">
+              Discuss This Engagement <span>→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -2847,7 +3230,7 @@ img { max-width: 100%; display: block; }
               </div>
               <div>
                 <div class="contact_detail-label">Email</div>
-                <div class="contact_detail-value">cesarc@acacialakeconsulting.com</div>
+                <a href="mailto:cesarc@acacialakeconsulting.com" class="contact_detail-value contact_detail-link">cesarc@acacialakeconsulting.com</a>
               </div>
             </div>
 
@@ -2859,7 +3242,7 @@ img { max-width: 100%; display: block; }
               </div>
               <div>
                 <div class="contact_detail-label">24/7 Emergency Line</div>
-                <div class="contact_detail-value">+1 (XXX) XXX-XXXX</div>
+                <a href="tel:+19565511479" class="contact_detail-value contact_detail-link">+1 (956) 551-1479</a>
               </div>
             </div>
 
@@ -2957,36 +3340,31 @@ img { max-width: 100%; display: block; }
         <div>
           <div class="footer_col-title">Practice</div>
           <ul class="footer_links">
-            <li><a href="#" class="footer_link">Startup Advisory</a></li>
-            <li><a href="#" class="footer_link">Legal Operations</a></li>
-            <li><a href="#" class="footer_link">Security</a></li>
-            <li><a href="#" class="footer_link">Technology</a></li>
+            <li><a href="#services" class="footer_link">Strategy</a></li>
+            <li><a href="#services" class="footer_link">Security</a></li>
+            <li><a href="#services" class="footer_link">Technology</a></li>
+            <li><a href="#services" class="footer_link">Communications</a></li>
           </ul>
         </div>
         <div>
           <div class="footer_col-title">Firm</div>
           <ul class="footer_links">
-            <li><a href="#" class="footer_link">About</a></li>
-            <li><a href="#" class="footer_link">Approach</a></li>
-            <li><a href="#" class="footer_link">Insights</a></li>
-            <li><a href="#" class="footer_link">Careers</a></li>
+            <li><a href="#about" class="footer_link">About</a></li>
+            <li><a href="#approach" class="footer_link">Approach</a></li>
+            <li><a href="#contact" class="footer_link">Contact</a></li>
           </ul>
         </div>
         <div>
-          <div class="footer_col-title">Contact</div>
+          <div class="footer_col-title">Direct</div>
           <ul class="footer_links">
             <li><a href="mailto:cesarc@acacialakeconsulting.com" class="footer_link">cesarc@acacialakeconsulting.com</a></li>
-            <li><a href="#" class="footer_link">+1 (XXX) XXX-XXXX</a></li>
-            <li><a href="#" class="footer_link">LinkedIn</a></li>
+            <li><a href="tel:+19565511479" class="footer_link">+1 (956) 551-1479</a></li>
           </ul>
         </div>
       </div>
       <div class="footer_bottom">
         <div>© 2026 Acacia Lake Consulting. All rights reserved.</div>
-        <div>
-          <a href="#" class="footer_link" style="margin-right:1.5rem;">Privacy</a>
-          <a href="#" class="footer_link">Terms</a>
-        </div>
+        <div style="font-style: italic; color: rgba(255,255,255,0.4);">Veteran Owned · Brownsville, Texas</div>
       </div>
     </div>
   </div>
@@ -3269,8 +3647,94 @@ filterTabs.forEach(tab => {
         card.classList.add('filtered-out');
       }
     });
+
+    // Close any open service detail when filtering
+    closeServiceDetail();
   });
 });
+
+/* ---------- SERVICE CARD DETAIL EXPANSION ---------- */
+const serviceDetail = document.getElementById('serviceDetail');
+const serviceDetailCategory = document.getElementById('serviceDetailCategory');
+const serviceDetailTitle = document.getElementById('serviceDetailTitle');
+const serviceDetailLead = document.getElementById('serviceDetailLead');
+const serviceDetailDeliverables = document.getElementById('serviceDetailDeliverables');
+const serviceDetailWho = document.getElementById('serviceDetailWho');
+const serviceDetailWhy = document.getElementById('serviceDetailWhy');
+const serviceDetailCta = document.getElementById('serviceDetailCta');
+const serviceDetailClose = document.getElementById('serviceDetailClose');
+let activeServiceCard = null;
+
+const closeServiceDetail = () => {
+  if (!serviceDetail) return;
+  serviceDetail.classList.remove('open');
+  if (activeServiceCard) {
+    activeServiceCard.classList.remove('active');
+    activeServiceCard = null;
+  }
+};
+
+const openServiceDetail = (card) => {
+  const dataAttr = card.dataset.serviceData;
+  if (!dataAttr) return;
+
+  let data;
+  try {
+    data = JSON.parse(dataAttr);
+  } catch (e) {
+    console.error('Invalid service data:', e);
+    return;
+  }
+
+  // Toggle: same card clicked twice closes the panel
+  if (activeServiceCard === card) {
+    closeServiceDetail();
+    return;
+  }
+
+  serviceCards.forEach(c => c.classList.remove('active'));
+  card.classList.add('active');
+  activeServiceCard = card;
+
+  serviceDetailCategory.textContent = data.category;
+  serviceDetailTitle.textContent = card.querySelector('.service_title').textContent;
+  serviceDetailLead.textContent = '"' + data.lead + '"';
+
+  serviceDetailDeliverables.innerHTML = '';
+  data.deliverables.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = item;
+    serviceDetailDeliverables.appendChild(li);
+  });
+
+  serviceDetailWho.textContent = data.who;
+  serviceDetailWhy.textContent = data.why;
+
+  // CTA pre-selects the service in the contact form
+  serviceDetailCta.onclick = () => {
+    const select = document.getElementById('contact-service');
+    if (select) select.value = data.form_value;
+    setTimeout(() => closeServiceDetail(), 600);
+  };
+
+  serviceDetail.classList.add('open');
+
+  setTimeout(() => {
+    serviceDetail.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 250);
+};
+
+if (serviceDetail) {
+  serviceCards.forEach(card => {
+    card.addEventListener('click', () => openServiceDetail(card));
+  });
+  serviceDetailClose.addEventListener('click', closeServiceDetail);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && serviceDetail.classList.contains('open')) {
+      closeServiceDetail();
+    }
+  });
+}
 
 /* ---------- CONTACT FORM HANDLER ---------- */
 function handleFormSubmit(event) {
