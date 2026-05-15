@@ -41,7 +41,7 @@
 <meta name="owner" content="Acacia Lake Consulting" />
 <meta name="rights" content="Proprietary — All content, code, and design are property of Acacia Lake Consulting." />
 
-<title>About — Acacia Lake Consulting</title>
+<title>Privacy Policy — Acacia Lake Consulting</title>
 
 <!-- ============ FONTS ============ -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -2461,15 +2461,6 @@ img { max-width: 100%; display: block; }
   gap: 3rem;
 }
 
-/* When one founder card is hidden, center the remaining card */
-.founders_grid:has(.founder_card.hidden-until-ready) {
-  grid-template-columns: minmax(0, 720px);
-  justify-content: center;
-}
-
-/* Universally hide any element flagged not ready to display */
-.hidden-until-ready { display: none !important; }
-
 /* Each card uses subgrid so portrait | meta | bio | credentials align across both cards */
 .founder_card {
   background: var(--color-white);
@@ -2593,74 +2584,9 @@ img { max-width: 100%; display: block; }
   margin-bottom: 1.25rem;
   letter-spacing: 0.005em;
 }
-.founder_bio-summary {
-  margin-bottom: 0.75rem !important;
-}
-.founder_bio-expanded {
-  overflow: hidden;
-  transition: max-height 0.5s ease, opacity 0.4s ease;
-}
-.founder_bio-expanded[hidden] {
-  display: block !important;
-  max-height: 0;
-  opacity: 0;
-  margin: 0;
-}
-.founder_bio-expanded:not([hidden]) {
-  max-height: 100rem;
-  opacity: 1;
-}
-.founder_bio-expanded p:first-child {
-  margin-top: 1rem;
-}
 .founder_bio p:last-of-type {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
-
-/* Toggle button — discreet pill that matches the design system */
-.founder_bio-toggle {
-  align-self: flex-start;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin: 0.5rem 0 2rem;
-  padding: 0.65rem 1.25rem;
-  background: transparent;
-  color: var(--color-navy-deep);
-  border: 1px solid rgba(12,26,46,0.2);
-  border-radius: var(--radius-pill);
-  font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  cursor: pointer;
-  transition: all var(--transition-base);
-  white-space: nowrap;
-}
-.founder_bio-toggle:hover {
-  background: var(--color-navy-deep);
-  color: var(--color-white);
-  border-color: var(--color-navy-deep);
-  transform: translateY(-1px);
-}
-.founder_bio-toggle-arrow {
-  display: inline-block;
-  transition: transform var(--transition-base);
-  font-family: var(--font-body);
-}
-.founder_bio-toggle:hover .founder_bio-toggle-arrow {
-  transform: translateX(3px);
-}
-.founder_bio-toggle[aria-expanded="true"] .founder_bio-toggle-arrow {
-  transform: rotate(90deg);
-}
-.founder_bio-toggle[aria-expanded="true"]:hover .founder_bio-toggle-arrow {
-  transform: rotate(90deg) translateX(3px);
-}
-.founder_bio-toggle-label-less { display: none; }
-.founder_bio-toggle[aria-expanded="true"] .founder_bio-toggle-label-more { display: none; }
-.founder_bio-toggle[aria-expanded="true"] .founder_bio-toggle-label-less { display: inline; }
 
 /* Credentials list at bottom of bio */
 .founder_credentials-list {
@@ -2756,7 +2682,7 @@ img { max-width: 100%; display: block; }
 }
 .credentials_grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 1px;
   background: rgba(12,26,46,0.1);
   border: 1px solid rgba(12,26,46,0.1);
@@ -2795,7 +2721,7 @@ img { max-width: 100%; display: block; }
   .founders_grid { grid-template-columns: 1fr; gap: 2rem; }
   .founder_card { padding: 2rem; }
   .partnership_grid { grid-template-columns: 1fr; gap: 1.5rem; }
-  .credentials_grid { grid-template-columns: repeat(2, 1fr); }
+  .credentials_grid { grid-template-columns: repeat(3, 1fr); }
   .founder_credential {
     grid-template-columns: 1fr;
     gap: 0.4rem;
@@ -2804,6 +2730,154 @@ img { max-width: 100%; display: block; }
 @media (max-width: 600px) {
   .credentials_grid { grid-template-columns: repeat(2, 1fr); }
   .founder_portrait { width: 140px; height: 140px; }
+}
+
+
+/* ===========================================================
+   LEGAL PAGES — Privacy & Terms
+   =========================================================== */
+.section_hero--legal {
+  min-height: 60vh;
+}
+.hero_content--legal {
+  padding: 11rem 5rem 7rem;
+  display: block;
+}
+.legal_meta {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-top: 2.5rem;
+}
+
+.section_legal {
+  background: var(--color-off-white);
+}
+.legal_document {
+  background: var(--color-white);
+  border: 1px solid var(--color-grey-soft);
+  border-radius: var(--radius-md);
+  padding: 4.5rem 4rem;
+  box-shadow: var(--shadow-soft);
+}
+.legal_lead {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--color-navy-deep);
+  margin-bottom: 3rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(12,26,46,0.1);
+  letter-spacing: -0.005em;
+}
+.legal_h2 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--color-navy-deep);
+  margin-top: 3.5rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.2;
+  letter-spacing: -0.012em;
+}
+.legal_h2:first-of-type { margin-top: 0; }
+.legal_h3 {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--color-navy-deep);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+.legal_document p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #2d3748;
+  font-weight: 300;
+  margin-bottom: 1.4rem;
+  letter-spacing: 0.005em;
+}
+.legal_document p strong,
+.legal_document li strong {
+  color: var(--color-navy-deep);
+  font-weight: 600;
+}
+.legal_list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+.legal_list li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #2d3748;
+  font-weight: 300;
+  letter-spacing: 0.005em;
+}
+.legal_list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 12px;
+  height: 1px;
+  background: var(--color-gold);
+}
+
+.legal_link {
+  color: var(--color-navy-deep);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-gold);
+  transition: all var(--transition-base);
+  font-weight: 500;
+}
+.legal_link:hover {
+  color: var(--color-gold);
+}
+
+.legal_contact-block {
+  background: var(--color-off-white);
+  border-left: 3px solid var(--color-gold);
+  padding: 1.5rem 2rem;
+  margin: 1.5rem 0;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+.legal_contact-block p {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+.legal_contact-block p:last-child { margin-bottom: 0; }
+
+.legal_divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212,164,55,0.4), transparent);
+  margin: 4rem 0 2.5rem;
+}
+
+.legal_footnote {
+  font-size: 0.85rem !important;
+  font-style: italic;
+  color: var(--color-grey-text) !important;
+  text-align: center;
+  line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .hero_content--legal { padding: 8rem 2rem 5rem; }
+  .legal_document { padding: 2.5rem 2rem; }
+  .legal_lead { font-size: 1.1rem; }
+  .legal_h2 { font-size: 1.5rem; }
+  .legal_h3 { font-size: 1.1rem; }
 }
 
 
@@ -2884,7 +2958,7 @@ img { max-width: 100%; display: block; }
       <span class="nav_logo-sub">Consulting</span>
     </a>
     <ul class="nav_menu">
-      <li><a href="about.html" class="nav_link nav_link--active">About</a></li>
+      <li><a href="about.html" class="nav_link">About</a></li>
       <li><a href="index.html#services" class="nav_link">Services</a></li>
       <li><a href="index.html#approach" class="nav_link">Approach</a></li>
       <li><a href="#contact" class="nav_link">Contact</a></li>
@@ -2894,248 +2968,171 @@ img { max-width: 100%; display: block; }
 </nav>
 
 <!-- ============================================================
-     SECTION: ABOUT HERO
+     SECTION: LEGAL HERO
      ============================================================ -->
-<section class="section_hero section_hero--about">
+<section class="section_hero section_hero--legal">
   <div class="hero_bg-gradient parallax" data-parallax-speed="0.3"></div>
   <div class="hero_bg-grid parallax" data-parallax-speed="0.15"></div>
   <div class="hero_bg-noise"></div>
 
-  <div class="hero_content hero_content--about">
+  <div class="hero_content hero_content--legal">
     <div class="hero_text-wrapper" style="max-width: 900px; margin: 0 auto; text-align: center;">
-      <div class="hero_eyebrow" style="justify-content: center;">About the Firm</div>
+      <div class="hero_eyebrow" style="justify-content: center;">Legal</div>
       <h1 class="hero_heading" style="text-align: center;">
-        <span class="line">Built by a veteran.</span>
-        <span class="line"><span class="italic">Led by</span> judgment.</span>
+        <span class="line">Privacy</span>
+        <span class="line"><span class="italic">Policy</span></span>
       </h1>
       <p class="hero_description" style="max-width: 700px; margin: 0 auto;">
-        Acacia Lake Consulting was founded on a single conviction: that the most consequential decisions deserve advisors who treat them with the gravity they deserve. The firm is led by a veteran principal and an analytically rigorous operations leader whose careers span force protection, scientific research, military service, and the disciplined execution of high-stakes work.
+        Acacia Lake Consulting respects your privacy and is committed to handling your information with the same discretion we bring to every engagement.
       </p>
+      <p class="legal_meta">Effective Date: May 14, 2026 &nbsp;·&nbsp; Last Updated: May 14, 2026</p>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     SECTION: FOUNDERS — Side-by-side principals
+     SECTION: LEGAL BODY
      ============================================================ -->
-<section class="section_founders padding-section-large">
-  <div class="padding-global">
-    <div class="container-large">
-
-      <div class="founders_header fade-in">
-        <div class="text-style-eyebrow margin-bottom-small">Founding Principal</div>
-        <h2 class="heading-style-h2 margin-bottom-medium">
-          The firm, <span class="text-style-italic">in his own words.</span>
-        </h2>
-      </div>
-
-      <div class="founders_grid">
-
-        <!-- COMPONENT: Founder Card — Cesar -->
-        <article class="founder_card fade-in">
-          <div class="founder_portrait">
-            <img src="cesar.jpg" alt="Cesar Cuevas, CISSO, CDFE — Co-Founder & Principal of Acacia Lake Consulting" onerror="this.style.display='none'; this.parentElement.classList.add('founder_portrait--placeholder');" />
-            <div class="founder_portrait-placeholder-text">CC</div>
-          </div>
-          <div class="founder_meta">
-            <div class="founder_credentials">CISSO · CDFE</div>
-            <h3 class="founder_name">Cesar Cuevas</h3>
-            <div class="founder_title">Co-Founder & Managing Principal</div>
-            <div class="founder_subtitle">
-              <span class="founder_subtitle-line">Chief Warrant Officer, Texas State Guard</span>
-              <span class="founder_subtitle-line">Texas State Trooper · South Texas Region</span>
-              <span class="founder_subtitle-line">Field Director, Texas DPSOA</span>
-            </div>
-          </div>
-          <div class="founder_bio">
-            <p class="founder_bio-summary">
-              Cesar Cuevas is a multidomain security leader and federal active-duty veteran with a distinguished record across military, law enforcement, and operational security. As Chief Warrant Officer with the Texas State Guard, he serves as Force Protection Operations OIC for Operation Lone Star, the multi-agency border security initiative in the Brownsville Sector.
-            </p>
-            <div class="founder_bio-expanded" id="cesar-bio-expanded" hidden>
-              <p>
-                His operational background includes service as a Company Commander in Boats, Dive, and Search & Rescue, and as a Program Manager overseeing construction efforts for the Texas border wall — ensuring compliance, safety, and operational efficiency across complex multi-stakeholder environments. He currently serves as a Texas State Trooper in the South Texas Region and as a Region 3 Field Director with the Texas DPS Officers Association.
-              </p>
-              <p>
-                Cesar's expertise spans force protection, physical security, crisis management, operational security, emergency services, insider threat detection, and interagency coordination. He brings to every engagement what cannot be taught in a classroom: judgment honed in the field, under pressure, with real consequences.
-              </p>
-            </div>
-            <button type="button" class="founder_bio-toggle" aria-expanded="false" aria-controls="cesar-bio-expanded">
-              <span class="founder_bio-toggle-label-more">Read full biography</span>
-              <span class="founder_bio-toggle-label-less">Show less</span>
-              <span class="founder_bio-toggle-arrow" aria-hidden="true">→</span>
-            </button>
-            <div class="founder_credentials-list">
-              <div class="founder_credential">
-                <span class="founder_credential-label">Designations</span>
-                <span class="founder_credential-value">CISSO, CDFE</span>
-              </div>
-              <div class="founder_credential">
-                <span class="founder_credential-label">Education</span>
-                <span class="founder_credential-value">B.S. Criminal Justice / Police Science<br>The University of Texas Rio Grande Valley</span>
-              </div>
-              <div class="founder_credential">
-                <span class="founder_credential-label">Practice Focus</span>
-                <span class="founder_credential-value">Force Protection · InfoSec · OpSec<br>Oilfield Emergency Management<br>Physical Security · Insider Threat</span>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- COMPONENT: Founder Card — Elizabeth (HIDDEN — remove `hidden-until-ready` class to bring back) -->
-        <article class="founder_card fade-in hidden-until-ready">
-          <div class="founder_portrait">
-            <img src="elizabeth.jpg" alt="Elizabeth Cuevas, PhD, LP — Co-Founder & Principal of Acacia Lake Consulting" onerror="this.style.display='none'; this.parentElement.classList.add('founder_portrait--placeholder');" />
-            <div class="founder_portrait-placeholder-text">EC</div>
-          </div>
-          <div class="founder_meta">
-            <div class="founder_credentials">PhD · LP</div>
-            <h3 class="founder_name">Elizabeth Cuevas</h3>
-            <div class="founder_title">Co-Founder & Director of Operations</div>
-            <div class="founder_subtitle">
-              <span class="founder_subtitle-line">Major, Texas State Guard</span>
-              <span class="founder_subtitle-line">Accomplished Executive & Operations Leader</span>
-              <span class="founder_subtitle-line">Public & Private Sector Experience</span>
-            </div>
-          </div>
-          <div class="founder_bio">
-            <p class="founder_bio-summary">
-              Elizabeth Cuevas is an accomplished executive and operations leader whose career bridges scientific rigor, operational discipline, and military service. A Major in the Texas State Guard, she holds a PhD in Biomedical Sciences from Texas A&M University and graduate training in Epidemiology from UTHealth Houston — bringing a uniquely analytical mind to problems that demand both data-driven precision and on-the-ground execution.
-            </p>
-            <div class="founder_bio-expanded" id="elizabeth-bio-expanded" hidden>
-              <p>
-                Her dissertation work examined causes of death for law enforcement officers in the line of duty — a One Health approach to trauma mortality survivability — establishing her expertise at the intersection of public safety, epidemiology, and operational risk. She has a proven track record of designing engaging programs, building resilient teams, and translating complex research into actionable strategy across both public and private sector engagements.
-              </p>
-              <p>
-                At Acacia Lake, Elizabeth leads operations, market research, program design, and grant strategy. She is a keen technical and grant writer with a history of funded grants, and her work anchors the firm's legal practice operations, marketing, and study-design capabilities. Her strategic thinking and operational discipline are the engine behind every engagement.
-              </p>
-            </div>
-            <button type="button" class="founder_bio-toggle" aria-expanded="false" aria-controls="elizabeth-bio-expanded">
-              <span class="founder_bio-toggle-label-more">Read full biography</span>
-              <span class="founder_bio-toggle-label-less">Show less</span>
-              <span class="founder_bio-toggle-arrow" aria-hidden="true">→</span>
-            </button>
-            <div class="founder_credentials-list">
-              <div class="founder_credential">
-                <span class="founder_credential-label">Designations</span>
-                <span class="founder_credential-value">PhD, LP</span>
-              </div>
-              <div class="founder_credential">
-                <span class="founder_credential-label">Education</span>
-                <span class="founder_credential-value">Ph.D., Texas A&M · M.S., UTHealth Houston<br>B.S. Microbiology, Texas Tech University</span>
-              </div>
-              <div class="founder_credential">
-                <span class="founder_credential-label">Practice Focus</span>
-                <span class="founder_credential-value">Operations · Market Research<br>Legal Practice Operations<br>Grant Writing · Data Analysis</span>
-              </div>
-            </div>
-          </div>
-        </article>
-
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SECTION: THE PARTNERSHIP — Why the combination works
-     ============================================================ -->
-<section class="section_approach padding-section-large">
-  <div class="padding-global">
-    <div class="container-large">
-
-      <div class="approach_header">
-        <h2 class="approach_heading fade-in">
-          The standards that <span class="italic">define the firm.</span>
-        </h2>
-        <p class="approach_intro fade-in">
-          The firm exists because the work we do — security, operations, legal practice, emergency response — requires both the discipline of the field and the rigor of the lab. Neither alone is sufficient. Together, they are formidable.
-        </p>
-      </div>
-
-      <div class="partnership_grid">
-        <div class="partnership_pillar stagger-item">
-          <div class="partnership_pillar-number">01</div>
-          <h3 class="partnership_pillar-title">Field-Tested Judgment</h3>
-          <p class="partnership_pillar-text">
-            Decisions made under operational pressure — on active wellsites, in interagency command, in the line of duty — inform every recommendation we give. Theory is welcome, but it earns its place only after it survives contact with reality.
-          </p>
-        </div>
-        <div class="partnership_pillar stagger-item">
-          <div class="partnership_pillar-number">02</div>
-          <h3 class="partnership_pillar-title">Analytical Discipline</h3>
-          <p class="partnership_pillar-text">
-            Every engagement is anchored in evidence, not anecdote. We measure what matters, document our methodology, and say what the data actually says — even when the answer isn't what was hoped for.
-          </p>
-        </div>
-        <div class="partnership_pillar stagger-item">
-          <div class="partnership_pillar-number">03</div>
-          <h3 class="partnership_pillar-title">Bilingual & Bicultural</h3>
-          <p class="partnership_pillar-text">
-            Headquartered in Brownsville, Texas, with active operations across the U.S.–Mexico border region, we navigate the linguistic, regulatory, and cultural complexities of South Texas and beyond — fluently, and with respect for both sides of the line.
-          </p>
-        </div>
-        <div class="partnership_pillar stagger-item">
-          <div class="partnership_pillar-number">04</div>
-          <h3 class="partnership_pillar-title">Discretion by Default</h3>
-          <p class="partnership_pillar-text">
-            Most of our engagements are conducted under NDA. We do not publish client names. We do not name-drop. The clients who hire us value advisors who can be trusted with information that matters — and we earn that trust by keeping it.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SECTION: CREDENTIALS BAR — Institutional affiliations
-     ============================================================ -->
-<section class="section_credentials">
-  <div class="padding-global">
-    <div class="container-large">
-      <div class="credentials_label fade-in">Institutional Background</div>
-      <div class="credentials_grid">
-        <div class="credential_item">
-          <div class="credential_name">UTRGV</div>
-          <div class="credential_role">University · BS</div>
-        </div>
-        <div class="credential_item">
-          <div class="credential_name">Texas DPS</div>
-          <div class="credential_role">State Trooper</div>
-        </div>
-        <div class="credential_item">
-          <div class="credential_name">Texas State Guard</div>
-          <div class="credential_role">Chief Warrant Officer</div>
-        </div>
-        <div class="credential_item">
-          <div class="credential_name">Texas DPSOA</div>
-          <div class="credential_role">Field Director</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SECTION: CTA — Contact / Begin the conversation
-     ============================================================ -->
-<section class="section_cta padding-section-large" id="contact">
+<section class="section_legal padding-section-large">
   <div class="padding-global">
     <div class="container-medium">
-      <div class="cta_content" style="text-align: center; max-width: 800px; margin: 0 auto; position: relative; z-index: 1;">
-        <div class="text-style-eyebrow margin-bottom-medium" style="display: inline-block;">Reach the Principals</div>
-        <h2 class="contact_heading">
-          Speak with us <span class="italic">directly.</span>
-        </h2>
-        <p class="contact_description" style="max-width: 600px; margin: 0 auto 3rem;">
-          Every engagement begins with a confidential conversation. Reach out to the principals — we respond personally, within one business day.
+
+      <article class="legal_document">
+
+        <p class="legal_lead">
+          This Privacy Policy explains how Acacia Lake Consulting, LLC ("Acacia Lake," "we," "our," or "us") collects, uses, discloses, and protects information when you visit acacialakeconsulting.com (the "Site"), submit an inquiry through our contact forms, or engage us for consulting services. By accessing or using the Site, you acknowledge that you have read and understood this Policy.
         </p>
-        <a href="index.html#contact" class="hero_button-primary">
-          Begin the Conversation
-          <span>→</span>
-        </a>
-      </div>
+
+        <h2 class="legal_h2">1. Information We Collect</h2>
+
+        <h3 class="legal_h3">a. Information You Provide Directly</h3>
+        <p>When you contact us through our Site or engage us for consulting services, we may collect:</p>
+        <ul class="legal_list">
+          <li>Name, email address, and phone number</li>
+          <li>Organization or company name</li>
+          <li>Service or practice area of interest</li>
+          <li>Description of your inquiry or engagement</li>
+          <li>Any additional information you voluntarily provide in correspondence</li>
+        </ul>
+
+        <h3 class="legal_h3">b. Information Collected Automatically</h3>
+        <p>When you visit the Site, we may automatically collect certain technical information, including:</p>
+        <ul class="legal_list">
+          <li>IP address and approximate geographic location</li>
+          <li>Browser type, operating system, and device information</li>
+          <li>Pages viewed, time spent on the Site, and referring URLs</li>
+          <li>Date and time of access</li>
+        </ul>
+        <p>This information is collected through standard server logs and, where applicable, privacy-respecting analytics tools. We do not use behavioral advertising trackers or third-party social media pixels.</p>
+
+        <h3 class="legal_h3">c. Information We Do Not Collect</h3>
+        <p>We do not collect, and we do not knowingly accept submission of, the following categories of sensitive personal data through our public-facing Site:</p>
+        <ul class="legal_list">
+          <li>Financial account numbers, payment card information, or banking credentials</li>
+          <li>Social Security numbers or government identification numbers</li>
+          <li>Health, medical, or biometric information</li>
+          <li>Precise geolocation data</li>
+          <li>Information about minors under 18 years of age</li>
+        </ul>
+        <p>If sensitive information is required during the course of a paid consulting engagement, it will be governed by a separate written engagement agreement.</p>
+
+        <h2 class="legal_h2">2. How We Use Your Information</h2>
+        <p>We use the information we collect for the following purposes:</p>
+        <ul class="legal_list">
+          <li>To respond to inquiries and provide information about our services</li>
+          <li>To deliver consulting services under engagement agreements</li>
+          <li>To communicate with you regarding ongoing engagements</li>
+          <li>To improve the Site, our service offerings, and the visitor experience</li>
+          <li>To detect, investigate, and prevent fraud, security incidents, and abuse</li>
+          <li>To comply with applicable legal obligations</li>
+        </ul>
+        <p>We do not sell, rent, or trade your personal information. We do not use your information for behavioral advertising or share it with advertising networks.</p>
+
+        <h2 class="legal_h2">3. Legal Basis and Lawful Processing</h2>
+        <p>We process personal information on one or more of the following legal bases:</p>
+        <ul class="legal_list">
+          <li><strong>Consent</strong> — When you voluntarily submit information through our contact forms or correspondence.</li>
+          <li><strong>Contractual necessity</strong> — When information is required to perform consulting services you have engaged us to deliver.</li>
+          <li><strong>Legitimate business interests</strong> — To operate, improve, and secure our Site and services, provided such interests are not overridden by your rights.</li>
+          <li><strong>Legal compliance</strong> — Where required by applicable law, regulation, or court order.</li>
+        </ul>
+
+        <h2 class="legal_h2">4. How We Share Your Information</h2>
+        <p>We treat your information as confidential and disclose it only in the following limited circumstances:</p>
+        <ul class="legal_list">
+          <li><strong>Service providers</strong> — We may share information with vetted third-party vendors who provide infrastructure, email, hosting, or form-processing services on our behalf. These providers are contractually obligated to protect your information and use it only to provide services to us.</li>
+          <li><strong>Legal obligations</strong> — We may disclose information when required by subpoena, court order, or applicable law, or when necessary to protect the rights, property, or safety of Acacia Lake, our clients, or others.</li>
+          <li><strong>Business transfers</strong> — If Acacia Lake undergoes a merger, acquisition, reorganization, or sale of assets, your information may be transferred as part of that transaction. We will notify affected individuals of any such transfer.</li>
+          <li><strong>With your explicit consent</strong> — In any other circumstance, only with your direct authorization.</li>
+        </ul>
+
+        <h2 class="legal_h2">5. Data Security</h2>
+        <p>We implement administrative, technical, and physical safeguards designed to protect personal information against unauthorized access, alteration, disclosure, or destruction. These include encryption in transit (TLS/HTTPS), access controls, secure infrastructure provided by reputable hosting providers, and confidentiality obligations imposed on personnel.</p>
+        <p>No method of electronic transmission or storage is 100% secure. While we use commercially reasonable measures to protect your information, we cannot guarantee absolute security. You are responsible for keeping your own access credentials and devices secure.</p>
+
+        <h2 class="legal_h2">6. Data Retention</h2>
+        <p>We retain personal information only for as long as necessary to fulfill the purposes for which it was collected, including:</p>
+        <ul class="legal_list">
+          <li>The duration of an active inquiry or business relationship</li>
+          <li>The period required by applicable legal, accounting, or regulatory obligations</li>
+          <li>The time necessary to resolve disputes and enforce our agreements</li>
+        </ul>
+        <p>Contact form submissions that do not result in an engagement are typically retained for up to twenty-four (24) months before being deleted or anonymized.</p>
+
+        <h2 class="legal_h2">7. Your Rights</h2>
+        <p>Depending on your jurisdiction, you may have certain rights regarding your personal information, including:</p>
+        <ul class="legal_list">
+          <li>The right to <strong>access</strong> the personal information we hold about you</li>
+          <li>The right to <strong>correct</strong> inaccurate information</li>
+          <li>The right to <strong>request deletion</strong> of your information, subject to legal retention requirements</li>
+          <li>The right to <strong>opt out</strong> of processing for certain purposes</li>
+          <li>The right to <strong>data portability</strong> in a structured, commonly used format</li>
+          <li>The right to <strong>lodge a complaint</strong> with a regulatory authority</li>
+        </ul>
+        <p>To exercise any of these rights, contact us at <a href="mailto:cesarc@acacialakeconsulting.com" class="legal_link">cesarc@acacialakeconsulting.com</a>. We will respond within forty-five (45) days, or as required by applicable law. We may need to verify your identity before fulfilling certain requests.</p>
+
+        <h2 class="legal_h2">8. Texas Data Privacy and Security Act (TDPSA)</h2>
+        <p>Acacia Lake Consulting operates as a small business as defined by the U.S. Small Business Administration. Under the Texas Data Privacy and Security Act, small businesses are generally exempt from most provisions of the Act. Notwithstanding this exemption, we voluntarily adhere to its principles of transparency, purpose limitation, and data minimization.</p>
+        <p>We do not sell sensitive personal data under any circumstances. Texas residents may exercise rights described in Section 7 above by contacting us directly.</p>
+
+        <h2 class="legal_h2">9. Cookies and Similar Technologies</h2>
+        <p>Our Site uses minimal cookies and similar technologies, limited to:</p>
+        <ul class="legal_list">
+          <li><strong>Strictly necessary cookies</strong> — Required for the Site to function (e.g., session management, security)</li>
+          <li><strong>Performance cookies</strong> — Used to measure Site performance and improve user experience</li>
+        </ul>
+        <p>We do not use advertising cookies, social media pixels, or cross-site tracking technologies. Most browsers allow you to control or disable cookies through their settings. Disabling cookies may affect the functionality of some Site features.</p>
+
+        <h2 class="legal_h2">10. Third-Party Links</h2>
+        <p>Our Site may contain links to third-party websites. We are not responsible for the privacy practices or content of such sites. We encourage you to review the privacy policies of any third-party sites you visit.</p>
+
+        <h2 class="legal_h2">11. Children's Privacy</h2>
+        <p>Our Site and services are not directed to individuals under the age of 18. We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please contact us so we may delete it.</p>
+
+        <h2 class="legal_h2">12. International Users</h2>
+        <p>Acacia Lake Consulting is headquartered in Brownsville, Texas, United States. If you access the Site from outside the United States, please be aware that your information may be transferred to, stored, and processed in the United States, where our servers and central database are located. By using our Site, you consent to such transfer.</p>
+
+        <h2 class="legal_h2">13. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal obligations, or other factors. When we make material changes, we will update the "Last Updated" date at the top of this page and, where appropriate, provide additional notice (such as a banner on the Site or an email to active clients).</p>
+        <p>We encourage you to review this Policy periodically. Your continued use of the Site after changes are posted constitutes acceptance of the updated Policy.</p>
+
+        <h2 class="legal_h2">14. Contact Us</h2>
+        <p>If you have questions, concerns, or requests regarding this Privacy Policy or our handling of your personal information, please contact us:</p>
+        <div class="legal_contact-block">
+          <p><strong>Acacia Lake Consulting</strong></p>
+          <p>Brownsville, Texas, United States</p>
+          <p>Email: <a href="mailto:cesarc@acacialakeconsulting.com" class="legal_link">cesarc@acacialakeconsulting.com</a></p>
+          <p>Phone: <a href="tel:+19565511479" class="legal_link">+1 (956) 551-1479</a></p>
+        </div>
+
+        <hr class="legal_divider" />
+
+        <p class="legal_footnote">
+          This Privacy Policy is provided for informational purposes and represents our good-faith effort to describe our information practices in plain language. It does not constitute legal advice. For specific legal questions regarding your rights, consult a qualified attorney in your jurisdiction.
+        </p>
+
+      </article>
+
     </div>
   </div>
 </section>
@@ -3590,27 +3587,6 @@ function handleFormSubmit(event) {
 
   console.log('Form submission (replace with real handler):', data);
 }
-
-/* ---------- Bio expand/collapse toggle ---------- */
-document.querySelectorAll('.founder_bio-toggle').forEach(toggle => {
-  toggle.addEventListener('click', () => {
-    const targetId = toggle.getAttribute('aria-controls');
-    const target = document.getElementById(targetId);
-    if (!target) return;
-
-    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-
-    if (isExpanded) {
-      // Collapse
-      target.hidden = true;
-      toggle.setAttribute('aria-expanded', 'false');
-    } else {
-      // Expand
-      target.hidden = false;
-      toggle.setAttribute('aria-expanded', 'true');
-    }
-  });
-});
 </script>
 
 <!--
