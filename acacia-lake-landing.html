@@ -1,8 +1,46 @@
 <!DOCTYPE html>
+<!--
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║      █████╗  ██████╗ █████╗  ██████╗██╗ █████╗     ██╗      █████╗ ██╗  ██╗ ║
+║     ██╔══██╗██╔════╝██╔══██╗██╔════╝██║██╔══██╗    ██║     ██╔══██╗██║ ██╔╝ ║
+║     ███████║██║     ███████║██║     ██║███████║    ██║     ███████║█████╔╝  ║
+║     ██╔══██║██║     ██╔══██║██║     ██║██╔══██║    ██║     ██╔══██║██╔═██╗  ║
+║     ██║  ██║╚██████╗██║  ██║╚██████╗██║██║  ██║    ███████╗██║  ██║██║  ██╗ ║
+║     ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝ ╚═════╝╚═╝╚═╝  ╚═╝    ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ║
+║                                                                              ║
+║                      C  O  N  S  U  L  T  I  N  G                            ║
+║                                                                              ║
+║                       —  V E T E R A N   O W N E D  —                        ║
+║                                                                              ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║                                                                              ║
+║   © 2026 Acacia Lake Consulting. All rights reserved.                        ║
+║                                                                              ║
+║   This source code, design, and content are the intellectual property        ║
+║   of Acacia Lake Consulting. Unauthorized reproduction, redistribution,      ║
+║   or use of any portion of this code or design is strictly prohibited.       ║
+║                                                                              ║
+║   Website:  acacialakeconsulting.com                                         ║
+║   Contact:  cesarc@acacialakeconsulting.com                                  ║
+║   Location: Brownsville, Texas                                               ║
+║                                                                              ║
+║   "Where Vision Meets Execution."                                            ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+-->
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- ============ COPYRIGHT & ATTRIBUTION ============ -->
+<meta name="author" content="Acacia Lake Consulting" />
+<meta name="copyright" content="© 2026 Acacia Lake Consulting. All rights reserved." />
+<meta name="description" content="Acacia Lake Consulting — Veteran-owned strategic advisory and security consulting firm. Headquartered in Brownsville, Texas." />
+<meta name="owner" content="Acacia Lake Consulting" />
+<meta name="rights" content="Proprietary — All content, code, and design are property of Acacia Lake Consulting." />
+
 <title>Acacia Lake Consulting — Strategic Advisory & Security Solutions</title>
 
 <!-- ============ FONTS ============ -->
@@ -12,16 +50,34 @@
 
 <style>
 /* ==========================================================================
-   ACACIA LAKE CONSULTING — LANDING PAGE
-   Built using Client-First (Webflow) naming conventions:
-   - section_[name]            → page sections
-   - padding-global            → outer horizontal padding
-   - container-large / medium  → max-width wrappers
-   - padding-section-large     → vertical section padding
-   - heading-style-h1/h2/h3    → typography utilities
-   - margin-bottom / margin-top → spacing utilities
-   - button / button-secondary → reusable buttons
-   ========================================================================== */
+ *
+ *   ╔═══════════════════════════════════════════════════════════════╗
+ *   ║                                                               ║
+ *   ║          ACACIA LAKE CONSULTING — Proprietary Stylesheet      ║
+ *   ║                                                               ║
+ *   ║          © 2026 Acacia Lake Consulting                        ║
+ *   ║          Brownsville, Texas · Veteran Owned                   ║
+ *   ║                                                               ║
+ *   ║          All rights reserved. Unauthorized reproduction       ║
+ *   ║          or use of this stylesheet is strictly prohibited.    ║
+ *   ║                                                               ║
+ *   ║          cesarc@acacialakeconsulting.com                      ║
+ *   ║                                                               ║
+ *   ╚═══════════════════════════════════════════════════════════════╝
+ *
+ * ==========================================================================
+ *
+ *   ACACIA LAKE CONSULTING — LANDING PAGE
+ *   Built using Client-First (Webflow) naming conventions:
+ *   - section_[name]            → page sections
+ *   - padding-global            → outer horizontal padding
+ *   - container-large / medium  → max-width wrappers
+ *   - padding-section-large     → vertical section padding
+ *   - heading-style-h1/h2/h3    → typography utilities
+ *   - margin-bottom / margin-top → spacing utilities
+ *   - button / button-secondary → reusable buttons
+ *
+ * ========================================================================== */
 
 /* ---------- GLOBAL TOKENS ---------- */
 :root {
@@ -83,6 +139,11 @@ img { max-width: 100%; display: block; }
 .margin-bottom-small { margin-bottom: 1rem; }
 .margin-bottom-medium { margin-bottom: 2rem; }
 .margin-bottom-large { margin-bottom: 4rem; }
+
+/* Utility: hide sections that need real content before going live
+   (e.g. testimonials and insights — most work is under NDA).
+   Remove this class from a section to show it again. */
+.hidden-until-ready { display: none !important; }
 
 /* ---------- TYPOGRAPHY ---------- */
 .heading-style-h1 {
@@ -2627,7 +2688,7 @@ img { max-width: 100%; display: block; }
 <!-- ============================================================
      COMPONENT: ORNAMENTAL SECTION DIVIDER
      ============================================================ -->
-<div class="section-divider bg-offwhite">
+<div class="section-divider bg-offwhite hidden-until-ready">
   <span class="section-divider_line"></span>
   <span class="section-divider_ornament">✦</span>
   <span class="section-divider_line"></span>
@@ -2635,8 +2696,10 @@ img { max-width: 100%; display: block; }
 
 <!-- ============================================================
      SECTION: TESTIMONIALS — 3 cards
+     HIDDEN until real client quotes are available (NDA-protected work).
+     To show: remove "hidden-until-ready" class from the section below.
      ============================================================ -->
-<section class="section_testimonial padding-section-large">
+<section class="section_testimonial padding-section-large hidden-until-ready">
   <div class="padding-global">
     <div class="container-large">
       <div class="testimonials_header fade-in">
@@ -2696,8 +2759,11 @@ img { max-width: 100%; display: block; }
 
 <!-- ============================================================
      SECTION: INSIGHTS / RECENT WORK
+     HIDDEN until real published articles or case studies are ready.
+     Most current engagements are NDA-protected. To show: remove the
+     "hidden-until-ready" class from the section below.
      ============================================================ -->
-<section class="section_insights padding-section-large">
+<section class="section_insights padding-section-large hidden-until-ready">
   <div class="padding-global">
     <div class="container-large">
       <div class="insights_header fade-in">
@@ -2930,7 +2996,44 @@ img { max-width: 100%; display: block; }
      SCRIPTS
      ============================================================ -->
 <script>
+/* ==========================================================================
+ *
+ *   ╔═══════════════════════════════════════════════════════════════╗
+ *   ║                                                               ║
+ *   ║          ACACIA LAKE CONSULTING — Proprietary JavaScript      ║
+ *   ║                                                               ║
+ *   ║          © 2026 Acacia Lake Consulting                        ║
+ *   ║          Brownsville, Texas · Veteran Owned                   ║
+ *   ║                                                               ║
+ *   ║          All scripts and interactive behavior are the         ║
+ *   ║          intellectual property of Acacia Lake Consulting.     ║
+ *   ║          Unauthorized use is strictly prohibited.             ║
+ *   ║                                                               ║
+ *   ║          cesarc@acacialakeconsulting.com                      ║
+ *   ║                                                               ║
+ *   ╚═══════════════════════════════════════════════════════════════╝
+ *
+ * ========================================================================== */
+
 /* ---------- LOADING SCREEN + PROGRESS BAR ---------- */
+
+/* Console watermark — visible to anyone who opens browser DevTools */
+console.log(
+  '%c\n  Acacia Lake Consulting  \n',
+  'font-family: serif; font-size: 32px; font-style: italic; font-weight: 500; color: #c9a96e; background: #0a1d3a; padding: 16px 32px; border-radius: 4px;'
+);
+console.log(
+  '%c© 2026 Acacia Lake Consulting · Veteran Owned · Brownsville, Texas',
+  'font-family: sans-serif; font-size: 12px; letter-spacing: 0.2em; color: #0a1d3a; padding: 4px 0;'
+);
+console.log(
+  '%cInterested in our work? cesarc@acacialakeconsulting.com',
+  'font-family: sans-serif; font-size: 11px; color: #c9a96e; font-style: italic; padding: 2px 0;'
+);
+console.log(
+  '%cThis source code, design, and content are proprietary. All rights reserved.',
+  'font-family: sans-serif; font-size: 10px; color: #8a96a8; padding-bottom: 8px;'
+);
 window.addEventListener('load', () => {
   const progressFill = document.getElementById('loadingProgress');
   const progressText = document.getElementById('progressText');
@@ -3194,6 +3297,26 @@ function handleFormSubmit(event) {
   console.log('Form submission (replace with real handler):', data);
 }
 </script>
+
+<!--
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║   © 2026 ACACIA LAKE CONSULTING — All Rights Reserved.                       ║
+║                                                                              ║
+║   This website, including its design, code, copy, animations, and visual     ║
+║   composition, is the proprietary intellectual property of Acacia Lake       ║
+║   Consulting. No portion may be copied, reproduced, redistributed, or used   ║
+║   without prior written consent.                                             ║
+║                                                                              ║
+║   For licensing inquiries, partnership requests, or website consulting:      ║
+║   cesarc@acacialakeconsulting.com                                            ║
+║                                                                              ║
+║   Acacia Lake Consulting · Brownsville, Texas · Veteran Owned                ║
+║                                                                              ║
+║   "Discretion. Precision. Results."                                          ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+-->
 
 </body>
 </html>
