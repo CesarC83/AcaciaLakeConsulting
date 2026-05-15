@@ -31,6 +31,7 @@
 -->
 <html lang="en">
 <head>
+<meta name="robots" content="noindex">
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -41,7 +42,7 @@
 <meta name="owner" content="Acacia Lake Consulting" />
 <meta name="rights" content="Proprietary — All content, code, and design are property of Acacia Lake Consulting." />
 
-<title>Acacia Lake Consulting — Strategic Advisory & Security Solutions</title>
+<title>Page Not Found — Acacia Lake Consulting</title>
 
 <!-- ============ FONTS ============ -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -439,6 +440,9 @@ img { max-width: 100%; display: block; }
 }
 .nav_link:hover { color: var(--color-gold); }
 .nav_link:hover::after { width: 100%; }
+.nav_link--active { color: var(--color-gold); }
+.nav_link--active::after { width: 100%; }
+.section_nav.scrolled .nav_link--active { color: var(--color-gold); }
 
 .nav_cta {
   padding: 0.8rem 1.6rem;
@@ -2428,6 +2432,382 @@ img { max-width: 100%; display: block; }
   .pullquote_text { font-size: 1.75rem; }
 }
 
+/* ===========================================================
+   ABOUT PAGE — Founder cards, partnership grid, credentials
+   =========================================================== */
+
+/* About hero override — slightly more constrained */
+.hero_content--about {
+  padding: 12rem 5rem 8rem;
+  display: block;
+}
+
+/* Founders section */
+.section_founders {
+  background: var(--color-off-white);
+  position: relative;
+}
+.founders_header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+.founders_header .text-style-eyebrow {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+.founders_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 3rem;
+}
+
+/* When one founder card is hidden, center the remaining card */
+.founders_grid:has(.founder_card.hidden-until-ready) {
+  grid-template-columns: minmax(0, 720px);
+  justify-content: center;
+}
+
+/* Universally hide any element flagged not ready to display */
+.hidden-until-ready { display: none !important; }
+
+/* Each card uses subgrid so portrait | meta | bio | credentials align across both cards */
+.founder_card {
+  background: var(--color-white);
+  border: 1px solid var(--color-grey-soft);
+  border-radius: var(--radius-md);
+  padding: 3rem;
+  box-shadow: var(--shadow-soft);
+  transition: all var(--transition-base);
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 4;
+  gap: 0;
+}
+
+/* Fallback for browsers without subgrid support */
+@supports not (grid-template-rows: subgrid) {
+  .founders_grid { grid-template-rows: auto; }
+  .founder_card { display: flex; flex-direction: column; grid-row: auto; }
+}
+.founder_card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-medium);
+  border-color: rgba(212,164,55,0.3);
+}
+
+/* Portrait */
+.founder_portrait {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 2rem;
+  position: relative;
+  border: 3px solid var(--color-gold);
+  box-shadow: 0 8px 32px rgba(212,164,55,0.2);
+  background: linear-gradient(135deg, var(--color-navy-deep), var(--color-navy-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.founder_portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+.founder_portrait-placeholder-text {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 4rem;
+  color: var(--color-gold);
+  letter-spacing: 0.02em;
+  position: absolute;
+  z-index: 1;
+}
+
+/* Meta block (name, title, subtitle) */
+.founder_meta {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(12,26,46,0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.founder_credentials {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+.founder_name {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 500;
+  color: var(--color-navy-deep);
+  line-height: 1;
+  letter-spacing: -0.012em;
+  margin-bottom: 0.6rem;
+}
+.founder_title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--color-navy);
+  margin-bottom: 1rem;
+  letter-spacing: -0.005em;
+}
+
+/* Subtitle — reserved 3 lines so both cards align even if one card has fewer */
+.founder_subtitle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  color: var(--color-grey-text);
+  line-height: 1.5;
+  justify-content: center;
+}
+
+/* Bio — flex column so it fills available subgrid row space */
+.founder_bio {
+  display: flex;
+  flex-direction: column;
+}
+.founder_bio p {
+  font-size: 0.96rem;
+  line-height: 1.75;
+  color: #4a5568;
+  font-weight: 300;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.005em;
+}
+.founder_bio-summary {
+  margin-bottom: 0.75rem !important;
+}
+.founder_bio-expanded {
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.4s ease;
+}
+.founder_bio-expanded[hidden] {
+  display: block !important;
+  max-height: 0;
+  opacity: 0;
+  margin: 0;
+}
+.founder_bio-expanded:not([hidden]) {
+  max-height: 100rem;
+  opacity: 1;
+}
+.founder_bio-expanded p:first-child {
+  margin-top: 1rem;
+}
+.founder_bio p:last-of-type {
+  margin-bottom: 1.5rem;
+}
+
+/* Toggle button — discreet pill that matches the design system */
+.founder_bio-toggle {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0 2rem;
+  padding: 0.65rem 1.25rem;
+  background: transparent;
+  color: var(--color-navy-deep);
+  border: 1px solid rgba(12,26,46,0.2);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  white-space: nowrap;
+}
+.founder_bio-toggle:hover {
+  background: var(--color-navy-deep);
+  color: var(--color-white);
+  border-color: var(--color-navy-deep);
+  transform: translateY(-1px);
+}
+.founder_bio-toggle-arrow {
+  display: inline-block;
+  transition: transform var(--transition-base);
+  font-family: var(--font-body);
+}
+.founder_bio-toggle:hover .founder_bio-toggle-arrow {
+  transform: translateX(3px);
+}
+.founder_bio-toggle[aria-expanded="true"] .founder_bio-toggle-arrow {
+  transform: rotate(90deg);
+}
+.founder_bio-toggle[aria-expanded="true"]:hover .founder_bio-toggle-arrow {
+  transform: rotate(90deg) translateX(3px);
+}
+.founder_bio-toggle-label-less { display: none; }
+.founder_bio-toggle[aria-expanded="true"] .founder_bio-toggle-label-more { display: none; }
+.founder_bio-toggle[aria-expanded="true"] .founder_bio-toggle-label-less { display: inline; }
+
+/* Credentials list at bottom of bio */
+.founder_credentials-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(12,26,46,0.08);
+}
+.founder_credential {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+.founder_credential-label {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  font-weight: 600;
+  padding-top: 0.15rem;
+}
+.founder_credential-value {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--color-navy-deep);
+  font-weight: 400;
+}
+
+/* Partnership grid (on the dark approach section) */
+.partnership_grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+.partnership_pillar {
+  padding: 2.5rem 2rem;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+}
+.partnership_pillar:hover {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(212,164,55,0.3);
+  transform: translateY(-4px);
+}
+.partnership_pillar-number {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 2.2rem;
+  color: var(--color-gold);
+  line-height: 1;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+}
+.partnership_pillar-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--color-white);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+}
+.partnership_pillar-text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.7);
+  font-weight: 300;
+  letter-spacing: 0.005em;
+}
+
+/* Credentials bar */
+.section_credentials {
+  background: var(--color-off-white);
+  padding: 5rem 0 6rem;
+  border-top: 1px solid var(--color-grey-soft);
+}
+.credentials_label {
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  font-weight: 600;
+  margin-bottom: 3rem;
+}
+.credentials_grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(12,26,46,0.1);
+  border: 1px solid rgba(12,26,46,0.1);
+}
+.credential_item {
+  background: var(--color-off-white);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: background var(--transition-base);
+}
+.credential_item:hover {
+  background: var(--color-white);
+}
+.credential_name {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--color-navy-deep);
+  line-height: 1.1;
+  letter-spacing: -0.005em;
+  margin-bottom: 0.4rem;
+}
+.credential_role {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-grey-text);
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .hero_content--about { padding: 9rem 2rem 5rem; }
+  .founders_grid { grid-template-columns: 1fr; gap: 2rem; }
+  .founder_card { padding: 2rem; }
+  .partnership_grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .credentials_grid { grid-template-columns: repeat(2, 1fr); }
+  .founder_credential {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+}
+@media (max-width: 600px) {
+  .credentials_grid { grid-template-columns: repeat(2, 1fr); }
+  .founder_portrait { width: 140px; height: 140px; }
+}
+
+
 .footer_bottom {
   display: grid !important;
   grid-template-columns: 1fr auto 1fr;
@@ -2462,6 +2842,140 @@ img { max-width: 100%; display: block; }
     gap: 1rem;
   }
   .footer_bottom-left, .footer_bottom-right { text-align: center; }
+}
+
+/* ===========================================================
+   404 PAGE
+   =========================================================== */
+.section_hero--404 {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.hero_content--404 {
+  padding: 12rem 2rem 6rem;
+  display: block;
+}
+
+/* Big 4-0-4 display */
+.error_code {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 2.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.05em;
+  user-select: none;
+}
+.error_code-digit {
+  font-size: clamp(5rem, 14vw, 11rem);
+  color: rgba(255,255,255,0.15);
+  font-feature-settings: "lnum";
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  transition: color 0.4s ease;
+}
+.error_code-digit--accent {
+  color: var(--color-gold);
+  font-style: italic;
+  text-shadow: 0 0 60px rgba(212,164,55,0.4);
+}
+
+/* Action buttons row */
+.error_actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+
+/* Suggestions row */
+.error_suggestions {
+  padding: 2rem 0;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 3rem;
+}
+.error_suggestions-label {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 1.25rem;
+}
+.error_suggestions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.error_suggestion-link {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  transition: color var(--transition-base);
+  letter-spacing: -0.005em;
+}
+.error_suggestion-link:hover { color: var(--color-gold); }
+.error_suggestion-divider {
+  color: rgba(255,255,255,0.25);
+  font-size: 1rem;
+  user-select: none;
+}
+
+/* Emergency contact stripe */
+.error_emergency {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.8rem 1.6rem;
+  background: rgba(220,75,90,0.08);
+  border: 1px solid rgba(220,75,90,0.3);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+}
+.error_emergency-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e85a6b;
+  box-shadow: 0 0 10px rgba(232,90,107,0.9), 0 0 20px rgba(232,90,107,0.4);
+  animation: emergencyPulse 2.2s ease-in-out infinite;
+}
+.error_emergency-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #e85a6b;
+  font-weight: 600;
+}
+.error_emergency-number {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--color-white);
+  text-decoration: none;
+  transition: color var(--transition-base);
+  letter-spacing: -0.005em;
+}
+.error_emergency-number:hover { color: var(--color-gold); }
+
+@media (max-width: 768px) {
+  .hero_content--404 { padding: 9rem 1.5rem 4rem; }
+  .error_code { margin-bottom: 1.5rem; }
+  .error_actions { flex-direction: column; align-items: stretch; }
+  .error_suggestions-list { flex-direction: column; gap: 0.5rem; }
+  .error_suggestion-divider { display: none; }
+  .error_emergency { flex-direction: column; gap: 0.4rem; padding: 1rem 1.5rem; }
 }
 </style>
 </head>
@@ -2500,829 +3014,75 @@ img { max-width: 100%; display: block; }
      ============================================================ -->
 <nav class="section_nav" id="navbar">
   <div class="nav_container">
-    <a href="#" class="nav_logo">
+    <a href="index.html" class="nav_logo">
       <span class="nav_logo-main">Acacia<span class="accent"> Lake</span></span>
       <span class="nav_logo-sub">Consulting</span>
     </a>
     <ul class="nav_menu">
       <li><a href="about.html" class="nav_link">About</a></li>
-      <li><a href="#services" class="nav_link">Services</a></li>
-      <li><a href="#approach" class="nav_link">Approach</a></li>
+      <li><a href="index.html#services" class="nav_link">Services</a></li>
+      <li><a href="index.html#approach" class="nav_link">Approach</a></li>
       <li><a href="#contact" class="nav_link">Contact</a></li>
     </ul>
-    <a href="#contact" class="nav_cta">Book Consultation</a>
+    <a href="index.html#contact" class="nav_cta">Book Consultation</a>
   </div>
 </nav>
 
 <!-- ============================================================
-     SECTION: HERO
+     SECTION: 404 HERO
      ============================================================ -->
-<section class="section_hero">
+<section class="section_hero section_hero--404">
   <div class="hero_bg-gradient parallax" data-parallax-speed="0.3"></div>
   <div class="hero_bg-grid parallax" data-parallax-speed="0.15"></div>
   <div class="hero_bg-noise"></div>
 
-  <div class="hero_content">
-    <!-- Left: Text -->
-    <div class="hero_text-wrapper">
-      <div class="veteran-badge">
-        <span class="veteran-badge-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2L4 6v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V6l-8-4z"/>
-            <path d="M9 12l2 2 4-4"/>
-          </svg>
-        </span>
-        Veteran Owned & Operated
+  <div class="hero_content hero_content--404">
+    <div class="hero_text-wrapper" style="max-width: 820px; margin: 0 auto; text-align: center;">
+
+      <div class="error_code">
+        <span class="error_code-digit">4</span><span class="error_code-digit error_code-digit--accent">0</span><span class="error_code-digit">4</span>
       </div>
-      <div class="hero_eyebrow">Strategic Consulting Group</div>
-      <h1 class="hero_heading">
-        <span class="line">Where Vision</span>
-        <span class="line"><span class="italic">Meets</span> Execution.</span>
+
+      <div class="hero_eyebrow" style="justify-content: center;">Page Not Found</div>
+
+      <h1 class="hero_heading" style="text-align: center;">
+        <span class="line">This page</span>
+        <span class="line"><span class="italic">isn't on the map.</span></span>
       </h1>
-      <p class="hero_description">
-        Acacia Lake Consulting partners with founders, executives, and operators to solve mission-critical problems — from startup strategy and legal operations to physical security, oilfield emergency response, and enterprise technology.
+
+      <p class="hero_description" style="max-width: 600px; margin: 0 auto 3rem;">
+        The page you were looking for may have been moved, renamed, or never existed. Our apologies for the friction.
       </p>
-      <div class="hero_button-group">
-        <a href="#contact" class="hero_button-primary">
-          Schedule a Consultation
+
+      <div class="error_actions">
+        <a href="index.html" class="hero_button-primary">
+          Return Home
           <span>→</span>
         </a>
-        <a href="#services" class="button-secondary">Explore Services</a>
-      </div>
-    </div>
-
-    <!-- Right: Animated visual canvas -->
-    <div class="hero_visual parallax" data-parallax-speed="-0.12">
-      <div class="hero_canvas">
-        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#d4a437" stop-opacity="0.4"/>
-              <stop offset="50%" stop-color="#d4a437" stop-opacity="0.1"/>
-              <stop offset="100%" stop-color="#d4a437" stop-opacity="0"/>
-            </radialGradient>
-            <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#d4a437" stop-opacity="0.8"/>
-              <stop offset="100%" stop-color="#d4a437" stop-opacity="0.2"/>
-            </linearGradient>
-          </defs>
-
-          <!-- Background glow -->
-          <circle cx="200" cy="200" r="180" fill="url(#centerGlow)"/>
-
-          <!-- Compass tick marks (slowly rotating) -->
-          <g class="compass-tick">
-            <g stroke="rgba(212,164,55,0.3)" stroke-width="1">
-              <line x1="200" y1="40" x2="200" y2="55"/>
-              <line x1="200" y1="345" x2="200" y2="360"/>
-              <line x1="40" y1="200" x2="55" y2="200"/>
-              <line x1="345" y1="200" x2="360" y2="200"/>
-              <line x1="87" y1="87" x2="98" y2="98"/>
-              <line x1="302" y1="302" x2="313" y2="313"/>
-              <line x1="87" y1="313" x2="98" y2="302"/>
-              <line x1="302" y1="98" x2="313" y2="87"/>
-            </g>
-            <g stroke="rgba(212,164,55,0.15)" stroke-width="0.5">
-              <line x1="200" y1="60" x2="200" y2="68"/>
-              <line x1="200" y1="332" x2="200" y2="340"/>
-              <line x1="60" y1="200" x2="68" y2="200"/>
-              <line x1="332" y1="200" x2="340" y2="200"/>
-            </g>
-          </g>
-
-          <!-- Outer ring -->
-          <g class="compass-ring">
-            <circle cx="200" cy="200" r="160" fill="none" stroke="rgba(212,164,55,0.25)" stroke-width="1" stroke-dasharray="2,8"/>
-          </g>
-
-          <!-- Middle ring -->
-          <g class="compass-ring-2">
-            <circle cx="200" cy="200" r="120" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
-            <circle cx="200" cy="60" r="3" fill="#d4a437"/>
-            <circle cx="340" cy="200" r="2" fill="rgba(255,255,255,0.4)"/>
-          </g>
-
-          <!-- Inner ring -->
-          <g class="compass-ring-3">
-            <circle cx="200" cy="200" r="85" fill="none" stroke="url(#ringGrad)" stroke-width="1"/>
-            <circle cx="200" cy="115" r="2" fill="#d4a437"/>
-            <circle cx="285" cy="200" r="2" fill="rgba(255,255,255,0.5)"/>
-            <circle cx="200" cy="285" r="2" fill="#d4a437"/>
-            <circle cx="115" cy="200" r="2" fill="rgba(255,255,255,0.5)"/>
-          </g>
-
-          <!-- Orbiting dots -->
-          <g class="compass-orbit-dot">
-            <circle cx="200" cy="40" r="4" fill="#d4a437" opacity="0.9"/>
-          </g>
-          <g class="compass-orbit-dot-2">
-            <circle cx="370" cy="200" r="3" fill="rgba(255,255,255,0.7)"/>
-          </g>
-
-          <!-- Crosshairs through center -->
-          <line x1="200" y1="170" x2="200" y2="230" stroke="rgba(212,164,55,0.4)" stroke-width="0.8"/>
-          <line x1="170" y1="200" x2="230" y2="200" stroke="rgba(212,164,55,0.4)" stroke-width="0.8"/>
-
-          <!-- Center -->
-          <g class="compass-center-dot">
-            <circle cx="200" cy="200" r="10" fill="none" stroke="#d4a437" stroke-width="1.5"/>
-            <circle cx="200" cy="200" r="4" fill="#d4a437"/>
-          </g>
-
-          <!-- Compass labels -->
-          <text x="200" y="30" text-anchor="middle" fill="rgba(212,164,55,0.5)" font-family="Playfair Display, serif" font-size="11" font-style="italic" letter-spacing="2">N</text>
-          <text x="378" y="205" text-anchor="middle" fill="rgba(212,164,55,0.3)" font-family="Playfair Display, serif" font-size="11" font-style="italic" letter-spacing="2">E</text>
-          <text x="200" y="382" text-anchor="middle" fill="rgba(212,164,55,0.3)" font-family="Playfair Display, serif" font-size="11" font-style="italic" letter-spacing="2">S</text>
-          <text x="22" y="205" text-anchor="middle" fill="rgba(212,164,55,0.3)" font-family="Playfair Display, serif" font-size="11" font-style="italic" letter-spacing="2">W</text>
-        </svg>
-
-        <div class="hero_canvas-stats">
-          <div>
-            <div class="hero_stat-number">11</div>
-            <div class="hero_stat-label">Practice Areas</div>
-          </div>
-          <div>
-            <div class="hero_stat-number">200<span style="color:var(--color-gold)">+</span></div>
-            <div class="hero_stat-label">Engagements</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="hero_scroll">
-    <span>Scroll</span>
-    <div class="hero_scroll-line"></div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SECTION: TRUST SIGNALS BAR
-     ============================================================ -->
-<section class="section_trust-signals">
-  <div class="padding-global">
-    <div class="container-large">
-      <div class="trust-signals_grid">
-        <div class="trust-signal">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2L4 6v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V6l-8-4z"/>
-            <path d="M9 12l2 2 4-4"/>
-          </svg>
-          Veteran Owned
-        </div>
-        <div class="trust-signal emergency">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <path d="M12 8v4l3 2"/>
-          </svg>
-          24/7 Emergency Response
-        </div>
-        <div class="trust-signal">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20 7L9 18l-5-5"/>
-          </svg>
-          Confidential by Default
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SECTION: TRUSTED BY (Marquee)
-     ============================================================ -->
-<section class="section_trusted">
-  <div class="trusted_label">Industries We Serve</div>
-  <div class="marquee">
-    <div class="marquee_item">Energy</div>
-    <div class="marquee_item marquee_dot">✦</div>
-    <div class="marquee_item">Legal</div>
-    <div class="marquee_item marquee_dot">✦</div>
-    <div class="marquee_item">Technology</div>
-    <div class="marquee_item marquee_dot">✦</div>
-    <div class="marquee_item">Security</div>
-    <div class="marquee_item marquee_dot">✦</div>
-    <div class="marquee_item">Startups</div>
-    <div class="marquee_item marquee_dot">✦</div>
-    <div class="marquee_item">Government</div>
-    <div class="marquee_item marquee_dot">✦</div>
-    <div class="marquee_item">Energy</div>
-    <div class="marquee_item marquee_dot">✦</div>
-    <div class="marquee_item">Legal</div>
-    <div class="marquee_item marquee_dot">✦</div>
-    <div class="marquee_item">Technology</div>
-    <div class="marquee_item marquee_dot">✦</div>
-    <div class="marquee_item">Security</div>
-    <div class="marquee_item marquee_dot">✦</div>
-    <div class="marquee_item">Startups</div>
-    <div class="marquee_item marquee_dot">✦</div>
-    <div class="marquee_item">Government</div>
-    <div class="marquee_item marquee_dot">✦</div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SECTION: ABOUT
-     ============================================================ -->
-<section class="section_about padding-section-large" id="about">
-  <div class="padding-global">
-    <div class="container-large">
-      <div class="about_grid">
-        <div class="about_left fade-in">
-          <div class="about_quote-mark">"</div>
-          <div class="text-style-eyebrow margin-bottom-small">About the Firm</div>
-          <h2 class="about_heading">
-            Discretion. Precision. <span class="italic">Results.</span>
-          </h2>
-        </div>
-        <div class="about_right fade-in">
-          <div class="about_body">
-            <p>
-              Acacia Lake Consulting is a veteran-owned firm founded on a single belief: that the most consequential decisions in business deserve advisors who treat them with the gravity they deserve. We bring decades of cross-disciplinary expertise to every engagement — pairing strategic clarity with operational discipline.
-            </p>
-            <p>
-              Whether guiding an early-stage founder through their first capital raise, hardening a law firm's digital infrastructure, or coordinating emergency response on an active oilfield site, we operate as a trusted extension of your team. Our work is quiet, our outcomes loud.
-            </p>
-            <p>
-              We don't sell deliverables. We deliver judgment.
-            </p>
-          </div>
-          <div class="about_signature">
-            <div>
-              <div class="about_signature-name">Acacia Lake Consulting</div>
-              <div class="about_signature-title">Founders & Principal Advisors</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SECTION: SERVICES
-     ============================================================ -->
-<section class="section_services padding-section-large" id="services">
-  <div class="padding-global">
-    <div class="container-large">
-
-      <div class="services_header fade-in">
-        <div class="text-style-eyebrow margin-bottom-small">Our Practice Areas</div>
-        <h2 class="heading-style-h2 margin-bottom-medium">
-          Eleven disciplines.<br>
-          <span class="text-style-italic">One unified standard.</span>
-        </h2>
-        <p class="text-style-lead">
-          Every engagement is led by a senior principal. Every recommendation is grounded in operator-level experience.
-        </p>
+        <a href="index.html#contact" class="hero_button-secondary">
+          Contact the Firm
+        </a>
       </div>
 
-      <!-- COMPONENT: Filter Tabs -->
-      <div class="services_filters fade-in">
-        <button class="filter-tab active" data-filter="all">All</button>
-        <button class="filter-tab" data-filter="strategy">Strategy</button>
-        <button class="filter-tab" data-filter="security">Security</button>
-        <button class="filter-tab" data-filter="technology">Technology</button>
-        <button class="filter-tab" data-filter="communications">Communications</button>
+      <div class="error_suggestions">
+        <div class="error_suggestions-label">Looking for something specific?</div>
+        <ul class="error_suggestions-list">
+          <li><a href="index.html#services" class="error_suggestion-link">Practice Areas</a></li>
+          <li><span class="error_suggestion-divider">·</span></li>
+          <li><a href="about.html" class="error_suggestion-link">About the Firm</a></li>
+          <li><span class="error_suggestion-divider">·</span></li>
+          <li><a href="index.html#approach" class="error_suggestion-link">Our Approach</a></li>
+          <li><span class="error_suggestion-divider">·</span></li>
+          <li><a href="index.html#contact" class="error_suggestion-link">Begin a Conversation</a></li>
+        </ul>
       </div>
 
-      <div class="services_grid">
-
-        <!-- COMPONENT: Service Card -->
-        <div class="service_card stagger-item" data-category="strategy" data-num="01" data-category-label="Strategy" data-title="Startups & Small Business" data-lead="Founders don't need more advice. They need fewer wrong moves." data-deliverables="Incorporation, equity, and capital structure advisory || Fundraising readiness — pitch, financials, and diligence preparation || Brand positioning, naming, and messaging architecture || Marketing strategy and go-to-market planning || Operational systems setup — finance, HR, and tooling stack" data-who-we-serve="Founders building serious companies — pre-seed through Series A — and established small businesses entering a new growth phase, an acquisition, or a leadership transition." data-why="We've sat on every side of the table — founder, operator, advisor, investor. We tell you what's actually going to break before it breaks, and we help you build the muscle to handle it." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 STRATEGY&quot;, &quot;lead&quot;: &quot;The early decisions are the ones that compound \u2014 for good or for ruin.&quot;, &quot;deliverables&quot;: [&quot;Incorporation strategy, entity structuring, and operating agreement review&quot;, &quot;Fundraising readiness \u2014 pitch refinement, financial modeling, and investor materials&quot;, &quot;Brand positioning and go-to-market strategy&quot;, &quot;Marketing infrastructure \u2014 digital presence, lead generation, and analytics setup&quot;], &quot;who&quot;: &quot;Founders raising their first capital. Owner-operators ready to scale beyond a side project. Small businesses that have outgrown DIY tools and need real structure.&quot;, &quot;why&quot;: &quot;We&#39;ve sat on every side of the table \u2014 operator, investor, and advisor. We don&#39;t sell templates. We give you the same judgment we&#39;d apply to our own ventures.&quot;, &quot;form_value&quot;: &quot;startups&quot;}">
-          <div class="service_number">— 01</div>
-          <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
-          </svg>
-          <h3 class="service_title">Startups & Small Business</h3>
-          <p class="service_description">From incorporation strategy to fundraising readiness, brand positioning, and marketing — we help founders build companies that survive scrutiny and scale with discipline.</p>
-          <span class="service_arrow">Learn More →</span>
-        </div>
-
-        <div class="service_card stagger-item" data-category="strategy" data-num="02" data-category-label="Strategy" data-title="Legal Practice Operations" data-lead="Operational discipline is what separates law firms that scale from those that simply survive." data-deliverables="Examinations under oath (EUOs) — preparation, conduct, and documentation || Case workflow design and bottleneck remediation || Practice management system selection and implementation || Document operations, intake automation, and client routing || Ethical compliance review and operational risk assessment" data-who-we-serve="High-volume legal practices — personal injury, insurance defense, family law, and litigation firms where caseload velocity is the difference between profitability and burnout." data-why="Most operational consultants don't understand the cadence of legal work. We do. Every recommendation is calibrated to the reality of court schedules, discovery deadlines, and client expectations." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 STRATEGY&quot;, &quot;lead&quot;: &quot;High-volume law firms win on systems, not heroics.&quot;, &quot;deliverables&quot;: [&quot;Examinations under oath (EUO) preparation and process optimization&quot;, &quot;Case workflow streamlining and document operations&quot;, &quot;Practice management consulting \u2014 billing, intake, and capacity planning&quot;, &quot;Technology stack design for legal-specific tools and ethical compliance&quot;], &quot;who&quot;: &quot;Plaintiff firms, defense practices, and solo attorneys handling high case volume. Insurance defense teams managing EUOs at scale. Firms scaling from regional to multi-state.&quot;, &quot;why&quot;: &quot;We understand the discipline of legal work. Our recommendations respect the regulatory environment, the privilege boundaries, and the pace your team actually moves at.&quot;, &quot;form_value&quot;: &quot;legal-ops&quot;}">
-          <div class="service_number">— 02</div>
-          <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-            <path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M9 13h.01M9 17h.01M15 9h.01M15 13h.01M15 17h.01"/>
-          </svg>
-          <h3 class="service_title">Legal Practice Operations</h3>
-          <p class="service_description">Examinations under oath (EUOs), case workflow streamlining, practice management, and document operations for high-volume legal practices.</p>
-          <span class="service_arrow">Learn More →</span>
-        </div>
-
-        <div class="service_card stagger-item" data-category="communications" data-num="03" data-category-label="Communications" data-title="Legal Marketing & Client Outreach" data-lead="The best lawyer in town is irrelevant if the right clients can't find them." data-deliverables="Market research and competitive positioning analysis || Client acquisition strategy and outreach campaigns || Brand positioning for partners, practice groups, and the firm || Digital presence audit — website, search, and reputation || Referral network development and intake conversion optimization" data-who-we-serve="Law firms ready to grow — solo practices building their first marketing engine, mid-sized firms entering new practice areas, and partners looking to build their book of business." data-why="We market law firms the way we'd want our own firm marketed — with discretion, professionalism, and an obsession with measurable client acquisition rather than vanity metrics." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 COMMUNICATIONS&quot;, &quot;lead&quot;: &quot;The best lawyers don&#39;t always have the best client pipelines.&quot;, &quot;deliverables&quot;: [&quot;Market research \u2014 identifying high-value case types and underserved geographies&quot;, &quot;Client acquisition strategy and outreach campaign design&quot;, &quot;Brand positioning that withstands the ethical scrutiny of legal advertising&quot;, &quot;Conversion-focused web presence and intake optimization&quot;], &quot;who&quot;: &quot;Law firms that want to grow without compromising professionalism. Solo and small firms looking to build a steady client pipeline. Practices entering new markets.&quot;, &quot;why&quot;: &quot;Legal marketing fails when it sounds like marketing. We help you build a presence that signals competence first \u2014 and converts because of it.&quot;, &quot;form_value&quot;: &quot;legal-marketing&quot;}">
-          <div class="service_number">— 03</div>
-          <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-            <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09a1.65 1.65 0 00-1-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09a1.65 1.65 0 001.51-1 1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33h.01a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82v.01a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/>
-          </svg>
-          <h3 class="service_title">Legal Marketing & Client Outreach</h3>
-          <p class="service_description">Market research, client acquisition strategy, outreach campaigns, and brand positioning for law firms looking to grow disciplined, sustainable practices.</p>
-          <span class="service_arrow">Learn More →</span>
-        </div>
-
-        <div class="service_card stagger-item" data-category="security" data-num="04" data-category-label="Security" data-title="Oilfield Emergency Management" data-lead="When an incident escalates, command structure is the difference between contained and catastrophic." data-deliverables="Incident command planning and on-site response coordination || Pre-incident operational risk assessments and tabletop exercises || Regulatory readiness documentation and audit support || 24/7 emergency response activation for active wellsites || Post-incident review, root cause analysis, and corrective action plans" data-who-we-serve="Upstream and midstream operators with active wells across Texas, South Dakota, and other producing states. Whether your operation is two rigs or two hundred, our response model scales." data-why="Our principals have stood on active wellsites during incidents. We don't deliver theoretical frameworks — we deliver judgment honed in the field, ready when the call comes in at 3 a.m." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 SECURITY&quot;, &quot;lead&quot;: &quot;When an incident escalates, command structure is the difference between contained and catastrophic.&quot;, &quot;deliverables&quot;: [&quot;Incident command planning and on-site response coordination&quot;, &quot;Pre-incident operational risk assessments and mitigation planning&quot;, &quot;Regulatory readiness documentation and audit support&quot;, &quot;24/7 emergency response activation for active wellsites&quot;], &quot;who&quot;: &quot;Upstream and midstream operators with active wells across Texas, South Dakota, and other producing states. From two-rig independents to multi-basin operators.&quot;, &quot;why&quot;: &quot;Our principals have stood on active wellsites during incidents. We don&#39;t deliver theoretical frameworks \u2014 we deliver judgment honed in the field.&quot;, &quot;form_value&quot;: &quot;oilfield&quot;}">
-          <div class="service_number">— 04</div>
-          <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-            <path d="M12 2v6m0 0l-3-3m3 3l3-3M4 13l2 7h12l2-7M4 13a2 2 0 012-2h12a2 2 0 012 2"/>
-          </svg>
-          <h3 class="service_title">Oilfield Emergency Management</h3>
-          <p class="service_description">Incident command planning, crisis response coordination, and regulatory readiness for upstream and midstream operators with active wells across Texas, South Dakota, and other producing states.</p>
-          <span class="service_arrow">Learn More →</span>
-        </div>
-
-        <div class="service_card stagger-item" data-category="security" data-num="05" data-category-label="Security" data-title="Force Protection & InfoSec" data-lead="Threats don't announce themselves. The disciplined ones quietly assess your weaknesses first." data-deliverables="Threat assessment for personnel, facilities, and operations || Executive protection planning and travel security advisories || Operational security (OpSec) doctrine and training || Information security (InfoSec) program design and implementation || Insider threat detection programs and behavioral indicator training" data-who-we-serve="Energy operators, law firms, political candidates, executives, and any organization where the threat surface extends beyond a firewall — into physical, operational, and human-factor risk." data-why="Veteran-led. We approach force protection the way we were trained to — with discipline, redundancy, and a relentless focus on the threats most teams don't think to plan for." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 SECURITY&quot;, &quot;lead&quot;: &quot;The most expensive threats are the ones you didn&#39;t know to watch for.&quot;, &quot;deliverables&quot;: [&quot;Threat assessment and executive protection planning&quot;, &quot;Operational security (OpSec) programs for sensitive personnel and operations&quot;, &quot;Information security (InfoSec) policy design and implementation&quot;, &quot;Insider threat programs \u2014 detection, response, and prevention&quot;], &quot;who&quot;: &quot;Executives, family offices, and organizations with elevated risk profiles. Energy operators, political figures, legal professionals handling sensitive matters.&quot;, &quot;why&quot;: &quot;Our team brings military and protective service experience. We assess risk the way adversaries plan attacks \u2014 from the outside in.&quot;, &quot;form_value&quot;: &quot;force-protection&quot;}">
-          <div class="service_number">— 05</div>
-          <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-            <path d="M12 2L4 6v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V6l-8-4z"/>
-          </svg>
-          <h3 class="service_title">Force Protection & InfoSec</h3>
-          <p class="service_description">Threat assessment, executive protection, operational security (OpSec), information security (InfoSec), and insider threat programs for personnel, assets, and sensitive data.</p>
-          <span class="service_arrow">Learn More →</span>
-        </div>
-
-        <div class="service_card stagger-item" data-category="security" data-num="06" data-category-label="Security" data-title="Physical Security" data-lead="A well-designed perimeter quietly does its job. A poorly designed one teaches your adversaries everything they need to know." data-deliverables="Facility hardening assessments and remediation roadmaps || Access control system design, vendor selection, and integration || Surveillance architecture — camera placement, retention, and monitoring || Security operations center (SOC) design and procedure documentation || Site-specific security plans for commercial, industrial, and field operations" data-who-we-serve="Commercial real estate, industrial facilities, energy infrastructure, and any operation where physical site security needs to function as a layered, integrated system — not a bolt-on after-thought." data-why="We design physical security the way an adversary would attempt to defeat it. Every recommendation accounts for how the system fails — not just how it works on a clear day." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 SECURITY&quot;, &quot;lead&quot;: &quot;A facility is only as secure as its weakest entry, sightline, and routine.&quot;, &quot;deliverables&quot;: [&quot;Facility hardening assessments and remediation planning&quot;, &quot;Access control system design and deployment&quot;, &quot;Surveillance architecture and security operations center (SOC) design&quot;, &quot;Security personnel training and procedural development&quot;], &quot;who&quot;: &quot;Commercial properties, industrial sites, government facilities, and high-value private estates. Operators who need to balance security with day-to-day usability.&quot;, &quot;why&quot;: &quot;We design security that real people can live and work with. No overbuilt theater \u2014 just effective, layered protection that holds up under audit and incident.&quot;, &quot;form_value&quot;: &quot;physical-security&quot;}">
-          <div class="service_number">— 06</div>
-          <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-            <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
-          </svg>
-          <h3 class="service_title">Physical Security</h3>
-          <p class="service_description">Facility hardening, access control systems, surveillance architecture, and security operations center design for commercial and industrial sites.</p>
-          <span class="service_arrow">Learn More →</span>
-        </div>
-
-        <div class="service_card stagger-item" data-category="technology" data-num="07" data-category-label="Technology" data-title="Website Design" data-lead="Your website is the first impression. We make sure it's the right one." data-deliverables="Brand-aligned web design with conversion-optimized architecture || Platform selection — Webflow, WordPress, Cloudflare, Wix, or custom || Hosting strategy matched to budget, traffic, and maintenance comfort || Performance optimization, SEO foundations, and accessibility compliance || Ongoing support, content updates, and analytics-driven iteration" data-who-we-serve="Professional services firms, small businesses, political campaigns, and operators who need a serious web presence — and who need a partner who'll choose the right tool rather than push their preferred one." data-why="We meet clients at their budget and hosting needs. A $500 Wix site can be elegant. A $10,000 Webflow build can be exceptional. We tell you which one your business actually needs." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 TECHNOLOGY&quot;, &quot;lead&quot;: &quot;The right website isn&#39;t the most expensive \u2014 it&#39;s the right tool for your budget and stage.&quot;, &quot;deliverables&quot;: [&quot;Platform selection \u2014 Webflow, WordPress, Cloudflare, Wix, or custom build&quot;, &quot;Brand-aligned design and conversion-focused architecture&quot;, &quot;Performance optimization, SEO foundation, and analytics setup&quot;, &quot;Hosting strategy matched to traffic and budget realities&quot;], &quot;who&quot;: &quot;Small businesses, law firms, campaigns, and consulting practices. Anyone who&#39;s been quoted $15,000 for a website that should cost $1,500 \u2014 or vice versa.&quot;, &quot;why&quot;: &quot;We&#39;re platform-agnostic. We recommend what&#39;s right for your business, not what&#39;s easiest for us to bill. Most clients leave with a site they can actually maintain.&quot;, &quot;form_value&quot;: &quot;web-design&quot;}">
-          <div class="service_number">— 07</div>
-          <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-            <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
-          </svg>
-          <h3 class="service_title">Website Design</h3>
-          <p class="service_description">Brand-aligned, performance-optimized websites built on the right platform for each client — Webflow, WordPress, Cloudflare, Wix, or custom — matched to your budget and hosting needs.</p>
-          <span class="service_arrow">Learn More →</span>
-        </div>
-
-        <div class="service_card stagger-item" data-category="security" data-num="08" data-category-label="Security" data-title="Cyber Security" data-lead="Most breaches aren't sophisticated. They're patient. Cyber defense is a discipline, not a product." data-deliverables="Threat modeling and security posture audits || Penetration testing oversight and remediation prioritization || Incident response planning, playbooks, and tabletop exercises || Endpoint, email, and identity security architecture review || Vendor risk assessments and third-party access controls" data-who-we-serve="Small to mid-sized businesses without a dedicated CISO — law firms, energy operators, professional services, and any organization handling sensitive client data who needs an outside perspective on their defenses." data-why="We're not selling you software. We're identifying where your real exposure is and giving you a prioritized path to close it — with or without our continued involvement." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 SECURITY&quot;, &quot;lead&quot;: &quot;Most breaches don&#39;t come from sophisticated attacks. They come from gaps you didn&#39;t audit.&quot;, &quot;deliverables&quot;: [&quot;Security posture audits and threat modeling&quot;, &quot;Penetration testing oversight and remediation planning&quot;, &quot;Incident response planning and tabletop exercises&quot;, &quot;Compliance support \u2014 HIPAA, PCI, SOC 2, and industry-specific frameworks&quot;], &quot;who&quot;: &quot;Small to mid-sized businesses handling sensitive client data. Law firms, energy operators, and political campaigns. Organizations recovering from an incident.&quot;, &quot;why&quot;: &quot;We don&#39;t sell fear. We translate cyber risk into business decisions \u2014 what to fix now, what to monitor, and what&#39;s not worth your money.&quot;, &quot;form_value&quot;: &quot;cyber&quot;}">
-          <div class="service_number">— 08</div>
-          <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-            <path d="M12 22s8-4 8-12V4l-8-2-8 2v6c0 8 8 12 8 12z"/><path d="M9 12l2 2 4-4"/>
-          </svg>
-          <h3 class="service_title">Cyber Security</h3>
-          <p class="service_description">Threat modeling, penetration testing oversight, incident response planning, and security posture audits for businesses of every size.</p>
-          <span class="service_arrow">Learn More →</span>
-        </div>
-
-        <div class="service_card stagger-item" data-category="technology" data-num="09" data-category-label="Technology" data-title="Networking" data-lead="A network is either an asset or a liability. The middle ground is just downtime waiting to happen." data-deliverables="Enterprise network architecture design and segmentation strategy || Wired and wireless infrastructure deployment and configuration || VPN, remote access, and site-to-site connectivity planning || Network monitoring, redundancy, and disaster recovery planning || Vendor selection and managed service provider evaluation" data-who-we-serve="Multi-site businesses, professional firms with hybrid workforces, and operators expanding into new locations who need their network to be a quiet enabler — not a daily fire." data-why="We design networks for the way your business actually operates — not the way a manufacturer's reference architecture says it should. Every recommendation is tested against real-world failure modes." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 TECHNOLOGY&quot;, &quot;lead&quot;: &quot;Resilient networks aren&#39;t built \u2014 they&#39;re designed with failure in mind.&quot;, &quot;deliverables&quot;: [&quot;Enterprise network architecture and segmentation strategy&quot;, &quot;Wired and wireless infrastructure deployment&quot;, &quot;VPN, remote access, and zero-trust implementation&quot;, &quot;Network monitoring and performance optimization&quot;], &quot;who&quot;: &quot;Growing businesses outgrowing consumer-grade equipment. Law firms and medical practices with compliance requirements. Multi-site operations needing reliability.&quot;, &quot;why&quot;: &quot;We build networks that don&#39;t require an in-house IT team to maintain. Documentation is included. Vendor lock-in is avoided.&quot;, &quot;form_value&quot;: &quot;networking&quot;}">
-          <div class="service_number">— 09</div>
-          <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-            <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/>
-          </svg>
-          <h3 class="service_title">Networking</h3>
-          <p class="service_description">Enterprise network architecture, segmentation strategy, and infrastructure deployment for resilient, secure, scalable operations.</p>
-          <span class="service_arrow">Learn More →</span>
-        </div>
-
-        <div class="service_card stagger-item" data-category="technology" data-num="10" data-category-label="Technology" data-title="IT Upgrades & Updates" data-lead="Legacy systems are working — until they aren't. The transition is where most operations break." data-deliverables="Legacy system audits and modernization roadmaps || Hardware refresh planning and procurement coordination || Cloud migration strategy — Microsoft 365, Google Workspace, or hybrid || Managed service provider transitions without operational downtime || End-user training and change management for new platforms" data-who-we-serve="Established small and mid-sized businesses running on aging infrastructure, post-acquisition operations consolidating systems, and any organization that knows its IT is overdue for attention." data-why="We've executed transitions where operational continuity wasn't optional. We know how to upgrade what you're running on — without your team feeling the pain or your clients noticing." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 TECHNOLOGY&quot;, &quot;lead&quot;: &quot;Legacy systems don&#39;t fail at convenient times. They fail at the worst possible moment.&quot;, &quot;deliverables&quot;: [&quot;Legacy system assessment and modernization roadmap&quot;, &quot;Hardware refresh planning and procurement&quot;, &quot;Cloud migration strategy and execution&quot;, &quot;Managed service transitions without operational downtime&quot;], &quot;who&quot;: &quot;Established businesses running on systems that have aged out of support. Firms preparing for audits, sales, or rapid growth. Organizations whose IT has become a liability.&quot;, &quot;why&quot;: &quot;We modernize without disruption. Most of our migrations happen with zero downtime \u2014 because the wrong upgrade strategy costs more than the upgrade itself.&quot;, &quot;form_value&quot;: &quot;it-upgrades&quot;}">
-          <div class="service_number">— 10</div>
-          <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-            <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/><path d="M12 6v6l4 2"/>
-          </svg>
-          <h3 class="service_title">IT Upgrades & Updates</h3>
-          <p class="service_description">Legacy modernization, hardware refresh planning, cloud migration, and managed service transitions executed without operational downtime.</p>
-          <span class="service_arrow">Learn More →</span>
-        </div>
-
-        <div class="service_card stagger-item" data-category="communications" data-num="11" data-category-label="Communications" data-title="Political Campaigns" data-lead="Local campaigns are won on discipline, not budget. The right operations make small money look like big money." data-deliverables="Campaign strategy, message development, and field operations planning || Voter outreach infrastructure — canvassing, calling, and digital || Campaign photography — events, portraits, and field documentation || Video editing — ads, social media, and long-form content || Brand identity, signage, and collateral design" data-who-we-serve="Local candidates running serious, principled campaigns — city council, county offices, school boards, and state legislative races where discipline and message matter more than war chests." data-why="We've consulted for local campaigns and seen exactly where money gets wasted. Our model puts every dollar where it actually moves votes — and treats the candidate's time as the scarce resource it is." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 COMMUNICATIONS&quot;, &quot;lead&quot;: &quot;Most local campaigns lose because they underinvest in the work that actually moves votes.&quot;, &quot;deliverables&quot;: [&quot;Campaign strategy, messaging, and operations planning&quot;, &quot;Voter outreach infrastructure and field operations support&quot;, &quot;Photography for candidate, campaign events, and earned media&quot;, &quot;Video editing \u2014 political ads, social content, and digital outreach&quot;], &quot;who&quot;: &quot;Local and regional candidates running disciplined, principled campaigns. First-time candidates who need to look professional from day one. Incumbents preparing for serious challenges.&quot;, &quot;why&quot;: &quot;We bring the production value of a national campaign to local budgets. Our work has helped candidates win races against opponents with significantly more spending.&quot;, &quot;form_value&quot;: &quot;political&quot;}">
-          <div class="service_number">— 11</div>
-          <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-            <path d="M4 22h16M6 22V8l6-4 6 4v14M10 10h.01M14 10h.01M10 14h.01M14 14h.01M10 18h4"/>
-          </svg>
-          <h3 class="service_title">Political Campaigns</h3>
-          <p class="service_description">Local campaign strategy, operations, voter outreach, photography, and video editing — full-spectrum communications consulting for candidates running disciplined, principled campaigns.</p>
-          <span class="service_arrow">Learn More →</span>
-        </div>
-
+      <div class="error_emergency">
+        <span class="error_emergency-dot"></span>
+        <span class="error_emergency-label">24/7 Emergency Line</span>
+        <a href="tel:+19565511479" class="error_emergency-number">+1 (956) 551-1479</a>
       </div>
 
-      <!-- COMPONENT: Service Detail Expansion Panel -->
-      <div class="service_detail" id="serviceDetail">
-        <button class="service_detail-close" id="serviceDetailClose" aria-label="Close detail">×</button>
-        <div class="service_detail-grid">
-          <div>
-            <div class="service_detail-eyebrow" id="serviceDetailCategory"></div>
-            <h3 class="service_detail-title" id="serviceDetailTitle"></h3>
-            <p class="service_detail-lead" id="serviceDetailLead"></p>
-          </div>
-          <div>
-            <div class="service_detail-section">
-              <div class="service_detail-label">What We Deliver</div>
-              <ul class="service_detail-list" id="serviceDetailDeliverables"></ul>
-            </div>
-            <div class="service_detail-section">
-              <div class="service_detail-label">Who We Serve</div>
-              <p class="service_detail-body" id="serviceDetailWho"></p>
-            </div>
-            <div class="service_detail-section">
-              <div class="service_detail-label">Why Acacia Lake</div>
-              <p class="service_detail-body" id="serviceDetailWhy"></p>
-            </div>
-            <a href="#contact" class="service_detail-cta" id="serviceDetailCta">
-              Discuss This Engagement <span>→</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SECTION: APPROACH / PROCESS
-     ============================================================ -->
-<section class="section_approach padding-section-large" id="approach">
-  <div class="padding-global">
-    <div class="container-large">
-
-      <div class="approach_header">
-        <h2 class="approach_heading fade-in">
-          A measured, <span class="italic">methodical</span> way of working.
-        </h2>
-        <p class="approach_intro fade-in">
-          Our engagement model is built around clarity, transparency, and accountability. We define success before we begin — and we don't stop until we've delivered it.
-        </p>
-      </div>
-
-      <div class="approach_steps">
-        <div class="approach_step stagger-item">
-          <div class="approach_bg-number parallax" data-parallax-speed="-0.18">01</div>
-          <div class="approach_step-number">01</div>
-          <h3 class="approach_step-title">Discovery</h3>
-          <p class="approach_step-text">A structured intake to understand your environment, constraints, and the outcomes that matter most to your stakeholders.</p>
-        </div>
-        <div class="approach_step stagger-item">
-          <div class="approach_bg-number parallax" data-parallax-speed="-0.22">02</div>
-          <div class="approach_step-number">02</div>
-          <h3 class="approach_step-title">Diagnosis</h3>
-          <p class="approach_step-text">A rigorous assessment delivered as a written report — surfacing risk, opportunity, and a prioritized path forward.</p>
-        </div>
-        <div class="approach_step stagger-item">
-          <div class="approach_bg-number parallax" data-parallax-speed="-0.18">03</div>
-          <div class="approach_step-number">03</div>
-          <h3 class="approach_step-title">Execution</h3>
-          <p class="approach_step-text">Hands-on implementation alongside your team, with milestones, transparent reporting, and zero scope drift.</p>
-        </div>
-        <div class="approach_step stagger-item">
-          <div class="approach_bg-number parallax" data-parallax-speed="-0.22">04</div>
-          <div class="approach_step-number">04</div>
-          <h3 class="approach_step-title">Stewardship</h3>
-          <p class="approach_step-text">Long-term advisory relationships, quarterly reviews, and a standing line to the principals who know your business.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     COMPONENT: ORNAMENTAL SECTION DIVIDER
-     ============================================================ -->
-<div class="section-divider bg-offwhite">
-  <span class="section-divider_line"></span>
-  <span class="section-divider_ornament">✦</span>
-  <span class="section-divider_line"></span>
-</div>
-
-<!-- ============================================================
-     SECTION: PULL QUOTE
-     ============================================================ -->
-<section class="section_pullquote">
-  <div class="fade-in">
-    <span class="pullquote_mark">"</span>
-    <p class="pullquote_text">
-      The standard we hold ourselves to is the one our clients <span class="accent">can't afford</span> to compromise.
-    </p>
-  </div>
-</section>
-
-<!-- ============================================================
-     SECTION: TIMELINE / FIRM JOURNEY
-     ============================================================ -->
-<section class="section_timeline padding-section-large">
-  <div class="padding-global">
-    <div class="container-large">
-      <div class="timeline_header fade-in">
-        <div class="text-style-eyebrow margin-bottom-small">Our Journey</div>
-        <h2 class="heading-style-h2 margin-bottom-medium">
-          A measured <span class="text-style-italic">growth.</span>
-        </h2>
-        <p class="text-style-lead">Built engagement by engagement, on the trust of leaders who needed advisors they could rely on.</p>
-      </div>
-      <div class="timeline_wrapper">
-
-        <div class="timeline_items">
-          <div class="timeline_item stagger-item" data-year="2021" data-title="Founded" data-detail="Acacia Lake Consulting was founded by veteran principals with cross-disciplinary expertise spanning security operations, legal practice management, and enterprise technology. From day one, the firm operated on a single principle: bring senior-level judgment to every engagement, regardless of size or sector.">
-            <div class="timeline_year">2021</div>
-            <p class="timeline_text">Founded by veteran principals with cross-disciplinary expertise</p>
-            <button class="timeline_button">View Milestone <span>→</span></button>
-          </div>
-          <div class="timeline_item stagger-item" data-year="2024" data-title="Energy & Legal Practice Launch" data-detail="Acacia Lake expanded into two new sectors in 2024. On the energy side, the firm built dedicated oilfield emergency management and incident response capability, supporting operators with active wells across Texas, South Dakota, and other producing states. In parallel, the firm launched a legal office practice — conducting market research, managing client outreach, and streamlining examinations under oath (EUOs) for law firms operating in high-volume environments.">
-            <div class="timeline_year">2024</div>
-            <p class="timeline_text">Launched energy sector operations and legal office practice</p>
-            <button class="timeline_button">View Milestone <span>→</span></button>
-          </div>
-          <div class="timeline_item stagger-item" data-year="2025" data-title="Political & Communications" data-detail="Launched a full-service political consulting practice, delivering local campaign strategy, voter outreach, photography, and video editing. The same year, the firm broadened its communications capability to support candidates and small businesses with end-to-end brand and digital production.">
-            <div class="timeline_year">2025</div>
-            <p class="timeline_text">Launched political consulting practice and full-service communications</p>
-            <button class="timeline_button">View Milestone <span>→</span></button>
-          </div>
-          <div class="timeline_item stagger-item" data-year="2026" data-title="Eleven Disciplines, One Standard" data-detail="Acacia Lake now serves leaders across eleven practice disciplines — strategy, security, technology, and communications — from our headquarters in Brownsville, Texas. Every engagement is principal-led. Every recommendation is grounded in operator-level experience.">
-            <div class="timeline_year">2026</div>
-            <p class="timeline_text">Serving leaders across eleven disciplines from our Brownsville, Texas headquarters</p>
-            <button class="timeline_button">View Milestone <span>→</span></button>
-          </div>
-        </div>
-
-        <!-- Expandable detail panel -->
-        <div class="timeline_detail" id="timelineDetail">
-          <div class="timeline_detail-eyebrow">Milestone</div>
-          <div class="timeline_detail-year" id="timelineDetailYear"></div>
-          <h3 class="timeline_detail-title" id="timelineDetailTitle"></h3>
-          <p class="timeline_detail-text" id="timelineDetailText"></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SECTION: STATS
-     ============================================================ -->
-<section class="section_stats">
-  <div class="padding-global">
-    <div class="container-large">
-      <div class="stats_grid">
-        <div class="stat_item stagger-item">
-          <div class="stat_number"><span class="counter" data-target="200">0</span><span class="accent">+</span></div>
-          <div class="stat_label">Engagements Delivered</div>
-        </div>
-        <div class="stat_item stagger-item">
-          <div class="stat_number"><span class="counter" data-target="11">0</span></div>
-          <div class="stat_label">Practice Disciplines</div>
-        </div>
-        <div class="stat_item stagger-item">
-          <div class="stat_number"><span class="counter" data-target="100">0</span><span class="accent">%</span></div>
-          <div class="stat_label">Principal-Led Service</div>
-        </div>
-        <div class="stat_item stagger-item">
-          <div class="stat_number">24/<span class="accent">7</span></div>
-          <div class="stat_label">Emergency Response</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     COMPONENT: ORNAMENTAL SECTION DIVIDER
-     ============================================================ -->
-<div class="section-divider bg-offwhite hidden-until-ready">
-  <span class="section-divider_line"></span>
-  <span class="section-divider_ornament">✦</span>
-  <span class="section-divider_line"></span>
-</div>
-
-<!-- ============================================================
-     SECTION: TESTIMONIALS — 3 cards
-     HIDDEN until real client quotes are available (NDA-protected work).
-     To show: remove "hidden-until-ready" class from the section below.
-     ============================================================ -->
-<section class="section_testimonial padding-section-large hidden-until-ready">
-  <div class="padding-global">
-    <div class="container-large">
-      <div class="testimonials_header fade-in">
-        <div class="text-style-eyebrow margin-bottom-small">In Their Words</div>
-        <h2 class="heading-style-h2">
-          Trusted by the leaders we <span class="text-style-italic">serve.</span>
-        </h2>
-      </div>
-      <div class="testimonials_grid">
-
-        <div class="testimonial_card stagger-item">
-          <span class="testimonial_mark">"</span>
-          <p class="testimonial_quote">
-            Acacia Lake walked into a problem we'd been wrestling with for eighteen months and had a path mapped within a week. They are exactly the kind of advisors you call when you can't afford to be wrong.
-          </p>
-          <div class="testimonial_author-row">
-            <div class="testimonial_avatar">MP</div>
-            <div>
-              <div class="testimonial_author">Managing Partner</div>
-              <div class="testimonial_role">Regional Law Firm, Texas</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial_card stagger-item">
-          <span class="testimonial_mark">"</span>
-          <p class="testimonial_quote">
-            When a wellsite incident escalated overnight, they were boots-on-ground within hours. The response plan they built has become our standard operating procedure across every site we run.
-          </p>
-          <div class="testimonial_author-row">
-            <div class="testimonial_avatar">DC</div>
-            <div>
-              <div class="testimonial_author">Director of Operations</div>
-              <div class="testimonial_role">Independent E&P Operator</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial_card stagger-item">
-          <span class="testimonial_mark">"</span>
-          <p class="testimonial_quote">
-            They handled our digital, our outreach, and our security posture in parallel — and made the campaign look ten times more professional than the budget should have allowed. We won.
-          </p>
-          <div class="testimonial_author-row">
-            <div class="testimonial_avatar">CS</div>
-            <div>
-              <div class="testimonial_author">Campaign Strategist</div>
-              <div class="testimonial_role">Local Political Campaign</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SECTION: INSIGHTS / RECENT WORK
-     HIDDEN until real published articles or case studies are ready.
-     Most current engagements are NDA-protected. To show: remove the
-     "hidden-until-ready" class from the section below.
-     ============================================================ -->
-<section class="section_insights padding-section-large hidden-until-ready">
-  <div class="padding-global">
-    <div class="container-large">
-      <div class="insights_header fade-in">
-        <div class="insights_title-block">
-          <div class="text-style-eyebrow margin-bottom-small">Insights & Recent Work</div>
-          <h2 class="heading-style-h2">
-            Thinking worth <span class="text-style-italic">publishing.</span>
-          </h2>
-        </div>
-        <a href="#" class="insights_link">View All Insights →</a>
-      </div>
-
-      <div class="insights_grid">
-        <article class="insight_card stagger-item">
-          <div class="insight_image insight_image-a">
-            <div class="insight_image-overlay"></div>
-            <div class="insight_category">Case Study</div>
-          </div>
-          <div class="insight_content">
-            <div class="insight_meta">Force Protection · 5 min read</div>
-            <h3 class="insight_title">Building an Insider Threat Program From the Ground Up</h3>
-            <p class="insight_excerpt">How a mid-sized energy firm closed three critical OpSec gaps and reduced incident response time by 60%.</p>
-            <span class="insight_read">Read Article →</span>
-          </div>
-        </article>
-
-        <article class="insight_card stagger-item">
-          <div class="insight_image insight_image-b">
-            <div class="insight_image-overlay"></div>
-            <div class="insight_category">Field Notes</div>
-          </div>
-          <div class="insight_content">
-            <div class="insight_meta">Emergency Management · 7 min read</div>
-            <h3 class="insight_title">The First 90 Minutes: Crisis Command on an Active Wellsite</h3>
-            <p class="insight_excerpt">Lessons from the field on incident command structure, communications discipline, and post-event review.</p>
-            <span class="insight_read">Read Article →</span>
-          </div>
-        </article>
-
-        <article class="insight_card stagger-item">
-          <div class="insight_image insight_image-c">
-            <div class="insight_image-overlay"></div>
-            <div class="insight_category">Perspective</div>
-          </div>
-          <div class="insight_content">
-            <div class="insight_meta">Strategy · 6 min read</div>
-            <h3 class="insight_title">Why Most Local Campaigns Underinvest in Digital — and What to Do About It</h3>
-            <p class="insight_excerpt">A practical framework for spending campaign dollars where they actually move votes.</p>
-            <span class="insight_read">Read Article →</span>
-          </div>
-        </article>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     SECTION: CONTACT FORM
-     ============================================================ -->
-<section class="section_cta padding-section-large" id="contact">
-  <div class="padding-global">
-    <div class="container-large">
-      <div class="contact_grid">
-
-        <div class="fade-in">
-          <div class="contact_intro-eyebrow">Begin the Conversation</div>
-          <h2 class="contact_heading">
-            Tell us what's <span class="italic">keeping you up</span> at night.
-          </h2>
-          <p class="contact_description">
-            Every engagement begins with a confidential conversation. Send us a brief overview of what you're working on. A principal will respond within one business day.
-          </p>
-
-          <div class="contact_details">
-            <div class="contact_detail">
-              <div class="contact_detail-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                  <polyline points="22,6 12,13 2,6"/>
-                </svg>
-              </div>
-              <div>
-                <div class="contact_detail-label">Email</div>
-                <a href="mailto:cesarc@acacialakeconsulting.com" class="contact_detail-value contact_detail-link">cesarc@acacialakeconsulting.com</a>
-              </div>
-            </div>
-
-            <div class="contact_detail contact_detail--emergency">
-              <div class="contact_detail-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-                </svg>
-              </div>
-              <div>
-                <div class="contact_detail-label">24/7 Emergency Line</div>
-                <a href="tel:+19565511479" class="contact_detail-value contact_detail-link">+1 (956) 551-1479</a>
-              </div>
-            </div>
-
-            <div class="contact_detail">
-              <div class="contact_detail-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
-              </div>
-              <div>
-                <div class="contact_detail-label">Headquarters</div>
-                <div class="contact_detail-value">Brownsville, Texas</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- COMPONENT: Contact Form -->
-        <form class="contact_form fade-in" onsubmit="handleFormSubmit(event)">
-          <div class="contact_form-row">
-            <div>
-              <label class="contact_form-label" for="contact-name">Name</label>
-              <input class="contact_form-input" type="text" id="contact-name" name="name" placeholder="Your full name" required />
-            </div>
-            <div>
-              <label class="contact_form-label" for="contact-email">Email</label>
-              <input class="contact_form-input" type="email" id="contact-email" name="email" placeholder="you@company.com" required />
-            </div>
-          </div>
-
-          <div class="contact_form-field">
-            <label class="contact_form-label" for="contact-org">Organization</label>
-            <input class="contact_form-input" type="text" id="contact-org" name="organization" placeholder="Company or campaign name" />
-          </div>
-
-          <div class="contact_form-field">
-            <label class="contact_form-label" for="contact-service">Service of Interest</label>
-            <select class="contact_form-select" id="contact-service" name="service" required>
-              <option value="">Select a practice area</option>
-              <option value="startups">Startups & Small Business</option>
-              <option value="legal-ops">Legal Practice Operations</option>
-              <option value="legal-marketing">Legal Marketing & Client Outreach</option>
-              <option value="oilfield">Oilfield Emergency Management</option>
-              <option value="force-protection">Force Protection & InfoSec</option>
-              <option value="physical-security">Physical Security</option>
-              <option value="web-design">Website Design</option>
-              <option value="cyber">Cyber Security</option>
-              <option value="networking">Networking</option>
-              <option value="it-upgrades">IT Upgrades & Updates</option>
-              <option value="political">Political Campaigns</option>
-              <option value="other">Other / Multiple</option>
-            </select>
-          </div>
-
-          <div class="contact_form-field">
-            <label class="contact_form-label" for="contact-message">Brief Description</label>
-            <textarea class="contact_form-textarea" id="contact-message" name="message" placeholder="What are you working on, and what does success look like?" required></textarea>
-          </div>
-
-          <button type="submit" class="contact_form-submit">
-            Send Inquiry <span>→</span>
-          </button>
-
-          <p class="contact_form-disclaimer">All inquiries are confidential. Response within one business day.</p>
-        </form>
-
-      </div>
     </div>
   </div>
 </section>
@@ -3352,17 +3112,17 @@ img { max-width: 100%; display: block; }
         <div>
           <div class="footer_col-title">Practice</div>
           <ul class="footer_links">
-            <li><a href="#services" class="footer_link">Strategy</a></li>
-            <li><a href="#services" class="footer_link">Security</a></li>
-            <li><a href="#services" class="footer_link">Technology</a></li>
-            <li><a href="#services" class="footer_link">Communications</a></li>
+            <li><a href="index.html#services" class="footer_link">Strategy</a></li>
+            <li><a href="index.html#services" class="footer_link">Security</a></li>
+            <li><a href="index.html#services" class="footer_link">Technology</a></li>
+            <li><a href="index.html#services" class="footer_link">Communications</a></li>
           </ul>
         </div>
         <div>
           <div class="footer_col-title">Firm</div>
           <ul class="footer_links">
             <li><a href="about.html" class="footer_link">About</a></li>
-            <li><a href="#approach" class="footer_link">Approach</a></li>
+            <li><a href="index.html#approach" class="footer_link">Approach</a></li>
             <li><a href="#contact" class="footer_link">Contact</a></li>
           </ul>
         </div>
@@ -3761,19 +3521,43 @@ function handleFormSubmit(event) {
   const data = Object.fromEntries(formData);
 
   // Visual confirmation — in production, replace with real form submission
-  // (Formspree, Netlify Forms, custom backend, etc.)
+  // (Webflow native forms, Formspree, Netlify Forms, custom backend, etc.)
   const submitBtn = form.querySelector('.contact_form-submit');
+  const originalContent = submitBtn.innerHTML;
   submitBtn.innerHTML = 'Inquiry Sent ✓';
   submitBtn.style.background = 'var(--color-white)';
   submitBtn.disabled = true;
 
-  console.log('Form submission (replace with real handler):', data);
-
-  // Redirect to the thank-you page after a brief confirmation animation
   setTimeout(() => {
-    window.location.href = 'thank-you.html';
-  }, 800);
+    submitBtn.innerHTML = originalContent;
+    submitBtn.style.background = '';
+    submitBtn.disabled = false;
+    form.reset();
+  }, 3000);
+
+  console.log('Form submission (replace with real handler):', data);
 }
+
+/* ---------- Bio expand/collapse toggle ---------- */
+document.querySelectorAll('.founder_bio-toggle').forEach(toggle => {
+  toggle.addEventListener('click', () => {
+    const targetId = toggle.getAttribute('aria-controls');
+    const target = document.getElementById(targetId);
+    if (!target) return;
+
+    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+
+    if (isExpanded) {
+      // Collapse
+      target.hidden = true;
+      toggle.setAttribute('aria-expanded', 'false');
+    } else {
+      // Expand
+      target.hidden = false;
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
 </script>
 
 <!--
