@@ -2016,25 +2016,27 @@ img { max-width: 100%; display: block; }
 
 /* Burgundy accent for emergency-line contact — tertiary color, used sparingly */
 .contact_detail--emergency .contact_detail-icon {
-  background: rgba(122, 31, 43, 0.15);
-  border-color: rgba(122, 31, 43, 0.4);
-  color: var(--color-burgundy-soft);
+  background: rgba(220, 75, 90, 0.18);
+  border-color: rgba(220, 75, 90, 0.5);
+  color: #e85a6b;
+  box-shadow: 0 0 16px rgba(220, 75, 90, 0.25);
 }
 .contact_detail--emergency .contact_detail-label {
-  color: rgba(184, 102, 112, 0.85);
+  color: #e85a6b;
   position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
+  font-weight: 600;
 }
 .contact_detail--emergency .contact_detail-label::before {
   content: '';
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  background: var(--color-burgundy-soft);
-  box-shadow: 0 0 8px rgba(156, 45, 58, 0.6);
-  animation: emergencyPulse 2.5s ease-in-out infinite;
+  background: #e85a6b;
+  box-shadow: 0 0 10px rgba(232, 90, 107, 0.9), 0 0 20px rgba(232, 90, 107, 0.4);
+  animation: emergencyPulse 2.2s ease-in-out infinite;
 }
 
 .contact_form {
