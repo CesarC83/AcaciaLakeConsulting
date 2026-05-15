@@ -1,0 +1,3762 @@
+<!DOCTYPE html>
+<!--
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║      █████╗  ██████╗ █████╗  ██████╗██╗ █████╗     ██╗      █████╗ ██╗  ██╗ ║
+║     ██╔══██╗██╔════╝██╔══██╗██╔════╝██║██╔══██╗    ██║     ██╔══██╗██║ ██╔╝ ║
+║     ███████║██║     ███████║██║     ██║███████║    ██║     ███████║█████╔╝  ║
+║     ██╔══██║██║     ██╔══██║██║     ██║██╔══██║    ██║     ██╔══██║██╔═██╗  ║
+║     ██║  ██║╚██████╗██║  ██║╚██████╗██║██║  ██║    ███████╗██║  ██║██║  ██╗ ║
+║     ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝ ╚═════╝╚═╝╚═╝  ╚═╝    ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ║
+║                                                                              ║
+║                      C  O  N  S  U  L  T  I  N  G                            ║
+║                                                                              ║
+║                       —  V E T E R A N   O W N E D  —                        ║
+║                                                                              ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║                                                                              ║
+║   © 2026 Acacia Lake Consulting. All rights reserved.                        ║
+║                                                                              ║
+║   This source code, design, and content are the intellectual property        ║
+║   of Acacia Lake Consulting. Unauthorized reproduction, redistribution,      ║
+║   or use of any portion of this code or design is strictly prohibited.       ║
+║                                                                              ║
+║   Website:  acacialakeconsulting.com                                         ║
+║   Contact:  cesarc@acacialakeconsulting.com                                  ║
+║   Location: Brownsville, Texas                                               ║
+║                                                                              ║
+║   "Where Vision Meets Execution."                                            ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- ============ COPYRIGHT & ATTRIBUTION ============ -->
+<meta name="author" content="Acacia Lake Consulting" />
+<meta name="copyright" content="© 2026 Acacia Lake Consulting. All rights reserved." />
+<meta name="description" content="Acacia Lake Consulting — Veteran-owned strategic advisory and security consulting firm. Headquartered in Brownsville, Texas." />
+<meta name="owner" content="Acacia Lake Consulting" />
+<meta name="rights" content="Proprietary — All content, code, and design are property of Acacia Lake Consulting." />
+
+<title>Acacia Lake Consulting — Strategic Advisory & Security Solutions</title>
+
+<!-- ============ FONTS ============ -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+/* ==========================================================================
+ *
+ *   ╔═══════════════════════════════════════════════════════════════╗
+ *   ║                                                               ║
+ *   ║          ACACIA LAKE CONSULTING — Proprietary Stylesheet      ║
+ *   ║                                                               ║
+ *   ║          © 2026 Acacia Lake Consulting                        ║
+ *   ║          Brownsville, Texas · Veteran Owned                   ║
+ *   ║                                                               ║
+ *   ║          All rights reserved. Unauthorized reproduction       ║
+ *   ║          or use of this stylesheet is strictly prohibited.    ║
+ *   ║                                                               ║
+ *   ║          cesarc@acacialakeconsulting.com                      ║
+ *   ║                                                               ║
+ *   ╚═══════════════════════════════════════════════════════════════╝
+ *
+ * ==========================================================================
+ *
+ *   ACACIA LAKE CONSULTING — LANDING PAGE
+ *   Built using Client-First (Webflow) naming conventions:
+ *   - section_[name]            → page sections
+ *   - padding-global            → outer horizontal padding
+ *   - container-large / medium  → max-width wrappers
+ *   - padding-section-large     → vertical section padding
+ *   - heading-style-h1/h2/h3    → typography utilities
+ *   - margin-bottom / margin-top → spacing utilities
+ *   - button / button-secondary → reusable buttons
+ *
+ * ========================================================================== */
+
+/* ---------- GLOBAL TOKENS ---------- */
+:root {
+  --color-navy-deep: #0c1a2e;
+  --color-navy: #102a47;
+  --color-navy-light: #1a3a62;
+  --color-navy-darkest: #04101e;
+  --color-gold: #d4a437;
+  --color-gold-soft: #e8c469;
+  --color-burgundy: #7a1f2b;
+  --color-burgundy-soft: #9c2d3a;
+  --color-white: #ffffff;
+  --color-off-white: #f7f5f0;
+  --color-grey-soft: #e8e6e1;
+  --color-grey-text: #8a96a8;
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --transition-base: 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-slow: 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Radii */
+  --radius-sm: 0px;
+  --radius-md: 2px;
+  --radius-lg: 4px;
+  --radius-xl: 6px;
+  --radius-pill: 999px;
+
+  /* Shadows — soft, layered, premium */
+  --shadow-soft: 0 4px 16px rgba(12, 26, 46, 0.06), 0 1px 3px rgba(12, 26, 46, 0.04);
+  --shadow-medium: 0 12px 32px rgba(12, 26, 46, 0.09), 0 4px 8px rgba(12, 26, 46, 0.05);
+  --shadow-lift: 0 24px 48px rgba(12, 26, 46, 0.14), 0 8px 16px rgba(12, 26, 46, 0.06);
+  --shadow-gold-glow: 0 16px 40px rgba(212, 164, 55, 0.25), 0 4px 12px rgba(212, 164, 55, 0.15);
+  --shadow-navy-glow: 0 20px 50px rgba(12, 26, 46, 0.35), 0 8px 16px rgba(12, 26, 46, 0.18);
+  --shadow-inset: inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-white);
+  color: var(--color-navy-deep);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+
+/* ---------- CLIENT-FIRST UTILITY CLASSES ---------- */
+.padding-global { padding-left: 5rem; padding-right: 5rem; }
+.container-large { max-width: 1280px; margin: 0 auto; width: 100%; }
+.container-medium { max-width: 960px; margin: 0 auto; width: 100%; }
+.container-small { max-width: 720px; margin: 0 auto; width: 100%; }
+
+.padding-section-large { padding-top: 11rem; padding-bottom: 11rem; }
+.padding-section-medium { padding-top: 7rem; padding-bottom: 7rem; }
+
+.margin-bottom-small { margin-bottom: 1rem; }
+.margin-bottom-medium { margin-bottom: 2rem; }
+.margin-bottom-large { margin-bottom: 4rem; }
+
+/* Utility: hide sections that need real content before going live
+   (e.g. testimonials and insights — most work is under NDA).
+   Remove this class from a section to show it again. */
+.hidden-until-ready { display: none !important; }
+
+/* ---------- TYPOGRAPHY ---------- */
+.heading-style-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6.5vw, 6rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+}
+.heading-style-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.5vw, 4rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+.heading-style-h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+}
+.text-style-italic { font-style: italic; color: var(--color-gold); font-weight: 500; }
+.text-style-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--color-gold);
+}
+.text-style-body { font-size: 1rem; color: #4a5568; line-height: 1.8; }
+.text-style-lead {
+  font-size: 1.18rem;
+  color: #4a5568;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ---------- BUTTONS ---------- */
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: var(--color-navy-deep);
+  color: var(--color-white);
+  border: 1px solid var(--color-navy-deep);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: var(--color-gold);
+  transition: left var(--transition-base);
+  z-index: 0;
+}
+.button:hover::before { left: 0; }
+.button:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-gold-glow);
+}
+.button > * { position: relative; z-index: 1; }
+
+.button-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: transparent;
+  color: var(--color-white);
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+.button-secondary:hover {
+  border-color: var(--color-gold);
+  color: var(--color-navy-deep);
+  background: var(--color-gold);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-gold-glow);
+}
+
+/* ===========================================================
+   COMPONENT: LOADING SCREEN
+   =========================================================== */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at center, rgba(212,164,55,0.1) 0%, transparent 60%),
+    linear-gradient(135deg, #04101e 0%, #0c1a2e 50%, #04101e 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+.loading-screen.hidden { opacity: 0; visibility: hidden; }
+
+.loading-logo {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 500;
+  color: var(--color-white);
+  letter-spacing: 0.02em;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+}
+.loading-logo .accent { color: var(--color-gold); font-style: italic; }
+.loading-logo-sub {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.6rem;
+  padding-left: 0.5em;
+}
+
+.loading-tagline {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: var(--color-grey-text);
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeInUp 1s ease 0.2s forwards;
+}
+
+/* ---------- PROGRESS BAR (LOADING) ---------- */
+.progress-bar-wrapper {
+  width: 240px;
+  height: 4px;
+  background: rgba(255,255,255,0.1);
+  overflow: hidden;
+  position: relative;
+  border-radius: var(--radius-pill);
+}
+.progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-gold), var(--color-gold-soft));
+  transition: width 0.3s ease;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 0 12px rgba(212,164,55,0.5);
+}
+.progress-text {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--color-gold);
+  margin-top: 1rem;
+}
+
+/* ===========================================================
+   COMPONENT: SCROLL PROGRESS BAR (PERSISTENT)
+   =========================================================== */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(12, 26, 46, 0.04);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  z-index: 100;
+}
+.scroll-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-navy-deep), var(--color-gold));
+  transition: width 0.1s ease-out;
+}
+
+/* ===========================================================
+   SECTION: NAVIGATION
+   =========================================================== */
+.section_nav {
+  position: fixed;
+  top: 3px; left: 0; right: 0;
+  z-index: 50;
+  background: rgba(12, 26, 46, 0);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  transition: all var(--transition-base);
+}
+.section_nav.scrolled {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid rgba(12, 26, 46, 0.08);
+  box-shadow: 0 4px 24px rgba(12, 26, 46, 0.06);
+}
+.nav_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 5rem;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.nav_logo {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  text-decoration: none;
+  transition: color var(--transition-base);
+  line-height: 1;
+}
+.nav_logo-main {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--color-white);
+  letter-spacing: 0.01em;
+  transition: color var(--transition-base);
+}
+.section_nav.scrolled .nav_logo-main { color: var(--color-navy-deep); }
+.nav_logo .accent { color: var(--color-gold); font-style: italic; }
+.nav_logo-sub {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: rgba(255, 255, 255, 0.6);
+  padding-left: 0.6rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+  transition: all var(--transition-base);
+  position: relative;
+  top: -2px;
+}
+.section_nav.scrolled .nav_logo-sub {
+  color: rgba(12, 26, 46, 0.55);
+  border-left-color: rgba(12, 26, 46, 0.18);
+}
+
+.nav_menu {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  list-style: none;
+}
+.nav_link {
+  color: var(--color-white);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  transition: color var(--transition-base);
+  position: relative;
+}
+.section_nav.scrolled .nav_link { color: var(--color-navy-deep); }
+.nav_link::after {
+  content: '';
+  position: absolute;
+  bottom: -6px; left: 0;
+  width: 0; height: 1px;
+  background: var(--color-gold);
+  transition: width var(--transition-base);
+}
+.nav_link:hover { color: var(--color-gold); }
+.nav_link:hover::after { width: 100%; }
+
+.nav_cta {
+  padding: 0.8rem 1.6rem;
+  background: var(--color-gold);
+  color: var(--color-navy-deep);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  border-radius: var(--radius-pill);
+  transition: all var(--transition-base);
+  box-shadow: 0 4px 14px rgba(212,164,55,0.3);
+}
+.nav_cta:hover {
+  background: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255,255,255,0.3);
+}
+
+/* ===========================================================
+   SECTION: HERO
+   =========================================================== */
+.section_hero {
+  position: relative;
+  min-height: 100vh;
+  background: var(--color-navy-deep);
+  color: var(--color-white);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+/* Decorative background layers */
+.hero_bg-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 80% 0%, rgba(212,164,55,0.28) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 50% at 15% 100%, rgba(35,75,130,0.45) 0%, transparent 60%),
+    radial-gradient(circle at 50% 50%, rgba(26,58,98,0.35) 0%, transparent 70%),
+    linear-gradient(135deg, #04101e 0%, #0c1a2e 30%, #102a47 60%, #04101e 100%);
+}
+.hero_bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+}
+.hero_bg-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.9' /%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' /%3E%3C/svg%3E");
+}
+
+.hero_content {
+  position: relative;
+  z-index: 2;
+  padding: 10rem 5rem 8rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.hero_text-wrapper { opacity: 0; animation: fadeInUp 1.2s ease 0.3s forwards; }
+
+.hero_eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--color-gold);
+  margin-bottom: 2.5rem;
+}
+.hero_eyebrow::before {
+  content: '';
+  width: 40px; height: 1px;
+  background: var(--color-gold);
+}
+
+/* ---------- VETERAN OWNED BADGE ---------- */
+.veteran-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 1rem 0.45rem 0.55rem;
+  background: rgba(212,164,55,0.1);
+  border: 1px solid rgba(212,164,55,0.35);
+  border-radius: var(--radius-pill);
+  margin-bottom: 1.5rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-gold);
+  transition: all var(--transition-base);
+}
+.veteran-badge:hover {
+  background: rgba(212,164,55,0.18);
+  border-color: var(--color-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(212,164,55,0.2);
+}
+.veteran-badge-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  color: var(--color-navy-deep);
+}
+.veteran-badge-icon svg { width: 14px; height: 14px; }
+
+/* Footer veteran badge variant */
+.veteran-badge-footer {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 1rem 0.5rem 0.6rem;
+  background: rgba(212,164,55,0.08);
+  border: 1px solid rgba(212,164,55,0.3);
+  border-radius: var(--radius-pill);
+  margin-top: 1.5rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-gold);
+}
+.veteran-badge-footer .veteran-badge-icon { background: var(--color-gold); }
+
+.hero_heading {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 6.5vw, 6.5rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.018em;
+  margin-bottom: 2.5rem;
+}
+.hero_heading .italic { font-style: italic; color: var(--color-gold); font-weight: 500; }
+.hero_heading .line { display: block; }
+
+.hero_description {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.75);
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+  max-width: 480px;
+  letter-spacing: 0.005em;
+}
+
+.hero_button-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.hero_button-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.1rem 2.4rem;
+  background: var(--color-gold);
+  color: var(--color-navy-deep);
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  transition: all var(--transition-base);
+  box-shadow: 0 8px 24px rgba(212,164,55,0.25);
+}
+.hero_button-primary span {
+  transition: transform var(--transition-base);
+  display: inline-block;
+}
+.hero_button-primary:hover {
+  background: var(--color-white);
+  color: var(--color-navy-deep);
+  border-color: var(--color-white);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(212,164,55,0.45), 0 0 0 1px rgba(212,164,55,0.3);
+}
+.hero_button-primary:hover span { transform: translateX(6px); }
+
+/* Hero visual side — animated abstract composition */
+.hero_visual {
+  position: relative;
+  opacity: 0;
+  animation: fadeIn 1.4s ease 0.6s forwards;
+  aspect-ratio: 1/1;
+}
+.hero_canvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(212,164,55,0.06) 0%, rgba(26,58,98,0.3) 100%);
+  border: 1px solid rgba(212,164,55,0.2);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
+}
+.hero_canvas svg { width: 100%; height: 100%; display: block; }
+
+/* Animated compass rings */
+.compass-ring {
+  transform-origin: center;
+  animation: rotate 60s linear infinite;
+}
+.compass-ring-2 { animation: rotate 90s linear infinite reverse; }
+.compass-ring-3 { animation: rotate 120s linear infinite; }
+.compass-tick {
+  transform-origin: center;
+  animation: rotate 240s linear infinite;
+}
+.compass-center-dot {
+  animation: pulse 3s ease-in-out infinite;
+}
+.compass-orbit-dot {
+  transform-origin: center;
+  animation: rotate 20s linear infinite;
+}
+.compass-orbit-dot-2 {
+  transform-origin: center;
+  animation: rotate 35s linear infinite reverse;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+.hero_canvas-label {
+  position: absolute;
+  top: 1.5rem; left: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 1rem 0.4rem 0.5rem;
+  background: rgba(12,26,46,0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212,164,55,0.3);
+  border-radius: var(--radius-pill);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  z-index: 2;
+}
+.hero_canvas-label::before {
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  box-shadow: 0 0 12px rgba(212,164,55,0.8);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.hero_canvas-stats {
+  position: absolute;
+  bottom: 2rem; left: 2rem; right: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  z-index: 2;
+}
+.hero_stat-number {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: var(--color-white);
+  line-height: 1;
+  font-style: italic;
+}
+.hero_stat-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.6);
+  margin-top: 0.5rem;
+}
+
+/* Scroll indicator */
+.hero_scroll {
+  position: absolute;
+  bottom: 2rem; left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 3;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+}
+.hero_scroll-line {
+  width: 1px; height: 50px;
+  background: linear-gradient(180deg, var(--color-gold), transparent);
+  animation: scrollLine 2s ease-in-out infinite;
+}
+
+/* ===========================================================
+   SECTION: TRUST SIGNALS BAR
+   =========================================================== */
+.section_trust-signals {
+  background: var(--color-off-white);
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--color-grey-soft);
+}
+.trust-signals_grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem 0;
+}
+.trust-signal {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0 2rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-navy-deep);
+  border-right: 1px solid rgba(12,26,46,0.15);
+}
+.trust-signal:last-child { border-right: none; }
+.trust-signal svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-gold);
+}
+.trust-signal.emergency svg {
+  color: var(--color-burgundy);
+}
+.trust-signal.emergency {
+  position: relative;
+}
+.trust-signal.emergency::after {
+  content: '';
+  position: absolute;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-burgundy);
+  box-shadow: 0 0 8px rgba(122, 31, 43, 0.5);
+  animation: emergencyPulse 2.5s ease-in-out infinite;
+  display: none;
+}
+@keyframes emergencyPulse {
+  0%, 100% { opacity: 0.5; transform: translateY(-50%) scale(1); }
+  50% { opacity: 1; transform: translateY(-50%) scale(1.2); }
+}
+
+/* ===========================================================
+   SECTION: TRUSTED BY / MARQUEE
+   =========================================================== */
+.section_trusted {
+  background: linear-gradient(180deg, #04101e 0%, #0c1a2e 100%);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 3rem 0;
+  overflow: hidden;
+}
+.trusted_label {
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 2rem;
+}
+.marquee {
+  display: flex;
+  gap: 4rem;
+  animation: marquee 30s linear infinite;
+  white-space: nowrap;
+}
+.marquee_item {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 0.05em;
+}
+.marquee_dot {
+  color: var(--color-gold);
+  opacity: 0.9;
+}
+
+/* ===========================================================
+   SECTION: ABOUT / INTRO
+   =========================================================== */
+.section_about {
+  background: var(--color-off-white);
+  position: relative;
+}
+.about_grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 6rem;
+  align-items: start;
+}
+.about_left { position: sticky; top: 8rem; }
+.about_quote-mark {
+  font-family: var(--font-display);
+  font-size: 9rem;
+  line-height: 0.8;
+  color: var(--color-gold);
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+.about_heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.012em;
+  color: var(--color-navy-deep);
+  margin-bottom: 2rem;
+}
+.about_heading .italic { font-style: italic; color: var(--color-gold); }
+
+.about_body { color: #4a5568; font-size: 1.08rem; line-height: 1.85; font-weight: 300; letter-spacing: 0.005em; }
+.about_body p { margin-bottom: 1.75rem; }
+
+.about_signature {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(12,26,46,0.1);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.about_signature-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--color-navy-deep);
+}
+.about_signature-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-grey-text);
+}
+
+/* ===========================================================
+   COMPONENT: SECTION DIVIDER (Ornamental)
+   =========================================================== */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 0;
+}
+.section-divider.bg-offwhite { background: var(--color-off-white); }
+.section-divider.bg-white { background: var(--color-white); }
+.section-divider_line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212,164,55,0.5), transparent);
+  flex: 1;
+  max-width: 200px;
+}
+.section-divider_ornament {
+  margin: 0 1.5rem;
+  color: var(--color-gold);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-style: italic;
+  letter-spacing: 0.3em;
+}
+
+/* ===========================================================
+   SECTION: PULL QUOTE
+   =========================================================== */
+.section_pullquote {
+  background: var(--color-off-white);
+  padding: 8rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.section_pullquote::before,
+.section_pullquote::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 1px;
+  top: 4rem;
+  background: linear-gradient(90deg, transparent, rgba(212,164,55,0.3), transparent);
+}
+.section_pullquote::before { left: 0; }
+.section_pullquote::after { right: 0; }
+.pullquote_text {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 4.4rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.18;
+  color: var(--color-navy-deep);
+  letter-spacing: -0.012em;
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+}
+.pullquote_text .accent { color: var(--color-gold); }
+.pullquote_mark {
+  font-family: var(--font-display);
+  font-size: 6rem;
+  line-height: 0.5;
+  color: var(--color-gold);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+/* ===========================================================
+   SECTION: SERVICES
+   =========================================================== */
+.section_services {
+  background: var(--color-white);
+  position: relative;
+}
+.services_header {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.services_header .text-style-eyebrow { margin-bottom: 1rem; display: inline-block; }
+
+/* Filter tabs */
+.services_filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 4rem;
+  padding: 0.5rem;
+  background: var(--color-off-white);
+  border-radius: var(--radius-pill);
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid var(--color-grey-soft);
+}
+.filter-tab {
+  padding: 0.7rem 1.5rem;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--color-navy-deep);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  white-space: nowrap;
+}
+.filter-tab:hover { color: var(--color-gold); }
+.filter-tab.active {
+  background: var(--color-navy-deep);
+  color: var(--color-white);
+  box-shadow: 0 4px 12px rgba(12,26,46,0.2);
+}
+
+.services_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  transition: all var(--transition-base);
+}
+.service_card.filtered-out {
+  display: none;
+}
+.service_card.filtering-in {
+  animation: filterFadeIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.service_card.active {
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-medium), 0 0 0 1px var(--color-gold);
+}
+@keyframes filterFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- SERVICE DETAIL EXPANSION PANEL ---------- */
+.service_detail {
+  margin-top: 3rem;
+  background: var(--color-off-white);
+  border: 1px solid var(--color-grey-soft);
+  border-radius: var(--radius-md);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.4s ease,
+              padding 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              margin-top 0.5s ease;
+  box-shadow: var(--shadow-soft);
+  padding: 0 3rem;
+}
+.service_detail.open {
+  max-height: 1200px;
+  opacity: 1;
+  padding: 3.5rem 3rem;
+}
+.service_detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 4rem;
+  align-items: start;
+}
+.service_detail-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.service_detail-eyebrow::before {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: var(--color-gold);
+}
+.service_detail-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.2vw, 2.8rem);
+  font-weight: 500;
+  color: var(--color-navy-deep);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  margin-bottom: 1.5rem;
+}
+.service_detail-lead {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--color-gold);
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+}
+.service_detail-section {
+  margin-bottom: 2rem;
+}
+.service_detail-section:last-of-type { margin-bottom: 2rem; }
+.service_detail-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-navy-deep);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.service_detail-body {
+  font-size: 0.98rem;
+  color: #4a5568;
+  line-height: 1.75;
+  font-weight: 300;
+  letter-spacing: 0.005em;
+}
+.service_detail-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.service_detail-list li {
+  padding: 0.7rem 0 0.7rem 1.5rem;
+  position: relative;
+  font-size: 0.95rem;
+  color: #4a5568;
+  line-height: 1.6;
+  border-bottom: 1px solid rgba(12, 26, 46, 0.06);
+  letter-spacing: 0.005em;
+}
+.service_detail-list li:last-child { border-bottom: none; }
+.service_detail-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  top: 0.65rem;
+  color: var(--color-gold);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.service_detail-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+  padding: 0.75rem 1.4rem;
+  background: var(--color-navy-deep);
+  color: var(--color-white);
+  border: 1px solid var(--color-navy-deep);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-soft);
+  white-space: nowrap;
+}
+.service_detail-cta span {
+  display: inline-block;
+  transition: transform var(--transition-base);
+}
+.service_detail-cta:hover {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-navy-deep);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold-glow);
+}
+.service_detail-cta:hover span { transform: translateX(4px); }
+
+.service_detail-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: 1px solid rgba(12, 26, 46, 0.15);
+  border-radius: 50%;
+  color: var(--color-navy-deep);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: all var(--transition-base);
+}
+.service_detail-close:hover {
+  background: var(--color-navy-deep);
+  color: var(--color-white);
+  transform: rotate(90deg);
+}
+
+/* Make service card cursor a pointer */
+.service_card { cursor: pointer; }
+
+/* ---------- SERVICE DETAIL PANEL (expandable) ---------- */
+.service_card .service_arrow {
+  cursor: pointer;
+}
+.service_card.active {
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-medium), 0 0 0 1px var(--color-gold);
+}
+.service_card.active::before {
+  display: none;
+}
+.service_card.active .service_arrow {
+  color: var(--color-gold);
+}
+
+.service_detail {
+  margin-top: 3rem;
+  background: var(--color-white);
+  border: 1px solid var(--color-grey-soft);
+  border-radius: var(--radius-md);
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.4s ease,
+              padding 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: var(--shadow-soft);
+}
+.service_detail.open {
+  max-height: 1200px;
+  opacity: 1;
+  padding: 3.5rem;
+}
+.service_detail-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1.25rem;
+}
+.service_detail-eyebrow::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(212,164,55,0.3);
+  max-width: 100px;
+}
+.service_detail-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  font-weight: 500;
+  color: var(--color-navy-deep);
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.service_detail-lead {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--color-gold);
+  line-height: 1.45;
+  margin-bottom: 2.5rem;
+  max-width: 720px;
+}
+.service_detail-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 991px) {
+  .service_detail.open { padding: 2rem; }
+  .service_detail-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* ===========================================================
+   SECTION: TIMELINE / FIRM JOURNEY
+   =========================================================== */
+.section_timeline {
+  background: var(--color-off-white);
+  position: relative;
+  overflow: hidden;
+}
+.timeline_header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+.timeline_wrapper {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.timeline_items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.timeline_item {
+  background: var(--color-white);
+  border: 1px solid var(--color-grey-soft);
+  border-radius: var(--radius-md);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  position: relative;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-soft);
+
+  /* Flexbox so year/text/button align across all cards */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 280px;
+}
+
+.timeline_item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-medium);
+  border-color: rgba(212,164,55,0.4);
+}
+
+.timeline_item.active {
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-medium), 0 0 0 1px var(--color-gold);
+}
+
+.timeline_year {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-style: italic;
+  color: var(--color-navy-deep);
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+  transition: color var(--transition-base);
+}
+.timeline_item.active .timeline_year { color: var(--color-gold); }
+
+.timeline_text {
+  font-size: 0.88rem;
+  color: #4a5568;
+  line-height: 1.55;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.timeline_button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.1rem;
+  background: transparent;
+  border: 1px solid rgba(12,26,46,0.2);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--color-navy-deep);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  margin-top: auto;
+}
+.timeline_button:hover {
+  background: var(--color-navy-deep);
+  color: var(--color-white);
+  border-color: var(--color-navy-deep);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+.timeline_button span {
+  transition: transform var(--transition-base);
+  display: inline-block;
+}
+.timeline_button:hover span { transform: translateX(3px); }
+.timeline_item.active .timeline_button {
+  background: var(--color-gold);
+  color: var(--color-navy-deep);
+  border-color: var(--color-gold);
+  box-shadow: 0 4px 14px rgba(212,164,55,0.3);
+}
+
+/* Expandable detail panel */
+.timeline_detail {
+  margin-top: 3rem;
+  background: var(--color-white);
+  border: 1px solid var(--color-grey-soft);
+  border-radius: var(--radius-md);
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.4s ease,
+              padding 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: var(--shadow-soft);
+}
+.timeline_detail.open {
+  max-height: 500px;
+  opacity: 1;
+  padding: 3rem;
+}
+.timeline_detail-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+}
+.timeline_detail-year {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-style: italic;
+  color: var(--color-navy-deep);
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.015em;
+}
+.timeline_detail-title {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: var(--color-navy-deep);
+  margin-bottom: 1rem;
+  line-height: 1.25;
+  letter-spacing: -0.008em;
+}
+.timeline_detail-text {
+  font-size: 1rem;
+  color: #4a5568;
+  line-height: 1.7;
+  font-weight: 300;
+  max-width: 700px;
+}
+.service_card {
+  position: relative;
+  padding: 2.5rem 2rem;
+  background: var(--color-white);
+  border: 1px solid var(--color-grey-soft);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+  cursor: pointer;
+  overflow: hidden;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-soft);
+}
+.service_card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 0;
+  background: var(--color-navy-deep);
+  transition: height var(--transition-base);
+  z-index: 0;
+}
+.service_card:hover::before { height: 100%; }
+.service_card:hover {
+  transform: translateY(-8px);
+  border-color: var(--color-navy-deep);
+  box-shadow: var(--shadow-navy-glow);
+}
+.service_card:hover .service_number,
+.service_card:hover .service_title,
+.service_card:hover .service_description { color: var(--color-white); }
+.service_card:hover .service_icon {
+  color: var(--color-gold);
+  transform: scale(1.1) rotate(-4deg);
+}
+.service_card:hover .service_arrow span,
+.service_card:hover .service_arrow {
+  color: var(--color-gold);
+}
+
+.service_card > * { position: relative; z-index: 1; }
+
+.service_number {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--color-gold);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.1em;
+  transition: color var(--transition-base);
+}
+
+.service_icon {
+  width: 48px; height: 48px;
+  color: var(--color-navy-deep);
+  margin-bottom: 1.5rem;
+  transition: all var(--transition-base);
+  transform-origin: center;
+}
+
+.service_title {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 500;
+  color: var(--color-navy-deep);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  transition: color var(--transition-base);
+}
+
+.service_description {
+  font-size: 0.92rem;
+  color: #6b7280;
+  line-height: 1.7;
+  font-weight: 300;
+  transition: color var(--transition-base);
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+  letter-spacing: 0.005em;
+}
+
+.service_arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-navy-deep);
+  transition: color var(--transition-base);
+}
+.service_card:hover .service_arrow { color: var(--color-gold); }
+
+/* ===========================================================
+   SECTION: APPROACH / PROCESS
+   =========================================================== */
+.section_approach {
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 0%, rgba(212,164,55,0.1) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 60% at 100% 100%, rgba(35,75,130,0.3) 0%, transparent 60%),
+    linear-gradient(160deg, #04101e 0%, #0c1a2e 30%, #102a47 60%, #0c1a2e 100%);
+  color: var(--color-white);
+  position: relative;
+  overflow: hidden;
+}
+.section_approach::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(212,164,55,0.06) 0%, transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(26,58,98,0.4) 0%, transparent 50%);
+}
+
+.approach_header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 5rem;
+  position: relative;
+  z-index: 1;
+}
+.approach_heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.012em;
+}
+.approach_heading .italic { font-style: italic; color: var(--color-gold); }
+
+.approach_intro {
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.7);
+  font-weight: 300;
+  align-self: end;
+  letter-spacing: 0.005em;
+}
+
+.approach_steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.approach_step {
+  padding: 3rem 2rem 2rem;
+  border-right: 1px solid rgba(255,255,255,0.1);
+  position: relative;
+  transition: all var(--transition-base);
+  border-radius: var(--radius-md);
+}
+.approach_step:last-child { border-right: none; }
+.approach_step:hover {
+  background: rgba(255,255,255,0.03);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.2);
+}
+.approach_step:hover .approach_step-number {
+  color: var(--color-white);
+  transform: scale(1.05);
+}
+.approach_step-number {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-style: italic;
+  color: var(--color-gold);
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  transition: all var(--transition-base);
+  transform-origin: left center;
+}
+.approach_step-title {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  letter-spacing: -0.005em;
+}
+.approach_step-text {
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+  font-weight: 300;
+  letter-spacing: 0.005em;
+}
+
+/* ===========================================================
+   SECTION: STATS
+   =========================================================== */
+.section_stats {
+  background: var(--color-off-white);
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+.stats_grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  text-align: center;
+}
+.stat_item {
+  padding: 1.5rem 1rem;
+  border-right: 1px solid rgba(12,26,46,0.1);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+}
+.stat_item:last-child { border-right: none; }
+.stat_item:hover {
+  background: var(--color-white);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-medium);
+}
+.stat_item:hover .stat_number .accent { transform: scale(1.1); display: inline-block; }
+
+.stat_number {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 5.5vw, 5rem);
+  font-weight: 500;
+  color: var(--color-navy-deep);
+  line-height: 1;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.015em;
+}
+.stat_number .accent { color: var(--color-gold); font-style: italic; }
+.stat_label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-grey-text);
+  font-weight: 500;
+}
+
+/* ===========================================================
+   SECTION: TESTIMONIALS (3-card grid)
+   =========================================================== */
+.section_testimonial {
+  background: var(--color-white);
+}
+.testimonials_header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.testimonials_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.testimonial_card {
+  background: var(--color-off-white);
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-grey-soft);
+  box-shadow: var(--shadow-soft);
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+}
+.testimonial_card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lift);
+  border-color: rgba(212,164,55,0.4);
+}
+.testimonial_mark {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-style: italic;
+  color: var(--color-gold);
+  line-height: 0.5;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+.testimonial_quote {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--color-navy-deep);
+  margin-bottom: 2rem;
+  letter-spacing: -0.005em;
+  flex-grow: 1;
+}
+.testimonial_author-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(12,26,46,0.08);
+}
+.testimonial_avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-navy-deep), var(--color-navy-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--color-gold);
+  font-size: 1.1rem;
+  font-weight: 500;
+  flex-shrink: 0;
+  border: 1px solid rgba(212,164,55,0.3);
+}
+.testimonial_author {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--color-navy-deep);
+  font-weight: 600;
+}
+.testimonial_role {
+  font-size: 0.78rem;
+  color: var(--color-grey-text);
+  margin-top: 0.25rem;
+  font-style: italic;
+}
+
+/* ===========================================================
+   SECTION: INSIGHTS / CASE STUDIES
+   =========================================================== */
+.section_insights {
+  background: var(--color-off-white);
+}
+.insights_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 4rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.insights_title-block { max-width: 600px; }
+.insights_link {
+  color: var(--color-navy-deep);
+  text-decoration: none;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all var(--transition-base);
+}
+.insights_link:hover { color: var(--color-gold); gap: 0.9rem; }
+
+.insights_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.insight_card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-grey-soft);
+  box-shadow: var(--shadow-soft);
+  transition: all var(--transition-base);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+.insight_card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lift);
+  border-color: rgba(212,164,55,0.4);
+}
+.insight_image {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+.insight_image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(12,26,46,0.5), rgba(212,164,55,0.2));
+}
+.insight_image-a {
+  background:
+    radial-gradient(circle at 30% 30%, rgba(212,164,55,0.4), transparent 50%),
+    linear-gradient(135deg, #0c1a2e, #102a47);
+}
+.insight_image-b {
+  background:
+    radial-gradient(circle at 70% 40%, rgba(212,164,55,0.3), transparent 50%),
+    linear-gradient(135deg, #1a3a6e, #0c1a2e);
+}
+.insight_image-c {
+  background:
+    radial-gradient(circle at 50% 70%, rgba(212,164,55,0.35), transparent 55%),
+    linear-gradient(135deg, #102a47, #04101e);
+}
+.insight_image-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: 1;
+}
+.insight_category {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(12,26,46,0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(212,164,55,0.4);
+  border-radius: var(--radius-pill);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  z-index: 2;
+}
+.insight_content {
+  padding: 1.75rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.insight_meta {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-grey-text);
+  margin-bottom: 0.75rem;
+}
+.insight_title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--color-navy-deep);
+  margin-bottom: 0.75rem;
+}
+.insight_excerpt {
+  font-size: 0.88rem;
+  color: #4a5568;
+  line-height: 1.6;
+  font-weight: 300;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+.insight_read {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-navy-deep);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all var(--transition-base);
+}
+.insight_card:hover .insight_read { color: var(--color-gold); gap: 0.7rem; }
+
+/* ===========================================================
+   SECTION: CONTACT FORM
+   =========================================================== */
+.contact_grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
+  align-items: start;
+}
+.contact_intro-eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1.5rem;
+}
+.contact_heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 4.5vw, 4rem);
+  font-weight: 400;
+  line-height: 1.05;
+  margin-bottom: 2rem;
+  letter-spacing: -0.018em;
+  color: var(--color-white);
+}
+.contact_heading .italic { font-style: italic; color: var(--color-gold); }
+.contact_description {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+  line-height: 1.7;
+}
+.contact_details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.contact_detail {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: rgba(255,255,255,0.85);
+  font-size: 0.9rem;
+}
+.contact_detail-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(212,164,55,0.1);
+  border: 1px solid rgba(212,164,55,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold);
+  flex-shrink: 0;
+}
+.contact_detail-icon svg { width: 18px; height: 18px; }
+.contact_detail-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 0.2rem;
+}
+.contact_detail-value { font-weight: 400; }
+.contact_detail-link {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  display: inline-block;
+  transition: color var(--transition-base);
+}
+.contact_detail-link:hover { color: var(--color-gold); }
+
+/* Burgundy accent for emergency-line contact — tertiary color, used sparingly */
+.contact_detail--emergency .contact_detail-icon {
+  background: rgba(220, 75, 90, 0.18);
+  border-color: rgba(220, 75, 90, 0.5);
+  color: #e85a6b;
+  box-shadow: 0 0 16px rgba(220, 75, 90, 0.25);
+}
+.contact_detail--emergency .contact_detail-label {
+  color: #e85a6b;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-weight: 600;
+}
+.contact_detail--emergency .contact_detail-label::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #e85a6b;
+  box-shadow: 0 0 10px rgba(232, 90, 107, 0.9), 0 0 20px rgba(232, 90, 107, 0.4);
+  animation: emergencyPulse 2.2s ease-in-out infinite;
+}
+
+.contact_form {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-xl);
+  padding: 3rem;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+}
+.contact_form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.contact_form-field { margin-bottom: 1.25rem; }
+.contact_form-label {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+}
+.contact_form-input,
+.contact_form-select,
+.contact_form-textarea {
+  width: 100%;
+  padding: 0.9rem 1.1rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-md);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: all var(--transition-base);
+}
+.contact_form-input::placeholder,
+.contact_form-textarea::placeholder { color: rgba(255,255,255,0.35); }
+.contact_form-input:focus,
+.contact_form-select:focus,
+.contact_form-textarea:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  background: rgba(212,164,55,0.05);
+  box-shadow: 0 0 0 3px rgba(212,164,55,0.15);
+}
+.contact_form-textarea {
+  resize: vertical;
+  min-height: 120px;
+  font-family: var(--font-body);
+}
+.contact_form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c9a96e' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1.1rem center;
+  background-size: 16px;
+  padding-right: 3rem;
+  cursor: pointer;
+}
+.contact_form-select option { background: var(--color-navy-deep); color: var(--color-white); }
+
+.contact_form-submit {
+  width: 100%;
+  padding: 1.15rem 2rem;
+  background: var(--color-gold);
+  color: var(--color-navy-deep);
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: 0 8px 24px rgba(212,164,55,0.3);
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+.contact_form-submit:hover {
+  background: var(--color-white);
+  border-color: var(--color-white);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(212,164,55,0.4);
+}
+.contact_form-submit:hover span { transform: translateX(6px); }
+.contact_form-submit span {
+  display: inline-block;
+  transition: transform var(--transition-base);
+}
+.contact_form-disclaimer {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+  margin-top: 1.25rem;
+  text-align: center;
+  font-style: italic;
+}
+
+/* ===========================================================
+   SECTION: CTA
+   =========================================================== */
+.section_cta {
+  background:
+    radial-gradient(ellipse 60% 80% at 50% 50%, rgba(212,164,55,0.2) 0%, transparent 60%),
+    linear-gradient(135deg, #04101e 0%, #0c1a2e 30%, #102a47 60%, #04101e 100%);
+  color: var(--color-white);
+  position: relative;
+  overflow: hidden;
+}
+.section_cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(35,75,130,0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(212,164,55,0.08) 0%, transparent 50%);
+}
+.cta_content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.cta_heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+}
+.cta_heading .italic { font-style: italic; color: var(--color-gold); }
+.cta_description {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 3rem;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+/* ===========================================================
+   SECTION: FOOTER
+   =========================================================== */
+.section_footer {
+  background: linear-gradient(180deg, #04101e 0%, #020a14 100%);
+  color: rgba(255,255,255,0.6);
+  padding: 5rem 0 2rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.footer_grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+.footer_brand {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--color-white);
+  margin-bottom: 1rem;
+}
+.footer_brand .accent { color: var(--color-gold); font-style: italic; }
+.footer_tagline {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  max-width: 320px;
+  font-weight: 300;
+}
+.footer_col-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-gold);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+.footer_links { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+.footer_link {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 300;
+  transition: all var(--transition-base);
+  display: inline-block;
+}
+.footer_link:hover {
+  color: var(--color-gold);
+  transform: translateX(4px);
+}
+
+.footer_bottom {
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+/* ===========================================================
+   ANIMATIONS
+   =========================================================== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scrollLine {
+  0%, 100% { transform: scaleY(1); opacity: 1; }
+  50% { transform: scaleY(0.5); opacity: 0.5; }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Scroll-triggered fade-in */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===========================================================
+   COMPONENT: SPOTLIGHT CURSOR (Dark sections only)
+   =========================================================== */
+.spotlight {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,164,55,0.12) 0%, rgba(212,164,55,0.04) 30%, transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  mix-blend-mode: screen;
+  filter: blur(20px);
+}
+.spotlight.active { opacity: 1; }
+
+/* ===========================================================
+   STAGGER REVEAL: Service Cards & Approach Steps
+   =========================================================== */
+.stagger-item {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.stagger-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays — cards cascade in sequence */
+.stagger-item:nth-child(1) { transition-delay: 0.05s; }
+.stagger-item:nth-child(2) { transition-delay: 0.15s; }
+.stagger-item:nth-child(3) { transition-delay: 0.25s; }
+.stagger-item:nth-child(4) { transition-delay: 0.35s; }
+.stagger-item:nth-child(5) { transition-delay: 0.45s; }
+.stagger-item:nth-child(6) { transition-delay: 0.55s; }
+.stagger-item:nth-child(7) { transition-delay: 0.65s; }
+.stagger-item:nth-child(8) { transition-delay: 0.75s; }
+.stagger-item:nth-child(9) { transition-delay: 0.85s; }
+.stagger-item:nth-child(10) { transition-delay: 0.95s; }
+.stagger-item:nth-child(11) { transition-delay: 1.05s; }
+
+/* ===========================================================
+   PARALLAX LAYERS — subtle vertical drift for depth
+   =========================================================== */
+.parallax {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* Decorative giant numbers behind approach steps */
+.approach_step {
+  padding: 3rem 2rem 2rem;
+  border-right: 1px solid rgba(255,255,255,0.1);
+  position: relative;
+  transition: all var(--transition-base);
+  border-radius: var(--radius-md);
+}
+
+.approach_bg-number {
+  position: absolute;
+  top: -2rem;
+  right: -1rem;
+  font-family: var(--font-display);
+  font-size: 10rem;
+  font-style: italic;
+  font-weight: 400;
+  color: rgba(212,164,55,0.06);
+  line-height: 1;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+}
+
+.approach_step > *:not(.approach_bg-number) {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===========================================================
+   ANIMATED COUNTERS: Stat numbers
+   =========================================================== */
+.stat_number .counter { display: inline-block; }
+
+/* ===========================================================
+   RESPONSIVE
+   =========================================================== */
+@media (max-width: 991px) {
+  .padding-global { padding-left: 2rem; padding-right: 2rem; }
+  .padding-section-large { padding-top: 7rem; padding-bottom: 7rem; }
+  .nav_container { padding: 1.25rem 2rem; }
+  .nav_menu { display: none; }
+
+  .hero_content {
+    grid-template-columns: 1fr;
+    padding: 8rem 2rem 5rem;
+    gap: 3rem;
+  }
+  .hero_visual { max-width: 400px; margin: 0 auto; }
+
+  .about_grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about_left { position: static; }
+
+  .services_grid { grid-template-columns: repeat(2, 1fr); }
+  .services_filters { gap: 0.25rem; padding: 0.3rem; }
+  .filter-tab { padding: 0.6rem 1rem; font-size: 0.65rem; }
+  .service_detail.open { padding: 2.5rem 1.75rem; }
+  .service_detail-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .service_detail-close { top: 1rem; right: 1rem; }
+
+  .approach_header { grid-template-columns: 1fr; gap: 1.5rem; }
+  .approach_steps { grid-template-columns: repeat(2, 1fr); }
+  .approach_step { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 2rem; }
+
+  .stats_grid { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+  .stat_item { border-right: none; }
+
+  .timeline_items { grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .testimonials_grid { grid-template-columns: 1fr; }
+  .insights_grid { grid-template-columns: 1fr; }
+
+  .contact_grid { grid-template-columns: 1fr; gap: 3rem; }
+  .contact_form { padding: 2rem; }
+  .contact_form-row { grid-template-columns: 1fr; gap: 0; }
+
+  .trust-signals_grid { gap: 0.75rem 0; }
+  .trust-signal { padding: 0 1rem; font-size: 0.65rem; }
+
+  .footer_grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  .footer_bottom { flex-direction: column; gap: 1rem; }
+}
+@media (max-width: 600px) {
+  .services_grid { grid-template-columns: 1fr; }
+  .approach_steps { grid-template-columns: 1fr; }
+  .stats_grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .timeline_items { grid-template-columns: 1fr; gap: 2.5rem; }
+  .footer_grid { grid-template-columns: 1fr; }
+  .hero_button-group { flex-direction: column; align-items: stretch; }
+  .hero_button-primary, .button-secondary { justify-content: center; }
+  .trust-signal { border-right: none; padding: 0.4rem 1rem; }
+  .pullquote_text { font-size: 1.75rem; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ============================================================
+     COMPONENT: LOADING SCREEN (with PROGRESS BAR)
+     ============================================================ -->
+<div class="loading-screen" id="loadingScreen">
+  <div class="loading-logo">
+    Acacia<span class="accent"> Lake</span>
+    <div class="loading-logo-sub">Consulting</div>
+  </div>
+  <div class="loading-tagline">Strategic Consulting · Est. 2021</div>
+  <div class="progress-bar-wrapper">
+    <div class="progress-bar-fill" id="loadingProgress"></div>
+  </div>
+  <div class="progress-text" id="progressText">0%</div>
+</div>
+
+<!-- ============================================================
+     COMPONENT: SPOTLIGHT CURSOR (follows mouse on dark sections)
+     ============================================================ -->
+<div class="spotlight" id="spotlight"></div>
+
+<!-- ============================================================
+     COMPONENT: SCROLL PROGRESS BAR (persistent at top)
+     ============================================================ -->
+<div class="scroll-progress">
+  <div class="scroll-progress-fill" id="scrollProgress"></div>
+</div>
+
+<!-- ============================================================
+     SECTION: NAVIGATION
+     ============================================================ -->
+<nav class="section_nav" id="navbar">
+  <div class="nav_container">
+    <a href="#" class="nav_logo">
+      <span class="nav_logo-main">Acacia<span class="accent"> Lake</span></span>
+      <span class="nav_logo-sub">Consulting</span>
+    </a>
+    <ul class="nav_menu">
+      <li><a href="about.html" class="nav_link">About</a></li>
+      <li><a href="#services" class="nav_link">Services</a></li>
+      <li><a href="#approach" class="nav_link">Approach</a></li>
+      <li><a href="#contact" class="nav_link">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav_cta">Book Consultation</a>
+  </div>
+</nav>
+
+<!-- ============================================================
+     SECTION: HERO
+     ============================================================ -->
+<section class="section_hero">
+  <div class="hero_bg-gradient parallax" data-parallax-speed="0.3"></div>
+  <div class="hero_bg-grid parallax" data-parallax-speed="0.15"></div>
+  <div class="hero_bg-noise"></div>
+
+  <div class="hero_content">
+    <!-- Left: Text -->
+    <div class="hero_text-wrapper">
+      <div class="veteran-badge">
+        <span class="veteran-badge-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L4 6v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V6l-8-4z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+        </span>
+        Veteran Owned & Operated
+      </div>
+      <div class="hero_eyebrow">Strategic Consulting Group</div>
+      <h1 class="hero_heading">
+        <span class="line">Where Vision</span>
+        <span class="line"><span class="italic">Meets</span> Execution.</span>
+      </h1>
+      <p class="hero_description">
+        Acacia Lake Consulting partners with founders, executives, and operators to solve mission-critical problems — from startup strategy and legal operations to physical security, oilfield emergency response, and enterprise technology.
+      </p>
+      <div class="hero_button-group">
+        <a href="#contact" class="hero_button-primary">
+          Schedule a Consultation
+          <span>→</span>
+        </a>
+        <a href="#services" class="button-secondary">Explore Services</a>
+      </div>
+    </div>
+
+    <!-- Right: Animated visual canvas -->
+    <div class="hero_visual parallax" data-parallax-speed="-0.12">
+      <div class="hero_canvas">
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#d4a437" stop-opacity="0.4"/>
+              <stop offset="50%" stop-color="#d4a437" stop-opacity="0.1"/>
+              <stop offset="100%" stop-color="#d4a437" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#d4a437" stop-opacity="0.8"/>
+              <stop offset="100%" stop-color="#d4a437" stop-opacity="0.2"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Background glow -->
+          <circle cx="200" cy="200" r="180" fill="url(#centerGlow)"/>
+
+          <!-- Compass tick marks (slowly rotating) -->
+          <g class="compass-tick">
+            <g stroke="rgba(212,164,55,0.3)" stroke-width="1">
+              <line x1="200" y1="40" x2="200" y2="55"/>
+              <line x1="200" y1="345" x2="200" y2="360"/>
+              <line x1="40" y1="200" x2="55" y2="200"/>
+              <line x1="345" y1="200" x2="360" y2="200"/>
+              <line x1="87" y1="87" x2="98" y2="98"/>
+              <line x1="302" y1="302" x2="313" y2="313"/>
+              <line x1="87" y1="313" x2="98" y2="302"/>
+              <line x1="302" y1="98" x2="313" y2="87"/>
+            </g>
+            <g stroke="rgba(212,164,55,0.15)" stroke-width="0.5">
+              <line x1="200" y1="60" x2="200" y2="68"/>
+              <line x1="200" y1="332" x2="200" y2="340"/>
+              <line x1="60" y1="200" x2="68" y2="200"/>
+              <line x1="332" y1="200" x2="340" y2="200"/>
+            </g>
+          </g>
+
+          <!-- Outer ring -->
+          <g class="compass-ring">
+            <circle cx="200" cy="200" r="160" fill="none" stroke="rgba(212,164,55,0.25)" stroke-width="1" stroke-dasharray="2,8"/>
+          </g>
+
+          <!-- Middle ring -->
+          <g class="compass-ring-2">
+            <circle cx="200" cy="200" r="120" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+            <circle cx="200" cy="60" r="3" fill="#d4a437"/>
+            <circle cx="340" cy="200" r="2" fill="rgba(255,255,255,0.4)"/>
+          </g>
+
+          <!-- Inner ring -->
+          <g class="compass-ring-3">
+            <circle cx="200" cy="200" r="85" fill="none" stroke="url(#ringGrad)" stroke-width="1"/>
+            <circle cx="200" cy="115" r="2" fill="#d4a437"/>
+            <circle cx="285" cy="200" r="2" fill="rgba(255,255,255,0.5)"/>
+            <circle cx="200" cy="285" r="2" fill="#d4a437"/>
+            <circle cx="115" cy="200" r="2" fill="rgba(255,255,255,0.5)"/>
+          </g>
+
+          <!-- Orbiting dots -->
+          <g class="compass-orbit-dot">
+            <circle cx="200" cy="40" r="4" fill="#d4a437" opacity="0.9"/>
+          </g>
+          <g class="compass-orbit-dot-2">
+            <circle cx="370" cy="200" r="3" fill="rgba(255,255,255,0.7)"/>
+          </g>
+
+          <!-- Crosshairs through center -->
+          <line x1="200" y1="170" x2="200" y2="230" stroke="rgba(212,164,55,0.4)" stroke-width="0.8"/>
+          <line x1="170" y1="200" x2="230" y2="200" stroke="rgba(212,164,55,0.4)" stroke-width="0.8"/>
+
+          <!-- Center -->
+          <g class="compass-center-dot">
+            <circle cx="200" cy="200" r="10" fill="none" stroke="#d4a437" stroke-width="1.5"/>
+            <circle cx="200" cy="200" r="4" fill="#d4a437"/>
+          </g>
+
+          <!-- Compass labels -->
+          <text x="200" y="30" text-anchor="middle" fill="rgba(212,164,55,0.5)" font-family="Playfair Display, serif" font-size="11" font-style="italic" letter-spacing="2">N</text>
+          <text x="378" y="205" text-anchor="middle" fill="rgba(212,164,55,0.3)" font-family="Playfair Display, serif" font-size="11" font-style="italic" letter-spacing="2">E</text>
+          <text x="200" y="382" text-anchor="middle" fill="rgba(212,164,55,0.3)" font-family="Playfair Display, serif" font-size="11" font-style="italic" letter-spacing="2">S</text>
+          <text x="22" y="205" text-anchor="middle" fill="rgba(212,164,55,0.3)" font-family="Playfair Display, serif" font-size="11" font-style="italic" letter-spacing="2">W</text>
+        </svg>
+
+        <div class="hero_canvas-stats">
+          <div>
+            <div class="hero_stat-number">11</div>
+            <div class="hero_stat-label">Practice Areas</div>
+          </div>
+          <div>
+            <div class="hero_stat-number">200<span style="color:var(--color-gold)">+</span></div>
+            <div class="hero_stat-label">Engagements</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero_scroll">
+    <span>Scroll</span>
+    <div class="hero_scroll-line"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION: TRUST SIGNALS BAR
+     ============================================================ -->
+<section class="section_trust-signals">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="trust-signals_grid">
+        <div class="trust-signal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L4 6v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V6l-8-4z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+          Veteran Owned
+        </div>
+        <div class="trust-signal emergency">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 8v4l3 2"/>
+          </svg>
+          24/7 Emergency Response
+        </div>
+        <div class="trust-signal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 7L9 18l-5-5"/>
+          </svg>
+          Confidential by Default
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION: TRUSTED BY (Marquee)
+     ============================================================ -->
+<section class="section_trusted">
+  <div class="trusted_label">Industries We Serve</div>
+  <div class="marquee">
+    <div class="marquee_item">Energy</div>
+    <div class="marquee_item marquee_dot">✦</div>
+    <div class="marquee_item">Legal</div>
+    <div class="marquee_item marquee_dot">✦</div>
+    <div class="marquee_item">Technology</div>
+    <div class="marquee_item marquee_dot">✦</div>
+    <div class="marquee_item">Security</div>
+    <div class="marquee_item marquee_dot">✦</div>
+    <div class="marquee_item">Startups</div>
+    <div class="marquee_item marquee_dot">✦</div>
+    <div class="marquee_item">Government</div>
+    <div class="marquee_item marquee_dot">✦</div>
+    <div class="marquee_item">Energy</div>
+    <div class="marquee_item marquee_dot">✦</div>
+    <div class="marquee_item">Legal</div>
+    <div class="marquee_item marquee_dot">✦</div>
+    <div class="marquee_item">Technology</div>
+    <div class="marquee_item marquee_dot">✦</div>
+    <div class="marquee_item">Security</div>
+    <div class="marquee_item marquee_dot">✦</div>
+    <div class="marquee_item">Startups</div>
+    <div class="marquee_item marquee_dot">✦</div>
+    <div class="marquee_item">Government</div>
+    <div class="marquee_item marquee_dot">✦</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION: ABOUT
+     ============================================================ -->
+<section class="section_about padding-section-large" id="about">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="about_grid">
+        <div class="about_left fade-in">
+          <div class="about_quote-mark">"</div>
+          <div class="text-style-eyebrow margin-bottom-small">About the Firm</div>
+          <h2 class="about_heading">
+            Discretion. Precision. <span class="italic">Results.</span>
+          </h2>
+        </div>
+        <div class="about_right fade-in">
+          <div class="about_body">
+            <p>
+              Acacia Lake Consulting is a veteran-owned firm founded on a single belief: that the most consequential decisions in business deserve advisors who treat them with the gravity they deserve. We bring decades of cross-disciplinary expertise to every engagement — pairing strategic clarity with operational discipline.
+            </p>
+            <p>
+              Whether guiding an early-stage founder through their first capital raise, hardening a law firm's digital infrastructure, or coordinating emergency response on an active oilfield site, we operate as a trusted extension of your team. Our work is quiet, our outcomes loud.
+            </p>
+            <p>
+              We don't sell deliverables. We deliver judgment.
+            </p>
+          </div>
+          <div class="about_signature">
+            <div>
+              <div class="about_signature-name">Acacia Lake Consulting</div>
+              <div class="about_signature-title">Founders & Principal Advisors</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION: SERVICES
+     ============================================================ -->
+<section class="section_services padding-section-large" id="services">
+  <div class="padding-global">
+    <div class="container-large">
+
+      <div class="services_header fade-in">
+        <div class="text-style-eyebrow margin-bottom-small">Our Practice Areas</div>
+        <h2 class="heading-style-h2 margin-bottom-medium">
+          Eleven disciplines.<br>
+          <span class="text-style-italic">One unified standard.</span>
+        </h2>
+        <p class="text-style-lead">
+          Every engagement is led by a senior principal. Every recommendation is grounded in operator-level experience.
+        </p>
+      </div>
+
+      <!-- COMPONENT: Filter Tabs -->
+      <div class="services_filters fade-in">
+        <button class="filter-tab active" data-filter="all">All</button>
+        <button class="filter-tab" data-filter="strategy">Strategy</button>
+        <button class="filter-tab" data-filter="security">Security</button>
+        <button class="filter-tab" data-filter="technology">Technology</button>
+        <button class="filter-tab" data-filter="communications">Communications</button>
+      </div>
+
+      <div class="services_grid">
+
+        <!-- COMPONENT: Service Card -->
+        <div class="service_card stagger-item" data-category="strategy" data-num="01" data-category-label="Strategy" data-title="Startups & Small Business" data-lead="Founders don't need more advice. They need fewer wrong moves." data-deliverables="Incorporation, equity, and capital structure advisory || Fundraising readiness — pitch, financials, and diligence preparation || Brand positioning, naming, and messaging architecture || Marketing strategy and go-to-market planning || Operational systems setup — finance, HR, and tooling stack" data-who-we-serve="Founders building serious companies — pre-seed through Series A — and established small businesses entering a new growth phase, an acquisition, or a leadership transition." data-why="We've sat on every side of the table — founder, operator, advisor, investor. We tell you what's actually going to break before it breaks, and we help you build the muscle to handle it." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 STRATEGY&quot;, &quot;lead&quot;: &quot;The early decisions are the ones that compound \u2014 for good or for ruin.&quot;, &quot;deliverables&quot;: [&quot;Incorporation strategy, entity structuring, and operating agreement review&quot;, &quot;Fundraising readiness \u2014 pitch refinement, financial modeling, and investor materials&quot;, &quot;Brand positioning and go-to-market strategy&quot;, &quot;Marketing infrastructure \u2014 digital presence, lead generation, and analytics setup&quot;], &quot;who&quot;: &quot;Founders raising their first capital. Owner-operators ready to scale beyond a side project. Small businesses that have outgrown DIY tools and need real structure.&quot;, &quot;why&quot;: &quot;We&#39;ve sat on every side of the table \u2014 operator, investor, and advisor. We don&#39;t sell templates. We give you the same judgment we&#39;d apply to our own ventures.&quot;, &quot;form_value&quot;: &quot;startups&quot;}">
+          <div class="service_number">— 01</div>
+          <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+          </svg>
+          <h3 class="service_title">Startups & Small Business</h3>
+          <p class="service_description">From incorporation strategy to fundraising readiness, brand positioning, and marketing — we help founders build companies that survive scrutiny and scale with discipline.</p>
+          <span class="service_arrow">Learn More →</span>
+        </div>
+
+        <div class="service_card stagger-item" data-category="strategy" data-num="02" data-category-label="Strategy" data-title="Legal Practice Operations" data-lead="Operational discipline is what separates law firms that scale from those that simply survive." data-deliverables="Examinations under oath (EUOs) — preparation, conduct, and documentation || Case workflow design and bottleneck remediation || Practice management system selection and implementation || Document operations, intake automation, and client routing || Ethical compliance review and operational risk assessment" data-who-we-serve="High-volume legal practices — personal injury, insurance defense, family law, and litigation firms where caseload velocity is the difference between profitability and burnout." data-why="Most operational consultants don't understand the cadence of legal work. We do. Every recommendation is calibrated to the reality of court schedules, discovery deadlines, and client expectations." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 STRATEGY&quot;, &quot;lead&quot;: &quot;High-volume law firms win on systems, not heroics.&quot;, &quot;deliverables&quot;: [&quot;Examinations under oath (EUO) preparation and process optimization&quot;, &quot;Case workflow streamlining and document operations&quot;, &quot;Practice management consulting \u2014 billing, intake, and capacity planning&quot;, &quot;Technology stack design for legal-specific tools and ethical compliance&quot;], &quot;who&quot;: &quot;Plaintiff firms, defense practices, and solo attorneys handling high case volume. Insurance defense teams managing EUOs at scale. Firms scaling from regional to multi-state.&quot;, &quot;why&quot;: &quot;We understand the discipline of legal work. Our recommendations respect the regulatory environment, the privilege boundaries, and the pace your team actually moves at.&quot;, &quot;form_value&quot;: &quot;legal-ops&quot;}">
+          <div class="service_number">— 02</div>
+          <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M9 13h.01M9 17h.01M15 9h.01M15 13h.01M15 17h.01"/>
+          </svg>
+          <h3 class="service_title">Legal Practice Operations</h3>
+          <p class="service_description">Examinations under oath (EUOs), case workflow streamlining, practice management, and document operations for high-volume legal practices.</p>
+          <span class="service_arrow">Learn More →</span>
+        </div>
+
+        <div class="service_card stagger-item" data-category="communications" data-num="03" data-category-label="Communications" data-title="Legal Marketing & Client Outreach" data-lead="The best lawyer in town is irrelevant if the right clients can't find them." data-deliverables="Market research and competitive positioning analysis || Client acquisition strategy and outreach campaigns || Brand positioning for partners, practice groups, and the firm || Digital presence audit — website, search, and reputation || Referral network development and intake conversion optimization" data-who-we-serve="Law firms ready to grow — solo practices building their first marketing engine, mid-sized firms entering new practice areas, and partners looking to build their book of business." data-why="We market law firms the way we'd want our own firm marketed — with discretion, professionalism, and an obsession with measurable client acquisition rather than vanity metrics." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 COMMUNICATIONS&quot;, &quot;lead&quot;: &quot;The best lawyers don&#39;t always have the best client pipelines.&quot;, &quot;deliverables&quot;: [&quot;Market research \u2014 identifying high-value case types and underserved geographies&quot;, &quot;Client acquisition strategy and outreach campaign design&quot;, &quot;Brand positioning that withstands the ethical scrutiny of legal advertising&quot;, &quot;Conversion-focused web presence and intake optimization&quot;], &quot;who&quot;: &quot;Law firms that want to grow without compromising professionalism. Solo and small firms looking to build a steady client pipeline. Practices entering new markets.&quot;, &quot;why&quot;: &quot;Legal marketing fails when it sounds like marketing. We help you build a presence that signals competence first \u2014 and converts because of it.&quot;, &quot;form_value&quot;: &quot;legal-marketing&quot;}">
+          <div class="service_number">— 03</div>
+          <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09a1.65 1.65 0 00-1-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09a1.65 1.65 0 001.51-1 1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33h.01a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82v.01a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/>
+          </svg>
+          <h3 class="service_title">Legal Marketing & Client Outreach</h3>
+          <p class="service_description">Market research, client acquisition strategy, outreach campaigns, and brand positioning for law firms looking to grow disciplined, sustainable practices.</p>
+          <span class="service_arrow">Learn More →</span>
+        </div>
+
+        <div class="service_card stagger-item" data-category="security" data-num="04" data-category-label="Security" data-title="Oilfield Emergency Management" data-lead="When an incident escalates, command structure is the difference between contained and catastrophic." data-deliverables="Incident command planning and on-site response coordination || Pre-incident operational risk assessments and tabletop exercises || Regulatory readiness documentation and audit support || 24/7 emergency response activation for active wellsites || Post-incident review, root cause analysis, and corrective action plans" data-who-we-serve="Upstream and midstream operators with active wells across Texas, South Dakota, and other producing states. Whether your operation is two rigs or two hundred, our response model scales." data-why="Our principals have stood on active wellsites during incidents. We don't deliver theoretical frameworks — we deliver judgment honed in the field, ready when the call comes in at 3 a.m." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 SECURITY&quot;, &quot;lead&quot;: &quot;When an incident escalates, command structure is the difference between contained and catastrophic.&quot;, &quot;deliverables&quot;: [&quot;Incident command planning and on-site response coordination&quot;, &quot;Pre-incident operational risk assessments and mitigation planning&quot;, &quot;Regulatory readiness documentation and audit support&quot;, &quot;24/7 emergency response activation for active wellsites&quot;], &quot;who&quot;: &quot;Upstream and midstream operators with active wells across Texas, South Dakota, and other producing states. From two-rig independents to multi-basin operators.&quot;, &quot;why&quot;: &quot;Our principals have stood on active wellsites during incidents. We don&#39;t deliver theoretical frameworks \u2014 we deliver judgment honed in the field.&quot;, &quot;form_value&quot;: &quot;oilfield&quot;}">
+          <div class="service_number">— 04</div>
+          <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M12 2v6m0 0l-3-3m3 3l3-3M4 13l2 7h12l2-7M4 13a2 2 0 012-2h12a2 2 0 012 2"/>
+          </svg>
+          <h3 class="service_title">Oilfield Emergency Management</h3>
+          <p class="service_description">Incident command planning, crisis response coordination, and regulatory readiness for upstream and midstream operators with active wells across Texas, South Dakota, and other producing states.</p>
+          <span class="service_arrow">Learn More →</span>
+        </div>
+
+        <div class="service_card stagger-item" data-category="security" data-num="05" data-category-label="Security" data-title="Force Protection & InfoSec" data-lead="Threats don't announce themselves. The disciplined ones quietly assess your weaknesses first." data-deliverables="Threat assessment for personnel, facilities, and operations || Executive protection planning and travel security advisories || Operational security (OpSec) doctrine and training || Information security (InfoSec) program design and implementation || Insider threat detection programs and behavioral indicator training" data-who-we-serve="Energy operators, law firms, political candidates, executives, and any organization where the threat surface extends beyond a firewall — into physical, operational, and human-factor risk." data-why="Veteran-led. We approach force protection the way we were trained to — with discipline, redundancy, and a relentless focus on the threats most teams don't think to plan for." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 SECURITY&quot;, &quot;lead&quot;: &quot;The most expensive threats are the ones you didn&#39;t know to watch for.&quot;, &quot;deliverables&quot;: [&quot;Threat assessment and executive protection planning&quot;, &quot;Operational security (OpSec) programs for sensitive personnel and operations&quot;, &quot;Information security (InfoSec) policy design and implementation&quot;, &quot;Insider threat programs \u2014 detection, response, and prevention&quot;], &quot;who&quot;: &quot;Executives, family offices, and organizations with elevated risk profiles. Energy operators, political figures, legal professionals handling sensitive matters.&quot;, &quot;why&quot;: &quot;Our team brings military and protective service experience. We assess risk the way adversaries plan attacks \u2014 from the outside in.&quot;, &quot;form_value&quot;: &quot;force-protection&quot;}">
+          <div class="service_number">— 05</div>
+          <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M12 2L4 6v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V6l-8-4z"/>
+          </svg>
+          <h3 class="service_title">Force Protection & InfoSec</h3>
+          <p class="service_description">Threat assessment, executive protection, operational security (OpSec), information security (InfoSec), and insider threat programs for personnel, assets, and sensitive data.</p>
+          <span class="service_arrow">Learn More →</span>
+        </div>
+
+        <div class="service_card stagger-item" data-category="security" data-num="06" data-category-label="Security" data-title="Physical Security" data-lead="A well-designed perimeter quietly does its job. A poorly designed one teaches your adversaries everything they need to know." data-deliverables="Facility hardening assessments and remediation roadmaps || Access control system design, vendor selection, and integration || Surveillance architecture — camera placement, retention, and monitoring || Security operations center (SOC) design and procedure documentation || Site-specific security plans for commercial, industrial, and field operations" data-who-we-serve="Commercial real estate, industrial facilities, energy infrastructure, and any operation where physical site security needs to function as a layered, integrated system — not a bolt-on after-thought." data-why="We design physical security the way an adversary would attempt to defeat it. Every recommendation accounts for how the system fails — not just how it works on a clear day." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 SECURITY&quot;, &quot;lead&quot;: &quot;A facility is only as secure as its weakest entry, sightline, and routine.&quot;, &quot;deliverables&quot;: [&quot;Facility hardening assessments and remediation planning&quot;, &quot;Access control system design and deployment&quot;, &quot;Surveillance architecture and security operations center (SOC) design&quot;, &quot;Security personnel training and procedural development&quot;], &quot;who&quot;: &quot;Commercial properties, industrial sites, government facilities, and high-value private estates. Operators who need to balance security with day-to-day usability.&quot;, &quot;why&quot;: &quot;We design security that real people can live and work with. No overbuilt theater \u2014 just effective, layered protection that holds up under audit and incident.&quot;, &quot;form_value&quot;: &quot;physical-security&quot;}">
+          <div class="service_number">— 06</div>
+          <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
+          </svg>
+          <h3 class="service_title">Physical Security</h3>
+          <p class="service_description">Facility hardening, access control systems, surveillance architecture, and security operations center design for commercial and industrial sites.</p>
+          <span class="service_arrow">Learn More →</span>
+        </div>
+
+        <div class="service_card stagger-item" data-category="technology" data-num="07" data-category-label="Technology" data-title="Website Design" data-lead="Your website is the first impression. We make sure it's the right one." data-deliverables="Brand-aligned web design with conversion-optimized architecture || Platform selection — Webflow, WordPress, Cloudflare, Wix, or custom || Hosting strategy matched to budget, traffic, and maintenance comfort || Performance optimization, SEO foundations, and accessibility compliance || Ongoing support, content updates, and analytics-driven iteration" data-who-we-serve="Professional services firms, small businesses, political campaigns, and operators who need a serious web presence — and who need a partner who'll choose the right tool rather than push their preferred one." data-why="We meet clients at their budget and hosting needs. A $500 Wix site can be elegant. A $10,000 Webflow build can be exceptional. We tell you which one your business actually needs." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 TECHNOLOGY&quot;, &quot;lead&quot;: &quot;The right website isn&#39;t the most expensive \u2014 it&#39;s the right tool for your budget and stage.&quot;, &quot;deliverables&quot;: [&quot;Platform selection \u2014 Webflow, WordPress, Cloudflare, Wix, or custom build&quot;, &quot;Brand-aligned design and conversion-focused architecture&quot;, &quot;Performance optimization, SEO foundation, and analytics setup&quot;, &quot;Hosting strategy matched to traffic and budget realities&quot;], &quot;who&quot;: &quot;Small businesses, law firms, campaigns, and consulting practices. Anyone who&#39;s been quoted $15,000 for a website that should cost $1,500 \u2014 or vice versa.&quot;, &quot;why&quot;: &quot;We&#39;re platform-agnostic. We recommend what&#39;s right for your business, not what&#39;s easiest for us to bill. Most clients leave with a site they can actually maintain.&quot;, &quot;form_value&quot;: &quot;web-design&quot;}">
+          <div class="service_number">— 07</div>
+          <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+          </svg>
+          <h3 class="service_title">Website Design</h3>
+          <p class="service_description">Brand-aligned, performance-optimized websites built on the right platform for each client — Webflow, WordPress, Cloudflare, Wix, or custom — matched to your budget and hosting needs.</p>
+          <span class="service_arrow">Learn More →</span>
+        </div>
+
+        <div class="service_card stagger-item" data-category="security" data-num="08" data-category-label="Security" data-title="Cyber Security" data-lead="Most breaches aren't sophisticated. They're patient. Cyber defense is a discipline, not a product." data-deliverables="Threat modeling and security posture audits || Penetration testing oversight and remediation prioritization || Incident response planning, playbooks, and tabletop exercises || Endpoint, email, and identity security architecture review || Vendor risk assessments and third-party access controls" data-who-we-serve="Small to mid-sized businesses without a dedicated CISO — law firms, energy operators, professional services, and any organization handling sensitive client data who needs an outside perspective on their defenses." data-why="We're not selling you software. We're identifying where your real exposure is and giving you a prioritized path to close it — with or without our continued involvement." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 SECURITY&quot;, &quot;lead&quot;: &quot;Most breaches don&#39;t come from sophisticated attacks. They come from gaps you didn&#39;t audit.&quot;, &quot;deliverables&quot;: [&quot;Security posture audits and threat modeling&quot;, &quot;Penetration testing oversight and remediation planning&quot;, &quot;Incident response planning and tabletop exercises&quot;, &quot;Compliance support \u2014 HIPAA, PCI, SOC 2, and industry-specific frameworks&quot;], &quot;who&quot;: &quot;Small to mid-sized businesses handling sensitive client data. Law firms, energy operators, and political campaigns. Organizations recovering from an incident.&quot;, &quot;why&quot;: &quot;We don&#39;t sell fear. We translate cyber risk into business decisions \u2014 what to fix now, what to monitor, and what&#39;s not worth your money.&quot;, &quot;form_value&quot;: &quot;cyber&quot;}">
+          <div class="service_number">— 08</div>
+          <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M12 22s8-4 8-12V4l-8-2-8 2v6c0 8 8 12 8 12z"/><path d="M9 12l2 2 4-4"/>
+          </svg>
+          <h3 class="service_title">Cyber Security</h3>
+          <p class="service_description">Threat modeling, penetration testing oversight, incident response planning, and security posture audits for businesses of every size.</p>
+          <span class="service_arrow">Learn More →</span>
+        </div>
+
+        <div class="service_card stagger-item" data-category="technology" data-num="09" data-category-label="Technology" data-title="Networking" data-lead="A network is either an asset or a liability. The middle ground is just downtime waiting to happen." data-deliverables="Enterprise network architecture design and segmentation strategy || Wired and wireless infrastructure deployment and configuration || VPN, remote access, and site-to-site connectivity planning || Network monitoring, redundancy, and disaster recovery planning || Vendor selection and managed service provider evaluation" data-who-we-serve="Multi-site businesses, professional firms with hybrid workforces, and operators expanding into new locations who need their network to be a quiet enabler — not a daily fire." data-why="We design networks for the way your business actually operates — not the way a manufacturer's reference architecture says it should. Every recommendation is tested against real-world failure modes." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 TECHNOLOGY&quot;, &quot;lead&quot;: &quot;Resilient networks aren&#39;t built \u2014 they&#39;re designed with failure in mind.&quot;, &quot;deliverables&quot;: [&quot;Enterprise network architecture and segmentation strategy&quot;, &quot;Wired and wireless infrastructure deployment&quot;, &quot;VPN, remote access, and zero-trust implementation&quot;, &quot;Network monitoring and performance optimization&quot;], &quot;who&quot;: &quot;Growing businesses outgrowing consumer-grade equipment. Law firms and medical practices with compliance requirements. Multi-site operations needing reliability.&quot;, &quot;why&quot;: &quot;We build networks that don&#39;t require an in-house IT team to maintain. Documentation is included. Vendor lock-in is avoided.&quot;, &quot;form_value&quot;: &quot;networking&quot;}">
+          <div class="service_number">— 09</div>
+          <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/>
+          </svg>
+          <h3 class="service_title">Networking</h3>
+          <p class="service_description">Enterprise network architecture, segmentation strategy, and infrastructure deployment for resilient, secure, scalable operations.</p>
+          <span class="service_arrow">Learn More →</span>
+        </div>
+
+        <div class="service_card stagger-item" data-category="technology" data-num="10" data-category-label="Technology" data-title="IT Upgrades & Updates" data-lead="Legacy systems are working — until they aren't. The transition is where most operations break." data-deliverables="Legacy system audits and modernization roadmaps || Hardware refresh planning and procurement coordination || Cloud migration strategy — Microsoft 365, Google Workspace, or hybrid || Managed service provider transitions without operational downtime || End-user training and change management for new platforms" data-who-we-serve="Established small and mid-sized businesses running on aging infrastructure, post-acquisition operations consolidating systems, and any organization that knows its IT is overdue for attention." data-why="We've executed transitions where operational continuity wasn't optional. We know how to upgrade what you're running on — without your team feeling the pain or your clients noticing." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 TECHNOLOGY&quot;, &quot;lead&quot;: &quot;Legacy systems don&#39;t fail at convenient times. They fail at the worst possible moment.&quot;, &quot;deliverables&quot;: [&quot;Legacy system assessment and modernization roadmap&quot;, &quot;Hardware refresh planning and procurement&quot;, &quot;Cloud migration strategy and execution&quot;, &quot;Managed service transitions without operational downtime&quot;], &quot;who&quot;: &quot;Established businesses running on systems that have aged out of support. Firms preparing for audits, sales, or rapid growth. Organizations whose IT has become a liability.&quot;, &quot;why&quot;: &quot;We modernize without disruption. Most of our migrations happen with zero downtime \u2014 because the wrong upgrade strategy costs more than the upgrade itself.&quot;, &quot;form_value&quot;: &quot;it-upgrades&quot;}">
+          <div class="service_number">— 10</div>
+          <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/><path d="M12 6v6l4 2"/>
+          </svg>
+          <h3 class="service_title">IT Upgrades & Updates</h3>
+          <p class="service_description">Legacy modernization, hardware refresh planning, cloud migration, and managed service transitions executed without operational downtime.</p>
+          <span class="service_arrow">Learn More →</span>
+        </div>
+
+        <div class="service_card stagger-item" data-category="communications" data-num="11" data-category-label="Communications" data-title="Political Campaigns" data-lead="Local campaigns are won on discipline, not budget. The right operations make small money look like big money." data-deliverables="Campaign strategy, message development, and field operations planning || Voter outreach infrastructure — canvassing, calling, and digital || Campaign photography — events, portraits, and field documentation || Video editing — ads, social media, and long-form content || Brand identity, signage, and collateral design" data-who-we-serve="Local candidates running serious, principled campaigns — city council, county offices, school boards, and state legislative races where discipline and message matter more than war chests." data-why="We've consulted for local campaigns and seen exactly where money gets wasted. Our model puts every dollar where it actually moves votes — and treats the candidate's time as the scarce resource it is." data-service-data="{&quot;category&quot;: &quot;PRACTICE AREA \u00b7 COMMUNICATIONS&quot;, &quot;lead&quot;: &quot;Most local campaigns lose because they underinvest in the work that actually moves votes.&quot;, &quot;deliverables&quot;: [&quot;Campaign strategy, messaging, and operations planning&quot;, &quot;Voter outreach infrastructure and field operations support&quot;, &quot;Photography for candidate, campaign events, and earned media&quot;, &quot;Video editing \u2014 political ads, social content, and digital outreach&quot;], &quot;who&quot;: &quot;Local and regional candidates running disciplined, principled campaigns. First-time candidates who need to look professional from day one. Incumbents preparing for serious challenges.&quot;, &quot;why&quot;: &quot;We bring the production value of a national campaign to local budgets. Our work has helped candidates win races against opponents with significantly more spending.&quot;, &quot;form_value&quot;: &quot;political&quot;}">
+          <div class="service_number">— 11</div>
+          <svg class="service_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M4 22h16M6 22V8l6-4 6 4v14M10 10h.01M14 10h.01M10 14h.01M14 14h.01M10 18h4"/>
+          </svg>
+          <h3 class="service_title">Political Campaigns</h3>
+          <p class="service_description">Local campaign strategy, operations, voter outreach, photography, and video editing — full-spectrum communications consulting for candidates running disciplined, principled campaigns.</p>
+          <span class="service_arrow">Learn More →</span>
+        </div>
+
+      </div>
+
+      <!-- COMPONENT: Service Detail Expansion Panel -->
+      <div class="service_detail" id="serviceDetail">
+        <button class="service_detail-close" id="serviceDetailClose" aria-label="Close detail">×</button>
+        <div class="service_detail-grid">
+          <div>
+            <div class="service_detail-eyebrow" id="serviceDetailCategory"></div>
+            <h3 class="service_detail-title" id="serviceDetailTitle"></h3>
+            <p class="service_detail-lead" id="serviceDetailLead"></p>
+          </div>
+          <div>
+            <div class="service_detail-section">
+              <div class="service_detail-label">What We Deliver</div>
+              <ul class="service_detail-list" id="serviceDetailDeliverables"></ul>
+            </div>
+            <div class="service_detail-section">
+              <div class="service_detail-label">Who We Serve</div>
+              <p class="service_detail-body" id="serviceDetailWho"></p>
+            </div>
+            <div class="service_detail-section">
+              <div class="service_detail-label">Why Acacia Lake</div>
+              <p class="service_detail-body" id="serviceDetailWhy"></p>
+            </div>
+            <a href="#contact" class="service_detail-cta" id="serviceDetailCta">
+              Discuss This Engagement <span>→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION: APPROACH / PROCESS
+     ============================================================ -->
+<section class="section_approach padding-section-large" id="approach">
+  <div class="padding-global">
+    <div class="container-large">
+
+      <div class="approach_header">
+        <h2 class="approach_heading fade-in">
+          A measured, <span class="italic">methodical</span> way of working.
+        </h2>
+        <p class="approach_intro fade-in">
+          Our engagement model is built around clarity, transparency, and accountability. We define success before we begin — and we don't stop until we've delivered it.
+        </p>
+      </div>
+
+      <div class="approach_steps">
+        <div class="approach_step stagger-item">
+          <div class="approach_bg-number parallax" data-parallax-speed="-0.18">01</div>
+          <div class="approach_step-number">01</div>
+          <h3 class="approach_step-title">Discovery</h3>
+          <p class="approach_step-text">A structured intake to understand your environment, constraints, and the outcomes that matter most to your stakeholders.</p>
+        </div>
+        <div class="approach_step stagger-item">
+          <div class="approach_bg-number parallax" data-parallax-speed="-0.22">02</div>
+          <div class="approach_step-number">02</div>
+          <h3 class="approach_step-title">Diagnosis</h3>
+          <p class="approach_step-text">A rigorous assessment delivered as a written report — surfacing risk, opportunity, and a prioritized path forward.</p>
+        </div>
+        <div class="approach_step stagger-item">
+          <div class="approach_bg-number parallax" data-parallax-speed="-0.18">03</div>
+          <div class="approach_step-number">03</div>
+          <h3 class="approach_step-title">Execution</h3>
+          <p class="approach_step-text">Hands-on implementation alongside your team, with milestones, transparent reporting, and zero scope drift.</p>
+        </div>
+        <div class="approach_step stagger-item">
+          <div class="approach_bg-number parallax" data-parallax-speed="-0.22">04</div>
+          <div class="approach_step-number">04</div>
+          <h3 class="approach_step-title">Stewardship</h3>
+          <p class="approach_step-text">Long-term advisory relationships, quarterly reviews, and a standing line to the principals who know your business.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     COMPONENT: ORNAMENTAL SECTION DIVIDER
+     ============================================================ -->
+<div class="section-divider bg-offwhite">
+  <span class="section-divider_line"></span>
+  <span class="section-divider_ornament">✦</span>
+  <span class="section-divider_line"></span>
+</div>
+
+<!-- ============================================================
+     SECTION: PULL QUOTE
+     ============================================================ -->
+<section class="section_pullquote">
+  <div class="fade-in">
+    <span class="pullquote_mark">"</span>
+    <p class="pullquote_text">
+      The standard we hold ourselves to is the one our clients <span class="accent">can't afford</span> to compromise.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION: TIMELINE / FIRM JOURNEY
+     ============================================================ -->
+<section class="section_timeline padding-section-large">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="timeline_header fade-in">
+        <div class="text-style-eyebrow margin-bottom-small">Our Journey</div>
+        <h2 class="heading-style-h2 margin-bottom-medium">
+          A measured <span class="text-style-italic">growth.</span>
+        </h2>
+        <p class="text-style-lead">Built engagement by engagement, on the trust of leaders who needed advisors they could rely on.</p>
+      </div>
+      <div class="timeline_wrapper">
+
+        <div class="timeline_items">
+          <div class="timeline_item stagger-item" data-year="2021" data-title="Founded" data-detail="Acacia Lake Consulting was founded by veteran principals with cross-disciplinary expertise spanning security operations, legal practice management, and enterprise technology. From day one, the firm operated on a single principle: bring senior-level judgment to every engagement, regardless of size or sector.">
+            <div class="timeline_year">2021</div>
+            <p class="timeline_text">Founded by veteran principals with cross-disciplinary expertise</p>
+            <button class="timeline_button">View Milestone <span>→</span></button>
+          </div>
+          <div class="timeline_item stagger-item" data-year="2024" data-title="Energy & Legal Practice Launch" data-detail="Acacia Lake expanded into two new sectors in 2024. On the energy side, the firm built dedicated oilfield emergency management and incident response capability, supporting operators with active wells across Texas, South Dakota, and other producing states. In parallel, the firm launched a legal office practice — conducting market research, managing client outreach, and streamlining examinations under oath (EUOs) for law firms operating in high-volume environments.">
+            <div class="timeline_year">2024</div>
+            <p class="timeline_text">Launched energy sector operations and legal office practice</p>
+            <button class="timeline_button">View Milestone <span>→</span></button>
+          </div>
+          <div class="timeline_item stagger-item" data-year="2025" data-title="Political & Communications" data-detail="Launched a full-service political consulting practice, delivering local campaign strategy, voter outreach, photography, and video editing. The same year, the firm broadened its communications capability to support candidates and small businesses with end-to-end brand and digital production.">
+            <div class="timeline_year">2025</div>
+            <p class="timeline_text">Launched political consulting practice and full-service communications</p>
+            <button class="timeline_button">View Milestone <span>→</span></button>
+          </div>
+          <div class="timeline_item stagger-item" data-year="2026" data-title="Eleven Disciplines, One Standard" data-detail="Acacia Lake now serves leaders across eleven practice disciplines — strategy, security, technology, and communications — from our headquarters in Brownsville, Texas. Every engagement is principal-led. Every recommendation is grounded in operator-level experience.">
+            <div class="timeline_year">2026</div>
+            <p class="timeline_text">Serving leaders across eleven disciplines from our Brownsville, Texas headquarters</p>
+            <button class="timeline_button">View Milestone <span>→</span></button>
+          </div>
+        </div>
+
+        <!-- Expandable detail panel -->
+        <div class="timeline_detail" id="timelineDetail">
+          <div class="timeline_detail-eyebrow">Milestone</div>
+          <div class="timeline_detail-year" id="timelineDetailYear"></div>
+          <h3 class="timeline_detail-title" id="timelineDetailTitle"></h3>
+          <p class="timeline_detail-text" id="timelineDetailText"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION: STATS
+     ============================================================ -->
+<section class="section_stats">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="stats_grid">
+        <div class="stat_item stagger-item">
+          <div class="stat_number"><span class="counter" data-target="200">0</span><span class="accent">+</span></div>
+          <div class="stat_label">Engagements Delivered</div>
+        </div>
+        <div class="stat_item stagger-item">
+          <div class="stat_number"><span class="counter" data-target="11">0</span></div>
+          <div class="stat_label">Practice Disciplines</div>
+        </div>
+        <div class="stat_item stagger-item">
+          <div class="stat_number"><span class="counter" data-target="100">0</span><span class="accent">%</span></div>
+          <div class="stat_label">Principal-Led Service</div>
+        </div>
+        <div class="stat_item stagger-item">
+          <div class="stat_number">24/<span class="accent">7</span></div>
+          <div class="stat_label">Emergency Response</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     COMPONENT: ORNAMENTAL SECTION DIVIDER
+     ============================================================ -->
+<div class="section-divider bg-offwhite hidden-until-ready">
+  <span class="section-divider_line"></span>
+  <span class="section-divider_ornament">✦</span>
+  <span class="section-divider_line"></span>
+</div>
+
+<!-- ============================================================
+     SECTION: TESTIMONIALS — 3 cards
+     HIDDEN until real client quotes are available (NDA-protected work).
+     To show: remove "hidden-until-ready" class from the section below.
+     ============================================================ -->
+<section class="section_testimonial padding-section-large hidden-until-ready">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="testimonials_header fade-in">
+        <div class="text-style-eyebrow margin-bottom-small">In Their Words</div>
+        <h2 class="heading-style-h2">
+          Trusted by the leaders we <span class="text-style-italic">serve.</span>
+        </h2>
+      </div>
+      <div class="testimonials_grid">
+
+        <div class="testimonial_card stagger-item">
+          <span class="testimonial_mark">"</span>
+          <p class="testimonial_quote">
+            Acacia Lake walked into a problem we'd been wrestling with for eighteen months and had a path mapped within a week. They are exactly the kind of advisors you call when you can't afford to be wrong.
+          </p>
+          <div class="testimonial_author-row">
+            <div class="testimonial_avatar">MP</div>
+            <div>
+              <div class="testimonial_author">Managing Partner</div>
+              <div class="testimonial_role">Regional Law Firm, Texas</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial_card stagger-item">
+          <span class="testimonial_mark">"</span>
+          <p class="testimonial_quote">
+            When a wellsite incident escalated overnight, they were boots-on-ground within hours. The response plan they built has become our standard operating procedure across every site we run.
+          </p>
+          <div class="testimonial_author-row">
+            <div class="testimonial_avatar">DC</div>
+            <div>
+              <div class="testimonial_author">Director of Operations</div>
+              <div class="testimonial_role">Independent E&P Operator</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial_card stagger-item">
+          <span class="testimonial_mark">"</span>
+          <p class="testimonial_quote">
+            They handled our digital, our outreach, and our security posture in parallel — and made the campaign look ten times more professional than the budget should have allowed. We won.
+          </p>
+          <div class="testimonial_author-row">
+            <div class="testimonial_avatar">CS</div>
+            <div>
+              <div class="testimonial_author">Campaign Strategist</div>
+              <div class="testimonial_role">Local Political Campaign</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION: INSIGHTS / RECENT WORK
+     HIDDEN until real published articles or case studies are ready.
+     Most current engagements are NDA-protected. To show: remove the
+     "hidden-until-ready" class from the section below.
+     ============================================================ -->
+<section class="section_insights padding-section-large hidden-until-ready">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="insights_header fade-in">
+        <div class="insights_title-block">
+          <div class="text-style-eyebrow margin-bottom-small">Insights & Recent Work</div>
+          <h2 class="heading-style-h2">
+            Thinking worth <span class="text-style-italic">publishing.</span>
+          </h2>
+        </div>
+        <a href="#" class="insights_link">View All Insights →</a>
+      </div>
+
+      <div class="insights_grid">
+        <article class="insight_card stagger-item">
+          <div class="insight_image insight_image-a">
+            <div class="insight_image-overlay"></div>
+            <div class="insight_category">Case Study</div>
+          </div>
+          <div class="insight_content">
+            <div class="insight_meta">Force Protection · 5 min read</div>
+            <h3 class="insight_title">Building an Insider Threat Program From the Ground Up</h3>
+            <p class="insight_excerpt">How a mid-sized energy firm closed three critical OpSec gaps and reduced incident response time by 60%.</p>
+            <span class="insight_read">Read Article →</span>
+          </div>
+        </article>
+
+        <article class="insight_card stagger-item">
+          <div class="insight_image insight_image-b">
+            <div class="insight_image-overlay"></div>
+            <div class="insight_category">Field Notes</div>
+          </div>
+          <div class="insight_content">
+            <div class="insight_meta">Emergency Management · 7 min read</div>
+            <h3 class="insight_title">The First 90 Minutes: Crisis Command on an Active Wellsite</h3>
+            <p class="insight_excerpt">Lessons from the field on incident command structure, communications discipline, and post-event review.</p>
+            <span class="insight_read">Read Article →</span>
+          </div>
+        </article>
+
+        <article class="insight_card stagger-item">
+          <div class="insight_image insight_image-c">
+            <div class="insight_image-overlay"></div>
+            <div class="insight_category">Perspective</div>
+          </div>
+          <div class="insight_content">
+            <div class="insight_meta">Strategy · 6 min read</div>
+            <h3 class="insight_title">Why Most Local Campaigns Underinvest in Digital — and What to Do About It</h3>
+            <p class="insight_excerpt">A practical framework for spending campaign dollars where they actually move votes.</p>
+            <span class="insight_read">Read Article →</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION: CONTACT FORM
+     ============================================================ -->
+<section class="section_cta padding-section-large" id="contact">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="contact_grid">
+
+        <div class="fade-in">
+          <div class="contact_intro-eyebrow">Begin the Conversation</div>
+          <h2 class="contact_heading">
+            Tell us what's <span class="italic">keeping you up</span> at night.
+          </h2>
+          <p class="contact_description">
+            Every engagement begins with a confidential conversation. Send us a brief overview of what you're working on. A principal will respond within one business day.
+          </p>
+
+          <div class="contact_details">
+            <div class="contact_detail">
+              <div class="contact_detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <div>
+                <div class="contact_detail-label">Email</div>
+                <a href="mailto:cesarc@acacialakeconsulting.com" class="contact_detail-value contact_detail-link">cesarc@acacialakeconsulting.com</a>
+              </div>
+            </div>
+
+            <div class="contact_detail contact_detail--emergency">
+              <div class="contact_detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="contact_detail-label">24/7 Emergency Line</div>
+                <a href="tel:+19565511479" class="contact_detail-value contact_detail-link">+1 (956) 551-1479</a>
+              </div>
+            </div>
+
+            <div class="contact_detail">
+              <div class="contact_detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <div class="contact_detail-label">Headquarters</div>
+                <div class="contact_detail-value">Brownsville, Texas</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COMPONENT: Contact Form -->
+        <form class="contact_form fade-in" onsubmit="handleFormSubmit(event)">
+          <div class="contact_form-row">
+            <div>
+              <label class="contact_form-label" for="contact-name">Name</label>
+              <input class="contact_form-input" type="text" id="contact-name" name="name" placeholder="Your full name" required />
+            </div>
+            <div>
+              <label class="contact_form-label" for="contact-email">Email</label>
+              <input class="contact_form-input" type="email" id="contact-email" name="email" placeholder="you@company.com" required />
+            </div>
+          </div>
+
+          <div class="contact_form-field">
+            <label class="contact_form-label" for="contact-org">Organization</label>
+            <input class="contact_form-input" type="text" id="contact-org" name="organization" placeholder="Company or campaign name" />
+          </div>
+
+          <div class="contact_form-field">
+            <label class="contact_form-label" for="contact-service">Service of Interest</label>
+            <select class="contact_form-select" id="contact-service" name="service" required>
+              <option value="">Select a practice area</option>
+              <option value="startups">Startups & Small Business</option>
+              <option value="legal-ops">Legal Practice Operations</option>
+              <option value="legal-marketing">Legal Marketing & Client Outreach</option>
+              <option value="oilfield">Oilfield Emergency Management</option>
+              <option value="force-protection">Force Protection & InfoSec</option>
+              <option value="physical-security">Physical Security</option>
+              <option value="web-design">Website Design</option>
+              <option value="cyber">Cyber Security</option>
+              <option value="networking">Networking</option>
+              <option value="it-upgrades">IT Upgrades & Updates</option>
+              <option value="political">Political Campaigns</option>
+              <option value="other">Other / Multiple</option>
+            </select>
+          </div>
+
+          <div class="contact_form-field">
+            <label class="contact_form-label" for="contact-message">Brief Description</label>
+            <textarea class="contact_form-textarea" id="contact-message" name="message" placeholder="What are you working on, and what does success look like?" required></textarea>
+          </div>
+
+          <button type="submit" class="contact_form-submit">
+            Send Inquiry <span>→</span>
+          </button>
+
+          <p class="contact_form-disclaimer">All inquiries are confidential. Response within one business day.</p>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION: FOOTER
+     ============================================================ -->
+<footer class="section_footer">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="footer_grid">
+        <div>
+          <div class="footer_brand">Acacia<span class="accent"> Lake</span></div>
+          <p class="footer_tagline">
+            A strategic consulting firm built for leaders who require discretion, precision, and outcomes.
+          </p>
+          <div class="veteran-badge-footer">
+            <span class="veteran-badge-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L4 6v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V6l-8-4z"/>
+                <path d="M9 12l2 2 4-4"/>
+              </svg>
+            </span>
+            Veteran Owned Business
+          </div>
+        </div>
+        <div>
+          <div class="footer_col-title">Practice</div>
+          <ul class="footer_links">
+            <li><a href="#services" class="footer_link">Strategy</a></li>
+            <li><a href="#services" class="footer_link">Security</a></li>
+            <li><a href="#services" class="footer_link">Technology</a></li>
+            <li><a href="#services" class="footer_link">Communications</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer_col-title">Firm</div>
+          <ul class="footer_links">
+            <li><a href="about.html" class="footer_link">About</a></li>
+            <li><a href="#approach" class="footer_link">Approach</a></li>
+            <li><a href="#contact" class="footer_link">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer_col-title">Direct</div>
+          <ul class="footer_links">
+            <li><a href="mailto:cesarc@acacialakeconsulting.com" class="footer_link">cesarc@acacialakeconsulting.com</a></li>
+            <li><a href="tel:+19565511479" class="footer_link">+1 (956) 551-1479</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer_bottom">
+        <div>© 2026 Acacia Lake Consulting. All rights reserved.</div>
+        <div style="font-style: italic; color: rgba(255,255,255,0.4);">Veteran Owned · Brownsville, Texas</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
+<script>
+/* ==========================================================================
+ *
+ *   ╔═══════════════════════════════════════════════════════════════╗
+ *   ║                                                               ║
+ *   ║          ACACIA LAKE CONSULTING — Proprietary JavaScript      ║
+ *   ║                                                               ║
+ *   ║          © 2026 Acacia Lake Consulting                        ║
+ *   ║          Brownsville, Texas · Veteran Owned                   ║
+ *   ║                                                               ║
+ *   ║          All scripts and interactive behavior are the         ║
+ *   ║          intellectual property of Acacia Lake Consulting.     ║
+ *   ║          Unauthorized use is strictly prohibited.             ║
+ *   ║                                                               ║
+ *   ║          cesarc@acacialakeconsulting.com                      ║
+ *   ║                                                               ║
+ *   ╚═══════════════════════════════════════════════════════════════╝
+ *
+ * ========================================================================== */
+
+/* ---------- LOADING SCREEN + PROGRESS BAR ---------- */
+
+/* Console watermark — visible to anyone who opens browser DevTools */
+console.log(
+  '%c\n  Acacia Lake Consulting  \n',
+  'font-family: serif; font-size: 32px; font-style: italic; font-weight: 500; color: #d4a437; background: #0c1a2e; padding: 16px 32px; border-radius: 4px;'
+);
+console.log(
+  '%c© 2026 Acacia Lake Consulting · Veteran Owned · Brownsville, Texas',
+  'font-family: sans-serif; font-size: 12px; letter-spacing: 0.2em; color: #0c1a2e; padding: 4px 0;'
+);
+console.log(
+  '%cInterested in our work? cesarc@acacialakeconsulting.com',
+  'font-family: sans-serif; font-size: 11px; color: #d4a437; font-style: italic; padding: 2px 0;'
+);
+console.log(
+  '%cThis source code, design, and content are proprietary. All rights reserved.',
+  'font-family: sans-serif; font-size: 10px; color: #8a96a8; padding-bottom: 8px;'
+);
+window.addEventListener('load', () => {
+  const progressFill = document.getElementById('loadingProgress');
+  const progressText = document.getElementById('progressText');
+  const loadingScreen = document.getElementById('loadingScreen');
+
+  let progress = 0;
+  const interval = setInterval(() => {
+    progress += Math.random() * 12 + 3;
+    if (progress >= 100) {
+      progress = 100;
+      clearInterval(interval);
+      setTimeout(() => loadingScreen.classList.add('hidden'), 400);
+    }
+    progressFill.style.width = progress + '%';
+    progressText.textContent = Math.floor(progress) + '%';
+  }, 120);
+});
+
+/* ---------- SCROLL PROGRESS BAR + NAV ---------- */
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrolled = (scrollTop / docHeight) * 100;
+  document.getElementById('scrollProgress').style.width = scrolled + '%';
+
+  const navbar = document.getElementById('navbar');
+  if (scrollTop > 80) navbar.classList.add('scrolled');
+  else navbar.classList.remove('scrolled');
+});
+
+/* ---------- FADE-IN + STAGGER ON SCROLL ---------- */
+const fadeObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+
+/* Stagger observer — triggers per-parent so groups cascade together */
+const staggerObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      staggerObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.stagger-item').forEach(el => staggerObserver.observe(el));
+
+/* ---------- ANIMATED COUNTERS ---------- */
+const animateCounter = (el) => {
+  const target = parseInt(el.dataset.target);
+  const duration = 2000;
+  const startTime = performance.now();
+
+  const tick = (now) => {
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    // Ease-out cubic for graceful deceleration
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = Math.floor(eased * target);
+    el.textContent = current;
+    if (progress < 1) requestAnimationFrame(tick);
+    else el.textContent = target;
+  };
+  requestAnimationFrame(tick);
+};
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCounter(entry.target);
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+/* ---------- SPOTLIGHT CURSOR (DARK SECTIONS ONLY) ---------- */
+const spotlight = document.getElementById('spotlight');
+const darkSections = document.querySelectorAll('.section_hero, .section_approach, .section_cta, .section_trusted, .section_footer');
+let spotlightActive = false;
+
+// Smooth mouse tracking with requestAnimationFrame
+let mouseX = 0, mouseY = 0;
+let spotX = 0, spotY = 0;
+
+document.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+
+  // Check which section the cursor is over
+  const elementUnder = document.elementFromPoint(mouseX, mouseY);
+  if (!elementUnder) return;
+
+  const isDark = Array.from(darkSections).some(section => section.contains(elementUnder));
+
+  if (isDark && !spotlightActive) {
+    spotlight.classList.add('active');
+    spotlightActive = true;
+  } else if (!isDark && spotlightActive) {
+    spotlight.classList.remove('active');
+    spotlightActive = false;
+  }
+});
+
+// Smooth follow animation — eases the spotlight toward the cursor
+const animateSpotlight = () => {
+  spotX += (mouseX - spotX) * 0.12;
+  spotY += (mouseY - spotY) * 0.12;
+  spotlight.style.left = spotX + 'px';
+  spotlight.style.top = spotY + 'px';
+  requestAnimationFrame(animateSpotlight);
+};
+animateSpotlight();
+
+/* ---------- SUBTLE PARALLAX (Desktop only) ---------- */
+const isMobile = window.matchMedia('(max-width: 991px)').matches
+  || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (!isMobile) {
+  const parallaxElements = document.querySelectorAll('.parallax');
+
+  // Cache each element's section top for accurate per-section parallax
+  const cacheParallax = () => {
+    parallaxElements.forEach(el => {
+      const section = el.closest('section');
+      el.dataset.sectionTop = section ? section.offsetTop : 0;
+    });
+  };
+  cacheParallax();
+  window.addEventListener('resize', cacheParallax);
+
+  let ticking = false;
+  const updateParallax = () => {
+    const scrollY = window.scrollY;
+    const viewportHeight = window.innerHeight;
+
+    parallaxElements.forEach(el => {
+      const sectionTop = parseFloat(el.dataset.sectionTop) || 0;
+      const speed = parseFloat(el.dataset.parallaxSpeed) || 0.2;
+
+      // Only animate when the parent section is in or near viewport
+      const distance = scrollY - sectionTop + viewportHeight;
+      if (distance > -viewportHeight && distance < viewportHeight * 3) {
+        const offset = (scrollY - sectionTop) * speed;
+        el.style.transform = `translate3d(0, ${offset}px, 0)`;
+      }
+    });
+    ticking = false;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  updateParallax();
+}
+
+/* ---------- TIMELINE ITEM CLICK ---------- */
+const timelineItems = document.querySelectorAll('.timeline_item');
+const timelineDetail = document.getElementById('timelineDetail');
+const timelineDetailYear = document.getElementById('timelineDetailYear');
+const timelineDetailTitle = document.getElementById('timelineDetailTitle');
+const timelineDetailText = document.getElementById('timelineDetailText');
+let activeTimelineYear = null;
+
+timelineItems.forEach(item => {
+  const button = item.querySelector('.timeline_button');
+  if (!button) return;
+
+  button.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const year = item.dataset.year;
+    const title = item.dataset.title;
+    const detail = item.dataset.detail;
+
+    // Toggle: if clicking the same year that's already open, close it
+    if (activeTimelineYear === year) {
+      timelineDetail.classList.remove('open');
+      item.classList.remove('active');
+      activeTimelineYear = null;
+      return;
+    }
+
+    // Clear active state from all items
+    timelineItems.forEach(i => i.classList.remove('active'));
+    item.classList.add('active');
+
+    // Populate and open the detail panel
+    timelineDetailYear.textContent = year;
+    timelineDetailTitle.textContent = title;
+    timelineDetailText.textContent = detail;
+    timelineDetail.classList.add('open');
+    activeTimelineYear = year;
+
+    // Scroll detail into view smoothly
+    setTimeout(() => {
+      timelineDetail.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 200);
+  });
+});
+
+/* ---------- SERVICE FILTER TABS ---------- */
+const filterTabs = document.querySelectorAll('.filter-tab');
+const serviceCards = document.querySelectorAll('.service_card');
+filterTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const filter = tab.dataset.filter;
+
+    filterTabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+
+    serviceCards.forEach(card => {
+      const category = card.dataset.category;
+      const shouldShow = filter === 'all' || category === filter;
+
+      // Remove previous animation class
+      card.classList.remove('filtering-in');
+
+      if (shouldShow) {
+        card.classList.remove('filtered-out');
+        // Trigger reflow then add animation
+        void card.offsetWidth;
+        card.classList.add('filtering-in');
+      } else {
+        card.classList.add('filtered-out');
+      }
+    });
+
+    // Close any open service detail when filtering
+    closeServiceDetail();
+  });
+});
+
+/* ---------- SERVICE CARD DETAIL EXPANSION ---------- */
+const serviceDetail = document.getElementById('serviceDetail');
+const serviceDetailCategory = document.getElementById('serviceDetailCategory');
+const serviceDetailTitle = document.getElementById('serviceDetailTitle');
+const serviceDetailLead = document.getElementById('serviceDetailLead');
+const serviceDetailDeliverables = document.getElementById('serviceDetailDeliverables');
+const serviceDetailWho = document.getElementById('serviceDetailWho');
+const serviceDetailWhy = document.getElementById('serviceDetailWhy');
+const serviceDetailCta = document.getElementById('serviceDetailCta');
+const serviceDetailClose = document.getElementById('serviceDetailClose');
+let activeServiceCard = null;
+
+const closeServiceDetail = () => {
+  if (!serviceDetail) return;
+  serviceDetail.classList.remove('open');
+  if (activeServiceCard) {
+    activeServiceCard.classList.remove('active');
+    activeServiceCard = null;
+  }
+};
+
+const openServiceDetail = (card) => {
+  const dataAttr = card.dataset.serviceData;
+  if (!dataAttr) return;
+
+  let data;
+  try {
+    data = JSON.parse(dataAttr);
+  } catch (e) {
+    console.error('Invalid service data:', e);
+    return;
+  }
+
+  // Toggle: same card clicked twice closes the panel
+  if (activeServiceCard === card) {
+    closeServiceDetail();
+    return;
+  }
+
+  serviceCards.forEach(c => c.classList.remove('active'));
+  card.classList.add('active');
+  activeServiceCard = card;
+
+  serviceDetailCategory.textContent = data.category;
+  serviceDetailTitle.textContent = card.querySelector('.service_title').textContent;
+  serviceDetailLead.textContent = '"' + data.lead + '"';
+
+  serviceDetailDeliverables.innerHTML = '';
+  data.deliverables.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = item;
+    serviceDetailDeliverables.appendChild(li);
+  });
+
+  serviceDetailWho.textContent = data.who;
+  serviceDetailWhy.textContent = data.why;
+
+  // CTA pre-selects the service in the contact form
+  serviceDetailCta.onclick = () => {
+    const select = document.getElementById('contact-service');
+    if (select) select.value = data.form_value;
+    setTimeout(() => closeServiceDetail(), 600);
+  };
+
+  serviceDetail.classList.add('open');
+
+  setTimeout(() => {
+    serviceDetail.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 250);
+};
+
+if (serviceDetail) {
+  serviceCards.forEach(card => {
+    card.addEventListener('click', () => openServiceDetail(card));
+  });
+  serviceDetailClose.addEventListener('click', closeServiceDetail);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && serviceDetail.classList.contains('open')) {
+      closeServiceDetail();
+    }
+  });
+}
+
+/* ---------- CONTACT FORM HANDLER ---------- */
+function handleFormSubmit(event) {
+  event.preventDefault();
+  const form = event.target;
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData);
+
+  // Visual confirmation — in production, replace with real form submission
+  // (Webflow native forms, Formspree, Netlify Forms, custom backend, etc.)
+  const submitBtn = form.querySelector('.contact_form-submit');
+  const originalContent = submitBtn.innerHTML;
+  submitBtn.innerHTML = 'Inquiry Sent ✓';
+  submitBtn.style.background = 'var(--color-white)';
+  submitBtn.disabled = true;
+
+  setTimeout(() => {
+    submitBtn.innerHTML = originalContent;
+    submitBtn.style.background = '';
+    submitBtn.disabled = false;
+    form.reset();
+  }, 3000);
+
+  console.log('Form submission (replace with real handler):', data);
+}
+</script>
+
+<!--
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║   © 2026 ACACIA LAKE CONSULTING — All Rights Reserved.                       ║
+║                                                                              ║
+║   This website, including its design, code, copy, animations, and visual     ║
+║   composition, is the proprietary intellectual property of Acacia Lake       ║
+║   Consulting. No portion may be copied, reproduced, redistributed, or used   ║
+║   without prior written consent.                                             ║
+║                                                                              ║
+║   For licensing inquiries, partnership requests, or website consulting:      ║
+║   cesarc@acacialakeconsulting.com                                            ║
+║                                                                              ║
+║   Acacia Lake Consulting · Brownsville, Texas · Veteran Owned                ║
+║                                                                              ║
+║   "Discretion. Precision. Results."                                          ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+-->
+
+</body>
+</html>

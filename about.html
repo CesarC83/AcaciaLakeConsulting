@@ -1,0 +1,3495 @@
+<!DOCTYPE html>
+<!--
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║      █████╗  ██████╗ █████╗  ██████╗██╗ █████╗     ██╗      █████╗ ██╗  ██╗ ║
+║     ██╔══██╗██╔════╝██╔══██╗██╔════╝██║██╔══██╗    ██║     ██╔══██╗██║ ██╔╝ ║
+║     ███████║██║     ███████║██║     ██║███████║    ██║     ███████║█████╔╝  ║
+║     ██╔══██║██║     ██╔══██║██║     ██║██╔══██║    ██║     ██╔══██║██╔═██╗  ║
+║     ██║  ██║╚██████╗██║  ██║╚██████╗██║██║  ██║    ███████╗██║  ██║██║  ██╗ ║
+║     ╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝ ╚═════╝╚═╝╚═╝  ╚═╝    ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ║
+║                                                                              ║
+║                      C  O  N  S  U  L  T  I  N  G                            ║
+║                                                                              ║
+║                       —  V E T E R A N   O W N E D  —                        ║
+║                                                                              ║
+╠══════════════════════════════════════════════════════════════════════════════╣
+║                                                                              ║
+║   © 2026 Acacia Lake Consulting. All rights reserved.                        ║
+║                                                                              ║
+║   This source code, design, and content are the intellectual property        ║
+║   of Acacia Lake Consulting. Unauthorized reproduction, redistribution,      ║
+║   or use of any portion of this code or design is strictly prohibited.       ║
+║                                                                              ║
+║   Website:  acacialakeconsulting.com                                         ║
+║   Contact:  cesarc@acacialakeconsulting.com                                  ║
+║   Location: Brownsville, Texas                                               ║
+║                                                                              ║
+║   "Where Vision Meets Execution."                                            ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- ============ COPYRIGHT & ATTRIBUTION ============ -->
+<meta name="author" content="Acacia Lake Consulting" />
+<meta name="copyright" content="© 2026 Acacia Lake Consulting. All rights reserved." />
+<meta name="description" content="Acacia Lake Consulting — Veteran-owned strategic advisory and security consulting firm. Headquartered in Brownsville, Texas." />
+<meta name="owner" content="Acacia Lake Consulting" />
+<meta name="rights" content="Proprietary — All content, code, and design are property of Acacia Lake Consulting." />
+
+<title>About — Acacia Lake Consulting</title>
+
+<!-- ============ FONTS ============ -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+/* ==========================================================================
+ *
+ *   ╔═══════════════════════════════════════════════════════════════╗
+ *   ║                                                               ║
+ *   ║          ACACIA LAKE CONSULTING — Proprietary Stylesheet      ║
+ *   ║                                                               ║
+ *   ║          © 2026 Acacia Lake Consulting                        ║
+ *   ║          Brownsville, Texas · Veteran Owned                   ║
+ *   ║                                                               ║
+ *   ║          All rights reserved. Unauthorized reproduction       ║
+ *   ║          or use of this stylesheet is strictly prohibited.    ║
+ *   ║                                                               ║
+ *   ║          cesarc@acacialakeconsulting.com                      ║
+ *   ║                                                               ║
+ *   ╚═══════════════════════════════════════════════════════════════╝
+ *
+ * ==========================================================================
+ *
+ *   ACACIA LAKE CONSULTING — LANDING PAGE
+ *   Built using Client-First (Webflow) naming conventions:
+ *   - section_[name]            → page sections
+ *   - padding-global            → outer horizontal padding
+ *   - container-large / medium  → max-width wrappers
+ *   - padding-section-large     → vertical section padding
+ *   - heading-style-h1/h2/h3    → typography utilities
+ *   - margin-bottom / margin-top → spacing utilities
+ *   - button / button-secondary → reusable buttons
+ *
+ * ========================================================================== */
+
+/* ---------- GLOBAL TOKENS ---------- */
+:root {
+  --color-navy-deep: #0c1a2e;
+  --color-navy: #102a47;
+  --color-navy-light: #1a3a62;
+  --color-navy-darkest: #04101e;
+  --color-gold: #d4a437;
+  --color-gold-soft: #e8c469;
+  --color-burgundy: #7a1f2b;
+  --color-burgundy-soft: #9c2d3a;
+  --color-white: #ffffff;
+  --color-off-white: #f7f5f0;
+  --color-grey-soft: #e8e6e1;
+  --color-grey-text: #8a96a8;
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --transition-base: 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-slow: 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Radii */
+  --radius-sm: 0px;
+  --radius-md: 2px;
+  --radius-lg: 4px;
+  --radius-xl: 6px;
+  --radius-pill: 999px;
+
+  /* Shadows — soft, layered, premium */
+  --shadow-soft: 0 4px 16px rgba(12, 26, 46, 0.06), 0 1px 3px rgba(12, 26, 46, 0.04);
+  --shadow-medium: 0 12px 32px rgba(12, 26, 46, 0.09), 0 4px 8px rgba(12, 26, 46, 0.05);
+  --shadow-lift: 0 24px 48px rgba(12, 26, 46, 0.14), 0 8px 16px rgba(12, 26, 46, 0.06);
+  --shadow-gold-glow: 0 16px 40px rgba(212, 164, 55, 0.25), 0 4px 12px rgba(212, 164, 55, 0.15);
+  --shadow-navy-glow: 0 20px 50px rgba(12, 26, 46, 0.35), 0 8px 16px rgba(12, 26, 46, 0.18);
+  --shadow-inset: inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-white);
+  color: var(--color-navy-deep);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+
+/* ---------- CLIENT-FIRST UTILITY CLASSES ---------- */
+.padding-global { padding-left: 5rem; padding-right: 5rem; }
+.container-large { max-width: 1280px; margin: 0 auto; width: 100%; }
+.container-medium { max-width: 960px; margin: 0 auto; width: 100%; }
+.container-small { max-width: 720px; margin: 0 auto; width: 100%; }
+
+.padding-section-large { padding-top: 11rem; padding-bottom: 11rem; }
+.padding-section-medium { padding-top: 7rem; padding-bottom: 7rem; }
+
+.margin-bottom-small { margin-bottom: 1rem; }
+.margin-bottom-medium { margin-bottom: 2rem; }
+.margin-bottom-large { margin-bottom: 4rem; }
+
+/* Utility: hide sections that need real content before going live
+   (e.g. testimonials and insights — most work is under NDA).
+   Remove this class from a section to show it again. */
+.hidden-until-ready { display: none !important; }
+
+/* ---------- TYPOGRAPHY ---------- */
+.heading-style-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6.5vw, 6rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+}
+.heading-style-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.5vw, 4rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+.heading-style-h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+}
+.text-style-italic { font-style: italic; color: var(--color-gold); font-weight: 500; }
+.text-style-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--color-gold);
+}
+.text-style-body { font-size: 1rem; color: #4a5568; line-height: 1.8; }
+.text-style-lead {
+  font-size: 1.18rem;
+  color: #4a5568;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ---------- BUTTONS ---------- */
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: var(--color-navy-deep);
+  color: var(--color-white);
+  border: 1px solid var(--color-navy-deep);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: var(--color-gold);
+  transition: left var(--transition-base);
+  z-index: 0;
+}
+.button:hover::before { left: 0; }
+.button:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-gold-glow);
+}
+.button > * { position: relative; z-index: 1; }
+
+.button-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: transparent;
+  color: var(--color-white);
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+.button-secondary:hover {
+  border-color: var(--color-gold);
+  color: var(--color-navy-deep);
+  background: var(--color-gold);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-gold-glow);
+}
+
+/* ===========================================================
+   COMPONENT: LOADING SCREEN
+   =========================================================== */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at center, rgba(212,164,55,0.1) 0%, transparent 60%),
+    linear-gradient(135deg, #04101e 0%, #0c1a2e 50%, #04101e 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+.loading-screen.hidden { opacity: 0; visibility: hidden; }
+
+.loading-logo {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 500;
+  color: var(--color-white);
+  letter-spacing: 0.02em;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+}
+.loading-logo .accent { color: var(--color-gold); font-style: italic; }
+.loading-logo-sub {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.6rem;
+  padding-left: 0.5em;
+}
+
+.loading-tagline {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: var(--color-grey-text);
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeInUp 1s ease 0.2s forwards;
+}
+
+/* ---------- PROGRESS BAR (LOADING) ---------- */
+.progress-bar-wrapper {
+  width: 240px;
+  height: 4px;
+  background: rgba(255,255,255,0.1);
+  overflow: hidden;
+  position: relative;
+  border-radius: var(--radius-pill);
+}
+.progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-gold), var(--color-gold-soft));
+  transition: width 0.3s ease;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 0 12px rgba(212,164,55,0.5);
+}
+.progress-text {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--color-gold);
+  margin-top: 1rem;
+}
+
+/* ===========================================================
+   COMPONENT: SCROLL PROGRESS BAR (PERSISTENT)
+   =========================================================== */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(12, 26, 46, 0.04);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  z-index: 100;
+}
+.scroll-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-navy-deep), var(--color-gold));
+  transition: width 0.1s ease-out;
+}
+
+/* ===========================================================
+   SECTION: NAVIGATION
+   =========================================================== */
+.section_nav {
+  position: fixed;
+  top: 3px; left: 0; right: 0;
+  z-index: 50;
+  background: rgba(12, 26, 46, 0);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  transition: all var(--transition-base);
+}
+.section_nav.scrolled {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid rgba(12, 26, 46, 0.08);
+  box-shadow: 0 4px 24px rgba(12, 26, 46, 0.06);
+}
+.nav_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 5rem;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.nav_logo {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  text-decoration: none;
+  transition: color var(--transition-base);
+  line-height: 1;
+}
+.nav_logo-main {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--color-white);
+  letter-spacing: 0.01em;
+  transition: color var(--transition-base);
+}
+.section_nav.scrolled .nav_logo-main { color: var(--color-navy-deep); }
+.nav_logo .accent { color: var(--color-gold); font-style: italic; }
+.nav_logo-sub {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: rgba(255, 255, 255, 0.6);
+  padding-left: 0.6rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+  transition: all var(--transition-base);
+  position: relative;
+  top: -2px;
+}
+.section_nav.scrolled .nav_logo-sub {
+  color: rgba(12, 26, 46, 0.55);
+  border-left-color: rgba(12, 26, 46, 0.18);
+}
+
+.nav_menu {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  list-style: none;
+}
+.nav_link {
+  color: var(--color-white);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  transition: color var(--transition-base);
+  position: relative;
+}
+.section_nav.scrolled .nav_link { color: var(--color-navy-deep); }
+.nav_link::after {
+  content: '';
+  position: absolute;
+  bottom: -6px; left: 0;
+  width: 0; height: 1px;
+  background: var(--color-gold);
+  transition: width var(--transition-base);
+}
+.nav_link:hover { color: var(--color-gold); }
+.nav_link:hover::after { width: 100%; }
+.nav_link--active { color: var(--color-gold); }
+.nav_link--active::after { width: 100%; }
+.section_nav.scrolled .nav_link--active { color: var(--color-gold); }
+
+.nav_cta {
+  padding: 0.8rem 1.6rem;
+  background: var(--color-gold);
+  color: var(--color-navy-deep);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  border-radius: var(--radius-pill);
+  transition: all var(--transition-base);
+  box-shadow: 0 4px 14px rgba(212,164,55,0.3);
+}
+.nav_cta:hover {
+  background: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255,255,255,0.3);
+}
+
+/* ===========================================================
+   SECTION: HERO
+   =========================================================== */
+.section_hero {
+  position: relative;
+  min-height: 100vh;
+  background: var(--color-navy-deep);
+  color: var(--color-white);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+/* Decorative background layers */
+.hero_bg-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 80% 0%, rgba(212,164,55,0.28) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 50% at 15% 100%, rgba(35,75,130,0.45) 0%, transparent 60%),
+    radial-gradient(circle at 50% 50%, rgba(26,58,98,0.35) 0%, transparent 70%),
+    linear-gradient(135deg, #04101e 0%, #0c1a2e 30%, #102a47 60%, #04101e 100%);
+}
+.hero_bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+}
+.hero_bg-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.9' /%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' /%3E%3C/svg%3E");
+}
+
+.hero_content {
+  position: relative;
+  z-index: 2;
+  padding: 10rem 5rem 8rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.hero_text-wrapper { opacity: 0; animation: fadeInUp 1.2s ease 0.3s forwards; }
+
+.hero_eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--color-gold);
+  margin-bottom: 2.5rem;
+}
+.hero_eyebrow::before {
+  content: '';
+  width: 40px; height: 1px;
+  background: var(--color-gold);
+}
+
+/* ---------- VETERAN OWNED BADGE ---------- */
+.veteran-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 1rem 0.45rem 0.55rem;
+  background: rgba(212,164,55,0.1);
+  border: 1px solid rgba(212,164,55,0.35);
+  border-radius: var(--radius-pill);
+  margin-bottom: 1.5rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-gold);
+  transition: all var(--transition-base);
+}
+.veteran-badge:hover {
+  background: rgba(212,164,55,0.18);
+  border-color: var(--color-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(212,164,55,0.2);
+}
+.veteran-badge-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  color: var(--color-navy-deep);
+}
+.veteran-badge-icon svg { width: 14px; height: 14px; }
+
+/* Footer veteran badge variant */
+.veteran-badge-footer {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 1rem 0.5rem 0.6rem;
+  background: rgba(212,164,55,0.08);
+  border: 1px solid rgba(212,164,55,0.3);
+  border-radius: var(--radius-pill);
+  margin-top: 1.5rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-gold);
+}
+.veteran-badge-footer .veteran-badge-icon { background: var(--color-gold); }
+
+.hero_heading {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 6.5vw, 6.5rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.018em;
+  margin-bottom: 2.5rem;
+}
+.hero_heading .italic { font-style: italic; color: var(--color-gold); font-weight: 500; }
+.hero_heading .line { display: block; }
+
+.hero_description {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.75);
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+  max-width: 480px;
+  letter-spacing: 0.005em;
+}
+
+.hero_button-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.hero_button-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.1rem 2.4rem;
+  background: var(--color-gold);
+  color: var(--color-navy-deep);
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  transition: all var(--transition-base);
+  box-shadow: 0 8px 24px rgba(212,164,55,0.25);
+}
+.hero_button-primary span {
+  transition: transform var(--transition-base);
+  display: inline-block;
+}
+.hero_button-primary:hover {
+  background: var(--color-white);
+  color: var(--color-navy-deep);
+  border-color: var(--color-white);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(212,164,55,0.45), 0 0 0 1px rgba(212,164,55,0.3);
+}
+.hero_button-primary:hover span { transform: translateX(6px); }
+
+/* Hero visual side — animated abstract composition */
+.hero_visual {
+  position: relative;
+  opacity: 0;
+  animation: fadeIn 1.4s ease 0.6s forwards;
+  aspect-ratio: 1/1;
+}
+.hero_canvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(212,164,55,0.06) 0%, rgba(26,58,98,0.3) 100%);
+  border: 1px solid rgba(212,164,55,0.2);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
+}
+.hero_canvas svg { width: 100%; height: 100%; display: block; }
+
+/* Animated compass rings */
+.compass-ring {
+  transform-origin: center;
+  animation: rotate 60s linear infinite;
+}
+.compass-ring-2 { animation: rotate 90s linear infinite reverse; }
+.compass-ring-3 { animation: rotate 120s linear infinite; }
+.compass-tick {
+  transform-origin: center;
+  animation: rotate 240s linear infinite;
+}
+.compass-center-dot {
+  animation: pulse 3s ease-in-out infinite;
+}
+.compass-orbit-dot {
+  transform-origin: center;
+  animation: rotate 20s linear infinite;
+}
+.compass-orbit-dot-2 {
+  transform-origin: center;
+  animation: rotate 35s linear infinite reverse;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+.hero_canvas-label {
+  position: absolute;
+  top: 1.5rem; left: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 1rem 0.4rem 0.5rem;
+  background: rgba(12,26,46,0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(212,164,55,0.3);
+  border-radius: var(--radius-pill);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  z-index: 2;
+}
+.hero_canvas-label::before {
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  box-shadow: 0 0 12px rgba(212,164,55,0.8);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.hero_canvas-stats {
+  position: absolute;
+  bottom: 2rem; left: 2rem; right: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  z-index: 2;
+}
+.hero_stat-number {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: var(--color-white);
+  line-height: 1;
+  font-style: italic;
+}
+.hero_stat-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.6);
+  margin-top: 0.5rem;
+}
+
+/* Scroll indicator */
+.hero_scroll {
+  position: absolute;
+  bottom: 2rem; left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 3;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+}
+.hero_scroll-line {
+  width: 1px; height: 50px;
+  background: linear-gradient(180deg, var(--color-gold), transparent);
+  animation: scrollLine 2s ease-in-out infinite;
+}
+
+/* ===========================================================
+   SECTION: TRUST SIGNALS BAR
+   =========================================================== */
+.section_trust-signals {
+  background: var(--color-off-white);
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--color-grey-soft);
+}
+.trust-signals_grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem 0;
+}
+.trust-signal {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0 2rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-navy-deep);
+  border-right: 1px solid rgba(12,26,46,0.15);
+}
+.trust-signal:last-child { border-right: none; }
+.trust-signal svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-gold);
+}
+.trust-signal.emergency svg {
+  color: var(--color-burgundy);
+}
+.trust-signal.emergency {
+  position: relative;
+}
+.trust-signal.emergency::after {
+  content: '';
+  position: absolute;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-burgundy);
+  box-shadow: 0 0 8px rgba(122, 31, 43, 0.5);
+  animation: emergencyPulse 2.5s ease-in-out infinite;
+  display: none;
+}
+@keyframes emergencyPulse {
+  0%, 100% { opacity: 0.5; transform: translateY(-50%) scale(1); }
+  50% { opacity: 1; transform: translateY(-50%) scale(1.2); }
+}
+
+/* ===========================================================
+   SECTION: TRUSTED BY / MARQUEE
+   =========================================================== */
+.section_trusted {
+  background: linear-gradient(180deg, #04101e 0%, #0c1a2e 100%);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 3rem 0;
+  overflow: hidden;
+}
+.trusted_label {
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 2rem;
+}
+.marquee {
+  display: flex;
+  gap: 4rem;
+  animation: marquee 30s linear infinite;
+  white-space: nowrap;
+}
+.marquee_item {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 0.05em;
+}
+.marquee_dot {
+  color: var(--color-gold);
+  opacity: 0.9;
+}
+
+/* ===========================================================
+   SECTION: ABOUT / INTRO
+   =========================================================== */
+.section_about {
+  background: var(--color-off-white);
+  position: relative;
+}
+.about_grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 6rem;
+  align-items: start;
+}
+.about_left { position: sticky; top: 8rem; }
+.about_quote-mark {
+  font-family: var(--font-display);
+  font-size: 9rem;
+  line-height: 0.8;
+  color: var(--color-gold);
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+.about_heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.012em;
+  color: var(--color-navy-deep);
+  margin-bottom: 2rem;
+}
+.about_heading .italic { font-style: italic; color: var(--color-gold); }
+
+.about_body { color: #4a5568; font-size: 1.08rem; line-height: 1.85; font-weight: 300; letter-spacing: 0.005em; }
+.about_body p { margin-bottom: 1.75rem; }
+
+.about_signature {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(12,26,46,0.1);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.about_signature-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--color-navy-deep);
+}
+.about_signature-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-grey-text);
+}
+
+/* ===========================================================
+   COMPONENT: SECTION DIVIDER (Ornamental)
+   =========================================================== */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 0;
+}
+.section-divider.bg-offwhite { background: var(--color-off-white); }
+.section-divider.bg-white { background: var(--color-white); }
+.section-divider_line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212,164,55,0.5), transparent);
+  flex: 1;
+  max-width: 200px;
+}
+.section-divider_ornament {
+  margin: 0 1.5rem;
+  color: var(--color-gold);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-style: italic;
+  letter-spacing: 0.3em;
+}
+
+/* ===========================================================
+   SECTION: PULL QUOTE
+   =========================================================== */
+.section_pullquote {
+  background: var(--color-off-white);
+  padding: 8rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.section_pullquote::before,
+.section_pullquote::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 1px;
+  top: 4rem;
+  background: linear-gradient(90deg, transparent, rgba(212,164,55,0.3), transparent);
+}
+.section_pullquote::before { left: 0; }
+.section_pullquote::after { right: 0; }
+.pullquote_text {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 4.4rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.18;
+  color: var(--color-navy-deep);
+  letter-spacing: -0.012em;
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+}
+.pullquote_text .accent { color: var(--color-gold); }
+.pullquote_mark {
+  font-family: var(--font-display);
+  font-size: 6rem;
+  line-height: 0.5;
+  color: var(--color-gold);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+/* ===========================================================
+   SECTION: SERVICES
+   =========================================================== */
+.section_services {
+  background: var(--color-white);
+  position: relative;
+}
+.services_header {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.services_header .text-style-eyebrow { margin-bottom: 1rem; display: inline-block; }
+
+/* Filter tabs */
+.services_filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 4rem;
+  padding: 0.5rem;
+  background: var(--color-off-white);
+  border-radius: var(--radius-pill);
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid var(--color-grey-soft);
+}
+.filter-tab {
+  padding: 0.7rem 1.5rem;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--color-navy-deep);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  white-space: nowrap;
+}
+.filter-tab:hover { color: var(--color-gold); }
+.filter-tab.active {
+  background: var(--color-navy-deep);
+  color: var(--color-white);
+  box-shadow: 0 4px 12px rgba(12,26,46,0.2);
+}
+
+.services_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  transition: all var(--transition-base);
+}
+.service_card.filtered-out {
+  display: none;
+}
+.service_card.filtering-in {
+  animation: filterFadeIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.service_card.active {
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-medium), 0 0 0 1px var(--color-gold);
+}
+@keyframes filterFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- SERVICE DETAIL EXPANSION PANEL ---------- */
+.service_detail {
+  margin-top: 3rem;
+  background: var(--color-off-white);
+  border: 1px solid var(--color-grey-soft);
+  border-radius: var(--radius-md);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.4s ease,
+              padding 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              margin-top 0.5s ease;
+  box-shadow: var(--shadow-soft);
+  padding: 0 3rem;
+}
+.service_detail.open {
+  max-height: 1200px;
+  opacity: 1;
+  padding: 3.5rem 3rem;
+}
+.service_detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 4rem;
+  align-items: start;
+}
+.service_detail-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.service_detail-eyebrow::before {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: var(--color-gold);
+}
+.service_detail-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.2vw, 2.8rem);
+  font-weight: 500;
+  color: var(--color-navy-deep);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  margin-bottom: 1.5rem;
+}
+.service_detail-lead {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--color-gold);
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+}
+.service_detail-section {
+  margin-bottom: 2rem;
+}
+.service_detail-section:last-of-type { margin-bottom: 2rem; }
+.service_detail-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-navy-deep);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.service_detail-body {
+  font-size: 0.98rem;
+  color: #4a5568;
+  line-height: 1.75;
+  font-weight: 300;
+  letter-spacing: 0.005em;
+}
+.service_detail-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.service_detail-list li {
+  padding: 0.7rem 0 0.7rem 1.5rem;
+  position: relative;
+  font-size: 0.95rem;
+  color: #4a5568;
+  line-height: 1.6;
+  border-bottom: 1px solid rgba(12, 26, 46, 0.06);
+  letter-spacing: 0.005em;
+}
+.service_detail-list li:last-child { border-bottom: none; }
+.service_detail-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  top: 0.65rem;
+  color: var(--color-gold);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.service_detail-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+  padding: 0.75rem 1.4rem;
+  background: var(--color-navy-deep);
+  color: var(--color-white);
+  border: 1px solid var(--color-navy-deep);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-soft);
+  white-space: nowrap;
+}
+.service_detail-cta span {
+  display: inline-block;
+  transition: transform var(--transition-base);
+}
+.service_detail-cta:hover {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-navy-deep);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold-glow);
+}
+.service_detail-cta:hover span { transform: translateX(4px); }
+
+.service_detail-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: 1px solid rgba(12, 26, 46, 0.15);
+  border-radius: 50%;
+  color: var(--color-navy-deep);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: all var(--transition-base);
+}
+.service_detail-close:hover {
+  background: var(--color-navy-deep);
+  color: var(--color-white);
+  transform: rotate(90deg);
+}
+
+/* Make service card cursor a pointer */
+.service_card { cursor: pointer; }
+
+/* ---------- SERVICE DETAIL PANEL (expandable) ---------- */
+.service_card .service_arrow {
+  cursor: pointer;
+}
+.service_card.active {
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-medium), 0 0 0 1px var(--color-gold);
+}
+.service_card.active::before {
+  display: none;
+}
+.service_card.active .service_arrow {
+  color: var(--color-gold);
+}
+
+.service_detail {
+  margin-top: 3rem;
+  background: var(--color-white);
+  border: 1px solid var(--color-grey-soft);
+  border-radius: var(--radius-md);
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.4s ease,
+              padding 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: var(--shadow-soft);
+}
+.service_detail.open {
+  max-height: 1200px;
+  opacity: 1;
+  padding: 3.5rem;
+}
+.service_detail-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1.25rem;
+}
+.service_detail-eyebrow::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(212,164,55,0.3);
+  max-width: 100px;
+}
+.service_detail-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  font-weight: 500;
+  color: var(--color-navy-deep);
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.service_detail-lead {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--color-gold);
+  line-height: 1.45;
+  margin-bottom: 2.5rem;
+  max-width: 720px;
+}
+.service_detail-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+@media (max-width: 991px) {
+  .service_detail.open { padding: 2rem; }
+  .service_detail-grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* ===========================================================
+   SECTION: TIMELINE / FIRM JOURNEY
+   =========================================================== */
+.section_timeline {
+  background: var(--color-off-white);
+  position: relative;
+  overflow: hidden;
+}
+.timeline_header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+.timeline_wrapper {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.timeline_items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.timeline_item {
+  background: var(--color-white);
+  border: 1px solid var(--color-grey-soft);
+  border-radius: var(--radius-md);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  position: relative;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-soft);
+
+  /* Flexbox so year/text/button align across all cards */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 280px;
+}
+
+.timeline_item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-medium);
+  border-color: rgba(212,164,55,0.4);
+}
+
+.timeline_item.active {
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-medium), 0 0 0 1px var(--color-gold);
+}
+
+.timeline_year {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-style: italic;
+  color: var(--color-navy-deep);
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+  transition: color var(--transition-base);
+}
+.timeline_item.active .timeline_year { color: var(--color-gold); }
+
+.timeline_text {
+  font-size: 0.88rem;
+  color: #4a5568;
+  line-height: 1.55;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.timeline_button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.1rem;
+  background: transparent;
+  border: 1px solid rgba(12,26,46,0.2);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--color-navy-deep);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  margin-top: auto;
+}
+.timeline_button:hover {
+  background: var(--color-navy-deep);
+  color: var(--color-white);
+  border-color: var(--color-navy-deep);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+.timeline_button span {
+  transition: transform var(--transition-base);
+  display: inline-block;
+}
+.timeline_button:hover span { transform: translateX(3px); }
+.timeline_item.active .timeline_button {
+  background: var(--color-gold);
+  color: var(--color-navy-deep);
+  border-color: var(--color-gold);
+  box-shadow: 0 4px 14px rgba(212,164,55,0.3);
+}
+
+/* Expandable detail panel */
+.timeline_detail {
+  margin-top: 3rem;
+  background: var(--color-white);
+  border: 1px solid var(--color-grey-soft);
+  border-radius: var(--radius-md);
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.4s ease,
+              padding 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: var(--shadow-soft);
+}
+.timeline_detail.open {
+  max-height: 500px;
+  opacity: 1;
+  padding: 3rem;
+}
+.timeline_detail-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1rem;
+}
+.timeline_detail-year {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-style: italic;
+  color: var(--color-navy-deep);
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.015em;
+}
+.timeline_detail-title {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: var(--color-navy-deep);
+  margin-bottom: 1rem;
+  line-height: 1.25;
+  letter-spacing: -0.008em;
+}
+.timeline_detail-text {
+  font-size: 1rem;
+  color: #4a5568;
+  line-height: 1.7;
+  font-weight: 300;
+  max-width: 700px;
+}
+.service_card {
+  position: relative;
+  padding: 2.5rem 2rem;
+  background: var(--color-white);
+  border: 1px solid var(--color-grey-soft);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+  cursor: pointer;
+  overflow: hidden;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-soft);
+}
+.service_card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 0;
+  background: var(--color-navy-deep);
+  transition: height var(--transition-base);
+  z-index: 0;
+}
+.service_card:hover::before { height: 100%; }
+.service_card:hover {
+  transform: translateY(-8px);
+  border-color: var(--color-navy-deep);
+  box-shadow: var(--shadow-navy-glow);
+}
+.service_card:hover .service_number,
+.service_card:hover .service_title,
+.service_card:hover .service_description { color: var(--color-white); }
+.service_card:hover .service_icon {
+  color: var(--color-gold);
+  transform: scale(1.1) rotate(-4deg);
+}
+.service_card:hover .service_arrow span,
+.service_card:hover .service_arrow {
+  color: var(--color-gold);
+}
+
+.service_card > * { position: relative; z-index: 1; }
+
+.service_number {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--color-gold);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.1em;
+  transition: color var(--transition-base);
+}
+
+.service_icon {
+  width: 48px; height: 48px;
+  color: var(--color-navy-deep);
+  margin-bottom: 1.5rem;
+  transition: all var(--transition-base);
+  transform-origin: center;
+}
+
+.service_title {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 500;
+  color: var(--color-navy-deep);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  transition: color var(--transition-base);
+}
+
+.service_description {
+  font-size: 0.92rem;
+  color: #6b7280;
+  line-height: 1.7;
+  font-weight: 300;
+  transition: color var(--transition-base);
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+  letter-spacing: 0.005em;
+}
+
+.service_arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-navy-deep);
+  transition: color var(--transition-base);
+}
+.service_card:hover .service_arrow { color: var(--color-gold); }
+
+/* ===========================================================
+   SECTION: APPROACH / PROCESS
+   =========================================================== */
+.section_approach {
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 0%, rgba(212,164,55,0.1) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 60% at 100% 100%, rgba(35,75,130,0.3) 0%, transparent 60%),
+    linear-gradient(160deg, #04101e 0%, #0c1a2e 30%, #102a47 60%, #0c1a2e 100%);
+  color: var(--color-white);
+  position: relative;
+  overflow: hidden;
+}
+.section_approach::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(212,164,55,0.06) 0%, transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(26,58,98,0.4) 0%, transparent 50%);
+}
+
+.approach_header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 5rem;
+  position: relative;
+  z-index: 1;
+}
+.approach_heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.012em;
+}
+.approach_heading .italic { font-style: italic; color: var(--color-gold); }
+
+.approach_intro {
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.7);
+  font-weight: 300;
+  align-self: end;
+  letter-spacing: 0.005em;
+}
+
+.approach_steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.approach_step {
+  padding: 3rem 2rem 2rem;
+  border-right: 1px solid rgba(255,255,255,0.1);
+  position: relative;
+  transition: all var(--transition-base);
+  border-radius: var(--radius-md);
+}
+.approach_step:last-child { border-right: none; }
+.approach_step:hover {
+  background: rgba(255,255,255,0.03);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.2);
+}
+.approach_step:hover .approach_step-number {
+  color: var(--color-white);
+  transform: scale(1.05);
+}
+.approach_step-number {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-style: italic;
+  color: var(--color-gold);
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  transition: all var(--transition-base);
+  transform-origin: left center;
+}
+.approach_step-title {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  letter-spacing: -0.005em;
+}
+.approach_step-text {
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+  font-weight: 300;
+  letter-spacing: 0.005em;
+}
+
+/* ===========================================================
+   SECTION: STATS
+   =========================================================== */
+.section_stats {
+  background: var(--color-off-white);
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+.stats_grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  text-align: center;
+}
+.stat_item {
+  padding: 1.5rem 1rem;
+  border-right: 1px solid rgba(12,26,46,0.1);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+}
+.stat_item:last-child { border-right: none; }
+.stat_item:hover {
+  background: var(--color-white);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-medium);
+}
+.stat_item:hover .stat_number .accent { transform: scale(1.1); display: inline-block; }
+
+.stat_number {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 5.5vw, 5rem);
+  font-weight: 500;
+  color: var(--color-navy-deep);
+  line-height: 1;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.015em;
+}
+.stat_number .accent { color: var(--color-gold); font-style: italic; }
+.stat_label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-grey-text);
+  font-weight: 500;
+}
+
+/* ===========================================================
+   SECTION: TESTIMONIALS (3-card grid)
+   =========================================================== */
+.section_testimonial {
+  background: var(--color-white);
+}
+.testimonials_header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.testimonials_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.testimonial_card {
+  background: var(--color-off-white);
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-grey-soft);
+  box-shadow: var(--shadow-soft);
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+}
+.testimonial_card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lift);
+  border-color: rgba(212,164,55,0.4);
+}
+.testimonial_mark {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-style: italic;
+  color: var(--color-gold);
+  line-height: 0.5;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+.testimonial_quote {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--color-navy-deep);
+  margin-bottom: 2rem;
+  letter-spacing: -0.005em;
+  flex-grow: 1;
+}
+.testimonial_author-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(12,26,46,0.08);
+}
+.testimonial_avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-navy-deep), var(--color-navy-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--color-gold);
+  font-size: 1.1rem;
+  font-weight: 500;
+  flex-shrink: 0;
+  border: 1px solid rgba(212,164,55,0.3);
+}
+.testimonial_author {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--color-navy-deep);
+  font-weight: 600;
+}
+.testimonial_role {
+  font-size: 0.78rem;
+  color: var(--color-grey-text);
+  margin-top: 0.25rem;
+  font-style: italic;
+}
+
+/* ===========================================================
+   SECTION: INSIGHTS / CASE STUDIES
+   =========================================================== */
+.section_insights {
+  background: var(--color-off-white);
+}
+.insights_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 4rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.insights_title-block { max-width: 600px; }
+.insights_link {
+  color: var(--color-navy-deep);
+  text-decoration: none;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all var(--transition-base);
+}
+.insights_link:hover { color: var(--color-gold); gap: 0.9rem; }
+
+.insights_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.insight_card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-grey-soft);
+  box-shadow: var(--shadow-soft);
+  transition: all var(--transition-base);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+.insight_card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lift);
+  border-color: rgba(212,164,55,0.4);
+}
+.insight_image {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+.insight_image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(12,26,46,0.5), rgba(212,164,55,0.2));
+}
+.insight_image-a {
+  background:
+    radial-gradient(circle at 30% 30%, rgba(212,164,55,0.4), transparent 50%),
+    linear-gradient(135deg, #0c1a2e, #102a47);
+}
+.insight_image-b {
+  background:
+    radial-gradient(circle at 70% 40%, rgba(212,164,55,0.3), transparent 50%),
+    linear-gradient(135deg, #1a3a6e, #0c1a2e);
+}
+.insight_image-c {
+  background:
+    radial-gradient(circle at 50% 70%, rgba(212,164,55,0.35), transparent 55%),
+    linear-gradient(135deg, #102a47, #04101e);
+}
+.insight_image-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: 1;
+}
+.insight_category {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(12,26,46,0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(212,164,55,0.4);
+  border-radius: var(--radius-pill);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  z-index: 2;
+}
+.insight_content {
+  padding: 1.75rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.insight_meta {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-grey-text);
+  margin-bottom: 0.75rem;
+}
+.insight_title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--color-navy-deep);
+  margin-bottom: 0.75rem;
+}
+.insight_excerpt {
+  font-size: 0.88rem;
+  color: #4a5568;
+  line-height: 1.6;
+  font-weight: 300;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+.insight_read {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-navy-deep);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all var(--transition-base);
+}
+.insight_card:hover .insight_read { color: var(--color-gold); gap: 0.7rem; }
+
+/* ===========================================================
+   SECTION: CONTACT FORM
+   =========================================================== */
+.contact_grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
+  align-items: start;
+}
+.contact_intro-eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1.5rem;
+}
+.contact_heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 4.5vw, 4rem);
+  font-weight: 400;
+  line-height: 1.05;
+  margin-bottom: 2rem;
+  letter-spacing: -0.018em;
+  color: var(--color-white);
+}
+.contact_heading .italic { font-style: italic; color: var(--color-gold); }
+.contact_description {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+  line-height: 1.7;
+}
+.contact_details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.contact_detail {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: rgba(255,255,255,0.85);
+  font-size: 0.9rem;
+}
+.contact_detail-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(212,164,55,0.1);
+  border: 1px solid rgba(212,164,55,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold);
+  flex-shrink: 0;
+}
+.contact_detail-icon svg { width: 18px; height: 18px; }
+.contact_detail-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 0.2rem;
+}
+.contact_detail-value { font-weight: 400; }
+.contact_detail-link {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  display: inline-block;
+  transition: color var(--transition-base);
+}
+.contact_detail-link:hover { color: var(--color-gold); }
+
+/* Burgundy accent for emergency-line contact — tertiary color, used sparingly */
+.contact_detail--emergency .contact_detail-icon {
+  background: rgba(220, 75, 90, 0.18);
+  border-color: rgba(220, 75, 90, 0.5);
+  color: #e85a6b;
+  box-shadow: 0 0 16px rgba(220, 75, 90, 0.25);
+}
+.contact_detail--emergency .contact_detail-label {
+  color: #e85a6b;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-weight: 600;
+}
+.contact_detail--emergency .contact_detail-label::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #e85a6b;
+  box-shadow: 0 0 10px rgba(232, 90, 107, 0.9), 0 0 20px rgba(232, 90, 107, 0.4);
+  animation: emergencyPulse 2.2s ease-in-out infinite;
+}
+
+.contact_form {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-xl);
+  padding: 3rem;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+}
+.contact_form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.contact_form-field { margin-bottom: 1.25rem; }
+.contact_form-label {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+}
+.contact_form-input,
+.contact_form-select,
+.contact_form-textarea {
+  width: 100%;
+  padding: 0.9rem 1.1rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-md);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: all var(--transition-base);
+}
+.contact_form-input::placeholder,
+.contact_form-textarea::placeholder { color: rgba(255,255,255,0.35); }
+.contact_form-input:focus,
+.contact_form-select:focus,
+.contact_form-textarea:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  background: rgba(212,164,55,0.05);
+  box-shadow: 0 0 0 3px rgba(212,164,55,0.15);
+}
+.contact_form-textarea {
+  resize: vertical;
+  min-height: 120px;
+  font-family: var(--font-body);
+}
+.contact_form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c9a96e' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1.1rem center;
+  background-size: 16px;
+  padding-right: 3rem;
+  cursor: pointer;
+}
+.contact_form-select option { background: var(--color-navy-deep); color: var(--color-white); }
+
+.contact_form-submit {
+  width: 100%;
+  padding: 1.15rem 2rem;
+  background: var(--color-gold);
+  color: var(--color-navy-deep);
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: 0 8px 24px rgba(212,164,55,0.3);
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+.contact_form-submit:hover {
+  background: var(--color-white);
+  border-color: var(--color-white);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(212,164,55,0.4);
+}
+.contact_form-submit:hover span { transform: translateX(6px); }
+.contact_form-submit span {
+  display: inline-block;
+  transition: transform var(--transition-base);
+}
+.contact_form-disclaimer {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+  margin-top: 1.25rem;
+  text-align: center;
+  font-style: italic;
+}
+
+/* ===========================================================
+   SECTION: CTA
+   =========================================================== */
+.section_cta {
+  background:
+    radial-gradient(ellipse 60% 80% at 50% 50%, rgba(212,164,55,0.2) 0%, transparent 60%),
+    linear-gradient(135deg, #04101e 0%, #0c1a2e 30%, #102a47 60%, #04101e 100%);
+  color: var(--color-white);
+  position: relative;
+  overflow: hidden;
+}
+.section_cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(35,75,130,0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(212,164,55,0.08) 0%, transparent 50%);
+}
+.cta_content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.cta_heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+}
+.cta_heading .italic { font-style: italic; color: var(--color-gold); }
+.cta_description {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 3rem;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+/* ===========================================================
+   SECTION: FOOTER
+   =========================================================== */
+.section_footer {
+  background: linear-gradient(180deg, #04101e 0%, #020a14 100%);
+  color: rgba(255,255,255,0.6);
+  padding: 5rem 0 2rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.footer_grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+.footer_brand {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--color-white);
+  margin-bottom: 1rem;
+}
+.footer_brand .accent { color: var(--color-gold); font-style: italic; }
+.footer_tagline {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  max-width: 320px;
+  font-weight: 300;
+}
+.footer_col-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-gold);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+.footer_links { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+.footer_link {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 300;
+  transition: all var(--transition-base);
+  display: inline-block;
+}
+.footer_link:hover {
+  color: var(--color-gold);
+  transform: translateX(4px);
+}
+
+.footer_bottom {
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+}
+
+/* ===========================================================
+   ANIMATIONS
+   =========================================================== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scrollLine {
+  0%, 100% { transform: scaleY(1); opacity: 1; }
+  50% { transform: scaleY(0.5); opacity: 0.5; }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Scroll-triggered fade-in */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===========================================================
+   COMPONENT: SPOTLIGHT CURSOR (Dark sections only)
+   =========================================================== */
+.spotlight {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,164,55,0.12) 0%, rgba(212,164,55,0.04) 30%, transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  mix-blend-mode: screen;
+  filter: blur(20px);
+}
+.spotlight.active { opacity: 1; }
+
+/* ===========================================================
+   STAGGER REVEAL: Service Cards & Approach Steps
+   =========================================================== */
+.stagger-item {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.stagger-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays — cards cascade in sequence */
+.stagger-item:nth-child(1) { transition-delay: 0.05s; }
+.stagger-item:nth-child(2) { transition-delay: 0.15s; }
+.stagger-item:nth-child(3) { transition-delay: 0.25s; }
+.stagger-item:nth-child(4) { transition-delay: 0.35s; }
+.stagger-item:nth-child(5) { transition-delay: 0.45s; }
+.stagger-item:nth-child(6) { transition-delay: 0.55s; }
+.stagger-item:nth-child(7) { transition-delay: 0.65s; }
+.stagger-item:nth-child(8) { transition-delay: 0.75s; }
+.stagger-item:nth-child(9) { transition-delay: 0.85s; }
+.stagger-item:nth-child(10) { transition-delay: 0.95s; }
+.stagger-item:nth-child(11) { transition-delay: 1.05s; }
+
+/* ===========================================================
+   PARALLAX LAYERS — subtle vertical drift for depth
+   =========================================================== */
+.parallax {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* Decorative giant numbers behind approach steps */
+.approach_step {
+  padding: 3rem 2rem 2rem;
+  border-right: 1px solid rgba(255,255,255,0.1);
+  position: relative;
+  transition: all var(--transition-base);
+  border-radius: var(--radius-md);
+}
+
+.approach_bg-number {
+  position: absolute;
+  top: -2rem;
+  right: -1rem;
+  font-family: var(--font-display);
+  font-size: 10rem;
+  font-style: italic;
+  font-weight: 400;
+  color: rgba(212,164,55,0.06);
+  line-height: 1;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+}
+
+.approach_step > *:not(.approach_bg-number) {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===========================================================
+   ANIMATED COUNTERS: Stat numbers
+   =========================================================== */
+.stat_number .counter { display: inline-block; }
+
+/* ===========================================================
+   RESPONSIVE
+   =========================================================== */
+@media (max-width: 991px) {
+  .padding-global { padding-left: 2rem; padding-right: 2rem; }
+  .padding-section-large { padding-top: 7rem; padding-bottom: 7rem; }
+  .nav_container { padding: 1.25rem 2rem; }
+  .nav_menu { display: none; }
+
+  .hero_content {
+    grid-template-columns: 1fr;
+    padding: 8rem 2rem 5rem;
+    gap: 3rem;
+  }
+  .hero_visual { max-width: 400px; margin: 0 auto; }
+
+  .about_grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about_left { position: static; }
+
+  .services_grid { grid-template-columns: repeat(2, 1fr); }
+  .services_filters { gap: 0.25rem; padding: 0.3rem; }
+  .filter-tab { padding: 0.6rem 1rem; font-size: 0.65rem; }
+  .service_detail.open { padding: 2.5rem 1.75rem; }
+  .service_detail-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .service_detail-close { top: 1rem; right: 1rem; }
+
+  .approach_header { grid-template-columns: 1fr; gap: 1.5rem; }
+  .approach_steps { grid-template-columns: repeat(2, 1fr); }
+  .approach_step { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 2rem; }
+
+  .stats_grid { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+  .stat_item { border-right: none; }
+
+  .timeline_items { grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .testimonials_grid { grid-template-columns: 1fr; }
+  .insights_grid { grid-template-columns: 1fr; }
+
+  .contact_grid { grid-template-columns: 1fr; gap: 3rem; }
+  .contact_form { padding: 2rem; }
+  .contact_form-row { grid-template-columns: 1fr; gap: 0; }
+
+  .trust-signals_grid { gap: 0.75rem 0; }
+  .trust-signal { padding: 0 1rem; font-size: 0.65rem; }
+
+  .footer_grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  .footer_bottom { flex-direction: column; gap: 1rem; }
+}
+@media (max-width: 600px) {
+  .services_grid { grid-template-columns: 1fr; }
+  .approach_steps { grid-template-columns: 1fr; }
+  .stats_grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .timeline_items { grid-template-columns: 1fr; gap: 2.5rem; }
+  .footer_grid { grid-template-columns: 1fr; }
+  .hero_button-group { flex-direction: column; align-items: stretch; }
+  .hero_button-primary, .button-secondary { justify-content: center; }
+  .trust-signal { border-right: none; padding: 0.4rem 1rem; }
+  .pullquote_text { font-size: 1.75rem; }
+}
+
+/* ===========================================================
+   ABOUT PAGE — Founder cards, partnership grid, credentials
+   =========================================================== */
+
+/* About hero override — slightly more constrained */
+.hero_content--about {
+  padding: 12rem 5rem 8rem;
+  display: block;
+}
+
+/* Founders section */
+.section_founders {
+  background: var(--color-off-white);
+  position: relative;
+}
+.founders_header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+.founders_header .text-style-eyebrow {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+.founders_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 3rem;
+}
+
+/* Each card uses subgrid so portrait | meta | bio | credentials align across both cards */
+.founder_card {
+  background: var(--color-white);
+  border: 1px solid var(--color-grey-soft);
+  border-radius: var(--radius-md);
+  padding: 3rem;
+  box-shadow: var(--shadow-soft);
+  transition: all var(--transition-base);
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 4;
+  gap: 0;
+}
+
+/* Fallback for browsers without subgrid support */
+@supports not (grid-template-rows: subgrid) {
+  .founders_grid { grid-template-rows: auto; }
+  .founder_card { display: flex; flex-direction: column; grid-row: auto; }
+}
+.founder_card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-medium);
+  border-color: rgba(212,164,55,0.3);
+}
+
+/* Portrait */
+.founder_portrait {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 2rem;
+  position: relative;
+  border: 3px solid var(--color-gold);
+  box-shadow: 0 8px 32px rgba(212,164,55,0.2);
+  background: linear-gradient(135deg, var(--color-navy-deep), var(--color-navy-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.founder_portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+.founder_portrait-placeholder-text {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 4rem;
+  color: var(--color-gold);
+  letter-spacing: 0.02em;
+  position: absolute;
+  z-index: 1;
+}
+
+/* Meta block (name, title, subtitle) */
+.founder_meta {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(12,26,46,0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.founder_credentials {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+.founder_name {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 500;
+  color: var(--color-navy-deep);
+  line-height: 1;
+  letter-spacing: -0.012em;
+  margin-bottom: 0.6rem;
+}
+.founder_title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--color-navy);
+  margin-bottom: 1rem;
+  letter-spacing: -0.005em;
+}
+
+/* Subtitle — reserved 3 lines so both cards align even if one card has fewer */
+.founder_subtitle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  color: var(--color-grey-text);
+  line-height: 1.5;
+  justify-content: center;
+}
+
+/* Bio — flex column so it fills available subgrid row space */
+.founder_bio {
+  display: flex;
+  flex-direction: column;
+}
+.founder_bio p {
+  font-size: 0.96rem;
+  line-height: 1.75;
+  color: #4a5568;
+  font-weight: 300;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.005em;
+}
+.founder_bio p:last-of-type {
+  margin-bottom: 2rem;
+}
+
+/* Credentials list at bottom of bio */
+.founder_credentials-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(12,26,46,0.08);
+}
+.founder_credential {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+.founder_credential-label {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  font-weight: 600;
+  padding-top: 0.15rem;
+}
+.founder_credential-value {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--color-navy-deep);
+  font-weight: 400;
+}
+
+/* Partnership grid (on the dark approach section) */
+.partnership_grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+.partnership_pillar {
+  padding: 2.5rem 2rem;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+}
+.partnership_pillar:hover {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(212,164,55,0.3);
+  transform: translateY(-4px);
+}
+.partnership_pillar-number {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 2.2rem;
+  color: var(--color-gold);
+  line-height: 1;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+}
+.partnership_pillar-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--color-white);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+}
+.partnership_pillar-text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.7);
+  font-weight: 300;
+  letter-spacing: 0.005em;
+}
+
+/* Credentials bar */
+.section_credentials {
+  background: var(--color-off-white);
+  padding: 5rem 0 6rem;
+  border-top: 1px solid var(--color-grey-soft);
+}
+.credentials_label {
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  font-weight: 600;
+  margin-bottom: 3rem;
+}
+.credentials_grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1px;
+  background: rgba(12,26,46,0.1);
+  border: 1px solid rgba(12,26,46,0.1);
+}
+.credential_item {
+  background: var(--color-off-white);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: background var(--transition-base);
+}
+.credential_item:hover {
+  background: var(--color-white);
+}
+.credential_name {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--color-navy-deep);
+  line-height: 1.1;
+  letter-spacing: -0.005em;
+  margin-bottom: 0.4rem;
+}
+.credential_role {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-grey-text);
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  .hero_content--about { padding: 9rem 2rem 5rem; }
+  .founders_grid { grid-template-columns: 1fr; gap: 2rem; }
+  .founder_card { padding: 2rem; }
+  .partnership_grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .credentials_grid { grid-template-columns: repeat(3, 1fr); }
+  .founder_credential {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+}
+@media (max-width: 600px) {
+  .credentials_grid { grid-template-columns: repeat(2, 1fr); }
+  .founder_portrait { width: 140px; height: 140px; }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ============================================================
+     COMPONENT: LOADING SCREEN (with PROGRESS BAR)
+     ============================================================ -->
+<div class="loading-screen" id="loadingScreen">
+  <div class="loading-logo">
+    Acacia<span class="accent"> Lake</span>
+    <div class="loading-logo-sub">Consulting</div>
+  </div>
+  <div class="loading-tagline">Strategic Consulting · Est. 2021</div>
+  <div class="progress-bar-wrapper">
+    <div class="progress-bar-fill" id="loadingProgress"></div>
+  </div>
+  <div class="progress-text" id="progressText">0%</div>
+</div>
+
+<!-- ============================================================
+     COMPONENT: SPOTLIGHT CURSOR (follows mouse on dark sections)
+     ============================================================ -->
+<div class="spotlight" id="spotlight"></div>
+
+<!-- ============================================================
+     COMPONENT: SCROLL PROGRESS BAR (persistent at top)
+     ============================================================ -->
+<div class="scroll-progress">
+  <div class="scroll-progress-fill" id="scrollProgress"></div>
+</div>
+
+<!-- ============================================================
+     SECTION: NAVIGATION
+     ============================================================ -->
+<nav class="section_nav" id="navbar">
+  <div class="nav_container">
+    <a href="index.html" class="nav_logo">
+      <span class="nav_logo-main">Acacia<span class="accent"> Lake</span></span>
+      <span class="nav_logo-sub">Consulting</span>
+    </a>
+    <ul class="nav_menu">
+      <li><a href="about.html" class="nav_link nav_link--active">About</a></li>
+      <li><a href="index.html#services" class="nav_link">Services</a></li>
+      <li><a href="index.html#approach" class="nav_link">Approach</a></li>
+      <li><a href="#contact" class="nav_link">Contact</a></li>
+    </ul>
+    <a href="index.html#contact" class="nav_cta">Book Consultation</a>
+  </div>
+</nav>
+
+<!-- ============================================================
+     SECTION: ABOUT HERO
+     ============================================================ -->
+<section class="section_hero section_hero--about">
+  <div class="hero_bg-gradient parallax" data-parallax-speed="0.3"></div>
+  <div class="hero_bg-grid parallax" data-parallax-speed="0.15"></div>
+  <div class="hero_bg-noise"></div>
+
+  <div class="hero_content hero_content--about">
+    <div class="hero_text-wrapper" style="max-width: 900px; margin: 0 auto; text-align: center;">
+      <div class="hero_eyebrow" style="justify-content: center;">About the Firm</div>
+      <h1 class="hero_heading" style="text-align: center;">
+        <span class="line">Built by veterans.</span>
+        <span class="line"><span class="italic">Led by</span> judgment.</span>
+      </h1>
+      <p class="hero_description" style="max-width: 700px; margin: 0 auto;">
+        Acacia Lake Consulting was founded on a single conviction: that the most consequential decisions deserve advisors who treat them with the gravity they deserve. The firm is led by two veteran officers of the Texas State Guard whose careers span force protection, scientific research, operational leadership, and the disciplined execution of high-stakes work.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION: FOUNDERS — Side-by-side principals
+     ============================================================ -->
+<section class="section_founders padding-section-large">
+  <div class="padding-global">
+    <div class="container-large">
+
+      <div class="founders_header fade-in">
+        <div class="text-style-eyebrow margin-bottom-small">Founding Principals</div>
+        <h2 class="heading-style-h2 margin-bottom-medium">
+          Two careers. <span class="text-style-italic">One firm.</span>
+        </h2>
+      </div>
+
+      <div class="founders_grid">
+
+        <!-- COMPONENT: Founder Card — Cesar -->
+        <article class="founder_card fade-in">
+          <div class="founder_portrait">
+            <img src="cesar.jpg" alt="Cesar Cuevas, CISSO, CDFE — Co-Founder & Principal of Acacia Lake Consulting" onerror="this.style.display='none'; this.parentElement.classList.add('founder_portrait--placeholder');" />
+            <div class="founder_portrait-placeholder-text">CC</div>
+          </div>
+          <div class="founder_meta">
+            <div class="founder_credentials">CISSO · CDFE</div>
+            <h3 class="founder_name">Cesar Cuevas</h3>
+            <div class="founder_title">Co-Founder & Managing Principal</div>
+            <div class="founder_subtitle">
+              <span class="founder_subtitle-line">Chief Warrant Officer, Texas State Guard</span>
+              <span class="founder_subtitle-line">Texas State Trooper · South Texas Region</span>
+              <span class="founder_subtitle-line">Field Director, Texas DPSOA</span>
+            </div>
+          </div>
+          <div class="founder_bio">
+            <p>
+              Cesar Cuevas is a multidomain security leader with a distinguished record across military, law enforcement, and operational security. As Chief Warrant Officer with the Texas State Guard, he serves as Force Protection Operations OIC for Operation Lone Star, the multi-agency border security initiative in the Brownsville Sector.
+            </p>
+            <p>
+              His operational background includes service as a Company Commander in Boats, Dive, and Search & Rescue, and as a Program Manager overseeing construction efforts for the Texas border wall — ensuring compliance, safety, and operational efficiency across complex multi-stakeholder environments. He currently serves as a Texas State Trooper in the South Texas Region and as a Region 3 Field Director with the Texas DPS Officers Association.
+            </p>
+            <p>
+              Cesar's expertise spans force protection, physical security, crisis management, operational security, emergency services, insider threat detection, and interagency coordination. He brings to every engagement what cannot be taught in a classroom: judgment honed in the field, under pressure, with real consequences.
+            </p>
+            <div class="founder_credentials-list">
+              <div class="founder_credential">
+                <span class="founder_credential-label">Designations</span>
+                <span class="founder_credential-value">CISSO, CDFE</span>
+              </div>
+              <div class="founder_credential">
+                <span class="founder_credential-label">Education</span>
+                <span class="founder_credential-value">B.S. Criminal Justice / Police Science<br>The University of Texas Rio Grande Valley</span>
+              </div>
+              <div class="founder_credential">
+                <span class="founder_credential-label">Practice Focus</span>
+                <span class="founder_credential-value">Force Protection · InfoSec · OpSec<br>Oilfield Emergency Management<br>Physical Security · Insider Threat</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- COMPONENT: Founder Card — Elizabeth -->
+        <article class="founder_card fade-in">
+          <div class="founder_portrait">
+            <img src="elizabeth.jpg" alt="Elizabeth Cuevas, PhD, LP — Co-Founder & Principal of Acacia Lake Consulting" onerror="this.style.display='none'; this.parentElement.classList.add('founder_portrait--placeholder');" />
+            <div class="founder_portrait-placeholder-text">EC</div>
+          </div>
+          <div class="founder_meta">
+            <div class="founder_credentials">PhD · LP</div>
+            <h3 class="founder_name">Elizabeth Cuevas</h3>
+            <div class="founder_title">Co-Founder & Director of Operations</div>
+            <div class="founder_subtitle">
+              <span class="founder_subtitle-line">Major, Texas State Guard</span>
+              <span class="founder_subtitle-line">Accomplished Executive & Operations Leader</span>
+              <span class="founder_subtitle-line">Public & Private Sector Experience</span>
+            </div>
+          </div>
+          <div class="founder_bio">
+            <p>
+              Elizabeth Cuevas is an accomplished executive and operations leader whose career bridges scientific rigor, operational discipline, and military service. A Major in the Texas State Guard, she holds a PhD in Biomedical Sciences from Texas A&M University and graduate training in Epidemiology from UTHealth Houston — bringing a uniquely analytical mind to problems that demand both data-driven precision and on-the-ground execution.
+            </p>
+            <p>
+              Her dissertation work examined causes of death for law enforcement officers in the line of duty — a One Health approach to trauma mortality survivability — establishing her expertise at the intersection of public safety, epidemiology, and operational risk. She has a proven track record of designing engaging programs, building resilient teams, and translating complex research into actionable strategy across both public and private sector engagements.
+            </p>
+            <p>
+              At Acacia Lake, Elizabeth leads operations, market research, program design, and grant strategy. She is a keen technical and grant writer with a history of funded grants, and her work anchors the firm's legal practice operations, marketing, and study-design capabilities. Her strategic thinking and operational discipline are the engine behind every engagement.
+            </p>
+            <div class="founder_credentials-list">
+              <div class="founder_credential">
+                <span class="founder_credential-label">Designations</span>
+                <span class="founder_credential-value">PhD, LP</span>
+              </div>
+              <div class="founder_credential">
+                <span class="founder_credential-label">Education</span>
+                <span class="founder_credential-value">Ph.D., Texas A&M · M.S., UTHealth Houston<br>B.S. Microbiology, Texas Tech University</span>
+              </div>
+              <div class="founder_credential">
+                <span class="founder_credential-label">Practice Focus</span>
+                <span class="founder_credential-value">Operations · Market Research<br>Legal Practice Operations<br>Grant Writing · Data Analysis</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION: THE PARTNERSHIP — Why the combination works
+     ============================================================ -->
+<section class="section_approach padding-section-large">
+  <div class="padding-global">
+    <div class="container-large">
+
+      <div class="approach_header">
+        <h2 class="approach_heading fade-in">
+          Two perspectives, <span class="italic">one standard.</span>
+        </h2>
+        <p class="approach_intro fade-in">
+          The firm exists because the work we do — security, operations, legal practice, emergency response — requires both the discipline of the field and the rigor of the lab. Neither alone is sufficient. Together, they are formidable.
+        </p>
+      </div>
+
+      <div class="partnership_grid">
+        <div class="partnership_pillar stagger-item">
+          <div class="partnership_pillar-number">01</div>
+          <h3 class="partnership_pillar-title">Field-Tested Judgment</h3>
+          <p class="partnership_pillar-text">
+            Decisions made under operational pressure — on active wellsites, in interagency command, in the line of duty — inform every recommendation we give. Theory is welcome, but it earns its place only after it survives contact with reality.
+          </p>
+        </div>
+        <div class="partnership_pillar stagger-item">
+          <div class="partnership_pillar-number">02</div>
+          <h3 class="partnership_pillar-title">Analytical Discipline</h3>
+          <p class="partnership_pillar-text">
+            Doctoral-level training in research methodology, study design, and data analysis means our engagements are anchored in evidence, not anecdote. We measure what matters, and we say what the data actually says.
+          </p>
+        </div>
+        <div class="partnership_pillar stagger-item">
+          <div class="partnership_pillar-number">03</div>
+          <h3 class="partnership_pillar-title">Bilingual & Bicultural</h3>
+          <p class="partnership_pillar-text">
+            Headquartered in Brownsville, Texas, with active operations across the U.S.–Mexico border region, we navigate the linguistic, regulatory, and cultural complexities of South Texas and beyond — fluently, and with respect for both sides of the line.
+          </p>
+        </div>
+        <div class="partnership_pillar stagger-item">
+          <div class="partnership_pillar-number">04</div>
+          <h3 class="partnership_pillar-title">Discretion by Default</h3>
+          <p class="partnership_pillar-text">
+            Most of our engagements are conducted under NDA. We do not publish client names. We do not name-drop. The clients who hire us value advisors who can be trusted with information that matters — and we earn that trust by keeping it.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION: CREDENTIALS BAR — Institutional affiliations
+     ============================================================ -->
+<section class="section_credentials">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="credentials_label fade-in">Institutional Background</div>
+      <div class="credentials_grid">
+        <div class="credential_item">
+          <div class="credential_name">Texas A&amp;M</div>
+          <div class="credential_role">University · PhD</div>
+        </div>
+        <div class="credential_item">
+          <div class="credential_name">UTHealth Houston</div>
+          <div class="credential_role">Graduate Training</div>
+        </div>
+        <div class="credential_item">
+          <div class="credential_name">Texas Tech</div>
+          <div class="credential_role">University · BS</div>
+        </div>
+        <div class="credential_item">
+          <div class="credential_name">UTRGV</div>
+          <div class="credential_role">University · BS</div>
+        </div>
+        <div class="credential_item">
+          <div class="credential_name">Texas DPS</div>
+          <div class="credential_role">State Trooper</div>
+        </div>
+        <div class="credential_item">
+          <div class="credential_name">Texas State Guard</div>
+          <div class="credential_role">Chief Warrant Officer</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION: CTA — Contact / Begin the conversation
+     ============================================================ -->
+<section class="section_cta padding-section-large" id="contact">
+  <div class="padding-global">
+    <div class="container-medium">
+      <div class="cta_content" style="text-align: center; max-width: 800px; margin: 0 auto; position: relative; z-index: 1;">
+        <div class="text-style-eyebrow margin-bottom-medium" style="display: inline-block;">Reach the Principals</div>
+        <h2 class="contact_heading">
+          Speak with us <span class="italic">directly.</span>
+        </h2>
+        <p class="contact_description" style="max-width: 600px; margin: 0 auto 3rem;">
+          Every engagement begins with a confidential conversation. Reach out to the principals — we respond personally, within one business day.
+        </p>
+        <a href="index.html#contact" class="hero_button-primary">
+          Begin the Conversation
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION: FOOTER
+     ============================================================ -->
+<footer class="section_footer">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="footer_grid">
+        <div>
+          <div class="footer_brand">Acacia<span class="accent"> Lake</span></div>
+          <p class="footer_tagline">
+            A strategic consulting firm built for leaders who require discretion, precision, and outcomes.
+          </p>
+          <div class="veteran-badge-footer">
+            <span class="veteran-badge-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L4 6v6c0 5.5 3.8 10.7 8 12 4.2-1.3 8-6.5 8-12V6l-8-4z"/>
+                <path d="M9 12l2 2 4-4"/>
+              </svg>
+            </span>
+            Veteran Owned Business
+          </div>
+        </div>
+        <div>
+          <div class="footer_col-title">Practice</div>
+          <ul class="footer_links">
+            <li><a href="index.html#services" class="footer_link">Strategy</a></li>
+            <li><a href="index.html#services" class="footer_link">Security</a></li>
+            <li><a href="index.html#services" class="footer_link">Technology</a></li>
+            <li><a href="index.html#services" class="footer_link">Communications</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer_col-title">Firm</div>
+          <ul class="footer_links">
+            <li><a href="about.html" class="footer_link">About</a></li>
+            <li><a href="index.html#approach" class="footer_link">Approach</a></li>
+            <li><a href="#contact" class="footer_link">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer_col-title">Direct</div>
+          <ul class="footer_links">
+            <li><a href="mailto:cesarc@acacialakeconsulting.com" class="footer_link">cesarc@acacialakeconsulting.com</a></li>
+            <li><a href="tel:+19565511479" class="footer_link">+1 (956) 551-1479</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer_bottom">
+        <div>© 2026 Acacia Lake Consulting. All rights reserved.</div>
+        <div style="font-style: italic; color: rgba(255,255,255,0.4);">Veteran Owned · Brownsville, Texas</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
+<script>
+/* ==========================================================================
+ *
+ *   ╔═══════════════════════════════════════════════════════════════╗
+ *   ║                                                               ║
+ *   ║          ACACIA LAKE CONSULTING — Proprietary JavaScript      ║
+ *   ║                                                               ║
+ *   ║          © 2026 Acacia Lake Consulting                        ║
+ *   ║          Brownsville, Texas · Veteran Owned                   ║
+ *   ║                                                               ║
+ *   ║          All scripts and interactive behavior are the         ║
+ *   ║          intellectual property of Acacia Lake Consulting.     ║
+ *   ║          Unauthorized use is strictly prohibited.             ║
+ *   ║                                                               ║
+ *   ║          cesarc@acacialakeconsulting.com                      ║
+ *   ║                                                               ║
+ *   ╚═══════════════════════════════════════════════════════════════╝
+ *
+ * ========================================================================== */
+
+/* ---------- LOADING SCREEN + PROGRESS BAR ---------- */
+
+/* Console watermark — visible to anyone who opens browser DevTools */
+console.log(
+  '%c\n  Acacia Lake Consulting  \n',
+  'font-family: serif; font-size: 32px; font-style: italic; font-weight: 500; color: #d4a437; background: #0c1a2e; padding: 16px 32px; border-radius: 4px;'
+);
+console.log(
+  '%c© 2026 Acacia Lake Consulting · Veteran Owned · Brownsville, Texas',
+  'font-family: sans-serif; font-size: 12px; letter-spacing: 0.2em; color: #0c1a2e; padding: 4px 0;'
+);
+console.log(
+  '%cInterested in our work? cesarc@acacialakeconsulting.com',
+  'font-family: sans-serif; font-size: 11px; color: #d4a437; font-style: italic; padding: 2px 0;'
+);
+console.log(
+  '%cThis source code, design, and content are proprietary. All rights reserved.',
+  'font-family: sans-serif; font-size: 10px; color: #8a96a8; padding-bottom: 8px;'
+);
+window.addEventListener('load', () => {
+  const progressFill = document.getElementById('loadingProgress');
+  const progressText = document.getElementById('progressText');
+  const loadingScreen = document.getElementById('loadingScreen');
+
+  let progress = 0;
+  const interval = setInterval(() => {
+    progress += Math.random() * 12 + 3;
+    if (progress >= 100) {
+      progress = 100;
+      clearInterval(interval);
+      setTimeout(() => loadingScreen.classList.add('hidden'), 400);
+    }
+    progressFill.style.width = progress + '%';
+    progressText.textContent = Math.floor(progress) + '%';
+  }, 120);
+});
+
+/* ---------- SCROLL PROGRESS BAR + NAV ---------- */
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrolled = (scrollTop / docHeight) * 100;
+  document.getElementById('scrollProgress').style.width = scrolled + '%';
+
+  const navbar = document.getElementById('navbar');
+  if (scrollTop > 80) navbar.classList.add('scrolled');
+  else navbar.classList.remove('scrolled');
+});
+
+/* ---------- FADE-IN + STAGGER ON SCROLL ---------- */
+const fadeObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+
+/* Stagger observer — triggers per-parent so groups cascade together */
+const staggerObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      staggerObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.stagger-item').forEach(el => staggerObserver.observe(el));
+
+/* ---------- ANIMATED COUNTERS ---------- */
+const animateCounter = (el) => {
+  const target = parseInt(el.dataset.target);
+  const duration = 2000;
+  const startTime = performance.now();
+
+  const tick = (now) => {
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    // Ease-out cubic for graceful deceleration
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = Math.floor(eased * target);
+    el.textContent = current;
+    if (progress < 1) requestAnimationFrame(tick);
+    else el.textContent = target;
+  };
+  requestAnimationFrame(tick);
+};
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCounter(entry.target);
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+/* ---------- SPOTLIGHT CURSOR (DARK SECTIONS ONLY) ---------- */
+const spotlight = document.getElementById('spotlight');
+const darkSections = document.querySelectorAll('.section_hero, .section_approach, .section_cta, .section_trusted, .section_footer');
+let spotlightActive = false;
+
+// Smooth mouse tracking with requestAnimationFrame
+let mouseX = 0, mouseY = 0;
+let spotX = 0, spotY = 0;
+
+document.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+
+  // Check which section the cursor is over
+  const elementUnder = document.elementFromPoint(mouseX, mouseY);
+  if (!elementUnder) return;
+
+  const isDark = Array.from(darkSections).some(section => section.contains(elementUnder));
+
+  if (isDark && !spotlightActive) {
+    spotlight.classList.add('active');
+    spotlightActive = true;
+  } else if (!isDark && spotlightActive) {
+    spotlight.classList.remove('active');
+    spotlightActive = false;
+  }
+});
+
+// Smooth follow animation — eases the spotlight toward the cursor
+const animateSpotlight = () => {
+  spotX += (mouseX - spotX) * 0.12;
+  spotY += (mouseY - spotY) * 0.12;
+  spotlight.style.left = spotX + 'px';
+  spotlight.style.top = spotY + 'px';
+  requestAnimationFrame(animateSpotlight);
+};
+animateSpotlight();
+
+/* ---------- SUBTLE PARALLAX (Desktop only) ---------- */
+const isMobile = window.matchMedia('(max-width: 991px)').matches
+  || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (!isMobile) {
+  const parallaxElements = document.querySelectorAll('.parallax');
+
+  // Cache each element's section top for accurate per-section parallax
+  const cacheParallax = () => {
+    parallaxElements.forEach(el => {
+      const section = el.closest('section');
+      el.dataset.sectionTop = section ? section.offsetTop : 0;
+    });
+  };
+  cacheParallax();
+  window.addEventListener('resize', cacheParallax);
+
+  let ticking = false;
+  const updateParallax = () => {
+    const scrollY = window.scrollY;
+    const viewportHeight = window.innerHeight;
+
+    parallaxElements.forEach(el => {
+      const sectionTop = parseFloat(el.dataset.sectionTop) || 0;
+      const speed = parseFloat(el.dataset.parallaxSpeed) || 0.2;
+
+      // Only animate when the parent section is in or near viewport
+      const distance = scrollY - sectionTop + viewportHeight;
+      if (distance > -viewportHeight && distance < viewportHeight * 3) {
+        const offset = (scrollY - sectionTop) * speed;
+        el.style.transform = `translate3d(0, ${offset}px, 0)`;
+      }
+    });
+    ticking = false;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  updateParallax();
+}
+
+/* ---------- TIMELINE ITEM CLICK ---------- */
+const timelineItems = document.querySelectorAll('.timeline_item');
+const timelineDetail = document.getElementById('timelineDetail');
+const timelineDetailYear = document.getElementById('timelineDetailYear');
+const timelineDetailTitle = document.getElementById('timelineDetailTitle');
+const timelineDetailText = document.getElementById('timelineDetailText');
+let activeTimelineYear = null;
+
+timelineItems.forEach(item => {
+  const button = item.querySelector('.timeline_button');
+  if (!button) return;
+
+  button.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const year = item.dataset.year;
+    const title = item.dataset.title;
+    const detail = item.dataset.detail;
+
+    // Toggle: if clicking the same year that's already open, close it
+    if (activeTimelineYear === year) {
+      timelineDetail.classList.remove('open');
+      item.classList.remove('active');
+      activeTimelineYear = null;
+      return;
+    }
+
+    // Clear active state from all items
+    timelineItems.forEach(i => i.classList.remove('active'));
+    item.classList.add('active');
+
+    // Populate and open the detail panel
+    timelineDetailYear.textContent = year;
+    timelineDetailTitle.textContent = title;
+    timelineDetailText.textContent = detail;
+    timelineDetail.classList.add('open');
+    activeTimelineYear = year;
+
+    // Scroll detail into view smoothly
+    setTimeout(() => {
+      timelineDetail.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 200);
+  });
+});
+
+/* ---------- SERVICE FILTER TABS ---------- */
+const filterTabs = document.querySelectorAll('.filter-tab');
+const serviceCards = document.querySelectorAll('.service_card');
+filterTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const filter = tab.dataset.filter;
+
+    filterTabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+
+    serviceCards.forEach(card => {
+      const category = card.dataset.category;
+      const shouldShow = filter === 'all' || category === filter;
+
+      // Remove previous animation class
+      card.classList.remove('filtering-in');
+
+      if (shouldShow) {
+        card.classList.remove('filtered-out');
+        // Trigger reflow then add animation
+        void card.offsetWidth;
+        card.classList.add('filtering-in');
+      } else {
+        card.classList.add('filtered-out');
+      }
+    });
+
+    // Close any open service detail when filtering
+    closeServiceDetail();
+  });
+});
+
+/* ---------- SERVICE CARD DETAIL EXPANSION ---------- */
+const serviceDetail = document.getElementById('serviceDetail');
+const serviceDetailCategory = document.getElementById('serviceDetailCategory');
+const serviceDetailTitle = document.getElementById('serviceDetailTitle');
+const serviceDetailLead = document.getElementById('serviceDetailLead');
+const serviceDetailDeliverables = document.getElementById('serviceDetailDeliverables');
+const serviceDetailWho = document.getElementById('serviceDetailWho');
+const serviceDetailWhy = document.getElementById('serviceDetailWhy');
+const serviceDetailCta = document.getElementById('serviceDetailCta');
+const serviceDetailClose = document.getElementById('serviceDetailClose');
+let activeServiceCard = null;
+
+const closeServiceDetail = () => {
+  if (!serviceDetail) return;
+  serviceDetail.classList.remove('open');
+  if (activeServiceCard) {
+    activeServiceCard.classList.remove('active');
+    activeServiceCard = null;
+  }
+};
+
+const openServiceDetail = (card) => {
+  const dataAttr = card.dataset.serviceData;
+  if (!dataAttr) return;
+
+  let data;
+  try {
+    data = JSON.parse(dataAttr);
+  } catch (e) {
+    console.error('Invalid service data:', e);
+    return;
+  }
+
+  // Toggle: same card clicked twice closes the panel
+  if (activeServiceCard === card) {
+    closeServiceDetail();
+    return;
+  }
+
+  serviceCards.forEach(c => c.classList.remove('active'));
+  card.classList.add('active');
+  activeServiceCard = card;
+
+  serviceDetailCategory.textContent = data.category;
+  serviceDetailTitle.textContent = card.querySelector('.service_title').textContent;
+  serviceDetailLead.textContent = '"' + data.lead + '"';
+
+  serviceDetailDeliverables.innerHTML = '';
+  data.deliverables.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = item;
+    serviceDetailDeliverables.appendChild(li);
+  });
+
+  serviceDetailWho.textContent = data.who;
+  serviceDetailWhy.textContent = data.why;
+
+  // CTA pre-selects the service in the contact form
+  serviceDetailCta.onclick = () => {
+    const select = document.getElementById('contact-service');
+    if (select) select.value = data.form_value;
+    setTimeout(() => closeServiceDetail(), 600);
+  };
+
+  serviceDetail.classList.add('open');
+
+  setTimeout(() => {
+    serviceDetail.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 250);
+};
+
+if (serviceDetail) {
+  serviceCards.forEach(card => {
+    card.addEventListener('click', () => openServiceDetail(card));
+  });
+  serviceDetailClose.addEventListener('click', closeServiceDetail);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && serviceDetail.classList.contains('open')) {
+      closeServiceDetail();
+    }
+  });
+}
+
+/* ---------- CONTACT FORM HANDLER ---------- */
+function handleFormSubmit(event) {
+  event.preventDefault();
+  const form = event.target;
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData);
+
+  // Visual confirmation — in production, replace with real form submission
+  // (Webflow native forms, Formspree, Netlify Forms, custom backend, etc.)
+  const submitBtn = form.querySelector('.contact_form-submit');
+  const originalContent = submitBtn.innerHTML;
+  submitBtn.innerHTML = 'Inquiry Sent ✓';
+  submitBtn.style.background = 'var(--color-white)';
+  submitBtn.disabled = true;
+
+  setTimeout(() => {
+    submitBtn.innerHTML = originalContent;
+    submitBtn.style.background = '';
+    submitBtn.disabled = false;
+    form.reset();
+  }, 3000);
+
+  console.log('Form submission (replace with real handler):', data);
+}
+</script>
+
+<!--
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║   © 2026 ACACIA LAKE CONSULTING — All Rights Reserved.                       ║
+║                                                                              ║
+║   This website, including its design, code, copy, animations, and visual     ║
+║   composition, is the proprietary intellectual property of Acacia Lake       ║
+║   Consulting. No portion may be copied, reproduced, redistributed, or used   ║
+║   without prior written consent.                                             ║
+║                                                                              ║
+║   For licensing inquiries, partnership requests, or website consulting:      ║
+║   cesarc@acacialakeconsulting.com                                            ║
+║                                                                              ║
+║   Acacia Lake Consulting · Brownsville, Texas · Veteran Owned                ║
+║                                                                              ║
+║   "Discretion. Precision. Results."                                          ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+-->
+
+</body>
+</html>
